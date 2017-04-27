@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Minimal D3 Example</title>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+ 
+<style>
+.bar {
+  fill: steelblue;
+}
+ 
+.bar:hover {
+  fill: orange;
+}
+</style>
+</head>
+<body>
+<script type="text/javascript">
+ 
+var data = [150, 230, 180, 90];
+ 
+var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 300)
+            .attr("height", 200);
+ 
+svg.selectAll(".bar")
+  .data(data)
+  .enter()
+  .append("rect")
+  .attr({
+    class : "bar",
+    width : function(d) {return d;},
+    height: "40",
+    y : function(d, i) {return i*50 + 10;},
+    x : "10"
+   });
+   
+</script>	
+</body>
+</html>
