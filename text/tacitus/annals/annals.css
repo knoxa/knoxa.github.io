@@ -1,36 +1,7 @@
-header {
-  background: lavender;
-}
-
 body {
   font-size: large;
 }
 
-
-.NP {
-  background: pink;
-}
-
-.NATION {
-  background: gold;
-}
-
-.name {
-  background: gold;
-}
-
-*[typeof="organization"] {
-  color: purple;
-  font-weight: bold;
-}
-
-*[typeof="person"] {
-  color: blue;
-}
-
-*[typeof="date"] {
-  font-weight: bold;
-}
 
 time {
   font-weight: bold;
@@ -65,28 +36,4 @@ span > span {
 
 *[property = "name"] {
   font-weight: bold;
-}
-
-*[property="worksFor"] {
-  background: lightgreen;
-}
-
-*[typeof = "action"] {
-  color: red;
-}
-
-*[data-lemma = "police"] {
-  color: red;
-}
-
-*[data-identity] {
-  color: purple;
-}
-
-*[data-lemma = "cocaine"] {
-  color: steelblue;
-}
-
-*[property="jobTitle"] {
-  background: lightsteelblue;
 }
