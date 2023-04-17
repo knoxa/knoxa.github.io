@@ -2,7 +2,7 @@
 
 Consider the [DEV-MUC3-0325](http://dstl.github.io/muc3/dev/DEV-MUC3-0325.xhtml) report. A named entity recognition (NER) agent can find mentions of people in text. For this example, we cheat by using a [list of MUC-3 person names](http://dstl.github.io/muc3/lists/name-person.txt) and doing some simple dictionary matching.
 
-We express these as *locutions*, speakers making claims:
+We express the results as *locutions*, speakers making claims:
 
 	NER1: "ROSA CHAVEZ" is a person
 	NER1: "GREGORIO ROSA CHAVEZ" is a person
@@ -10,13 +10,13 @@ We express these as *locutions*, speakers making claims:
 	NER1: "SALVADOR" is a person
 	...
 
-Each of these is a *mention*. The MUC-3 list has all mentioned names, including the shorter versions of names that refer to full names. Our simple dictionary matching approach has the shorter version matching part of the longer version, making it easy to identify *co-reference* relationships between mentions:
+Each of these is a *mention*. The MUC-3 list has all mentioned names, including the shorter versions of names that refer to full names. Our simple dictionary matching approach has the shorter version matching part of the longer version, making it easy to identify *co-reference* relationships between pairs of mentions:
 
 	COREF1: "ROSA CHAVEZ" refers to "GREGORIO ROSA CHAVEZ"
 	COREF1: "ROSA CHAVEZ" refers to "SALOMON ENRIQUE ROSA CHAVEZ"
 	COREF1: "DUARTE" refers to "JOSE NAPOLEON DUARTE"
 
-There are a couple of things wrong in the above arguments. Firstly, the mention of "SALVADOR" is part of the place name "SAN SALVADOR". It's not the mention of a person in this report. Secondly, we have "ROSA CHAVEZ" referring to two different people. This can't be right.
+There are a couple of things wrong with the above arguments. Firstly, the mention of "SALVADOR" is part of the place name "SAN SALVADOR". It's not the mention of a person in this report. Secondly, we have "ROSA CHAVEZ" referring to two different people. This can't be right.
 
 If our named entity recognizer is capable of assigning overlapping spans to two different entity types, or if we have a different named entity recognizer for places, we'll get an argument like:
 
