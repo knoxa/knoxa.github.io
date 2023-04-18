@@ -1,8 +1,6 @@
 # An example NLP Debate
 
-Consider the [DEV-MUC3-0325](http://dstl.github.io/muc3/dev/DEV-MUC3-0325.xhtml) report. A named entity recognition (NER) agent can find mentions of people in text. For this example, we cheat by using a [list of MUC-3 person names](http://dstl.github.io/muc3/lists/name-person.txt) and doing some simple dictionary matching.
-
-We express the results as *locutions*, speakers making claims:
+Consider the [DEV-MUC3-0325](http://dstl.github.io/muc3/dev/DEV-MUC3-0325.xhtml) report. A named entity recognition (NER) agent can find mentions of people in text. For this example, we cheat by using a [list of MUC-3 person names](http://dstl.github.io/muc3/lists/name-person.txt) and doing some simple dictionary matching. We express the results as *locutions*, speakers making claims:
 
 	NER1: "ROSA CHAVEZ" is a person
 	NER1: "GREGORIO ROSA CHAVEZ" is a person
@@ -10,7 +8,7 @@ We express the results as *locutions*, speakers making claims:
 	NER1: "SALVADOR" is a person
 	...
 
-Each of these is a *mention*. The MUC-3 list has all mentioned names, including the shorter versions of names that refer to full names. Our simple dictionary matching approach has the shorter version matching part of the longer version, making it easy to identify *co-reference* relationships between pairs of mentions:
+Each of these is a *mention*. The MUC-3 list has all mentioned names, including the shorter versions of names that refer to full names. Our simple dictionary matching approach finds the shorter version matching part of the longer version, making it easy to identify *co-reference* relationships between pairs of mentions:
 
 	COREF1: "ROSA CHAVEZ" refers to "GREGORIO ROSA CHAVEZ"
 	COREF1: "ROSA CHAVEZ" refers to "SALOMON ENRIQUE ROSA CHAVEZ"
@@ -27,6 +25,12 @@ If we're operating on the Baleen linked data then the overlap is explicit becaus
 Addressing the second issue, we can argue that "ROSA CHAVEZ" is ambiguous and use this argument to contradict each of the co-reference claims.
 
 	CHK1: "ROSA CHAVEZ" is ambiguous.
+	
+A human agent can resolve this ambiguity:
+
+	ANALYST: "ROSA CHAVEZ" refers to "GREGORIO ROSA CHAVEZ"
+	
+This claim can explicitly contradict the alternative co-reference claim in the AIF, or it can just be thrown into the debate. In the latter case the co-reference is still ambiguous, but there are now two votes to one (and a human decision) to indicate the 'correct' alternative.
 
 ## Critical questions
 

@@ -10,7 +10,7 @@ The general picture is one of dialogue and debate between a bunch of AI agents a
 
 We will use this [Baleen OWL](https://github.com/dstl/baleen/blob/master/baleen-rdf/src/test/resources/uk/gov/dstl/baleen/consumers/file/documentRelationsAsLinks.rdf) for the results of NLP. 
 
-NLP dialogues have a context. Where the dialgoue is about the information in a document, the scope of the arguments is a document. This is made explicit in the Baleen OWL, but not in the text arguments generated. We collect these arguments in a named graph. There is an implied "In document X," clause in each arguments. 
+NLP dialogues have a context. Where the dialgoue is about the information in a document, the scope of the arguments is a document. This is made explicit in the Baleen OWL, but not in the text arguments generated. We collect these arguments in a named graph. There is an implied "In document X," clause in each argument. 
 
 ### URI
 
