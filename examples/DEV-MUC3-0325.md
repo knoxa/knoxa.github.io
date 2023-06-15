@@ -28,13 +28,13 @@ Addressing the second issue, we can argue that "ROSA CHAVEZ" is ambiguous and us
 	
 A human agent can resolve this ambiguity:
 
-	ANALYST: "ROSA CHAVEZ" refers to "GREGORIO ROSA CHAVEZ"
+	ANALYST1: "ROSA CHAVEZ" refers to "GREGORIO ROSA CHAVEZ"
 	
 This claim can explicitly contradict the alternative co-reference claim in the AIF, or it can just be thrown into the debate. In the latter case the co-reference is still ambiguous, but there are now two votes to one (and a human decision) to indicate the 'correct' alternative.
 
 ## Critical questions
 
-If one agent makes a claim, anotheragent in the dialogue might ask a question about it:
+If one agent makes a claim, another agent in the dialogue might ask a question about it:
 
 	NER1: "JOSE NAPOLEON DUARTE" is a person
 	CHK1: Is this a known person?
@@ -44,3 +44,16 @@ This is modelled in AIF as a *transition* from the locution making the claim to 
 	IDENT1: Yes, "JOSE NAPOLEON DUARTE" is José Napoleón Duarte
 
 This is asserting *José Napoleón Duarte* as a unique identifier. Here, we're using DBpedia as a personalities database. DBpedia is constructed from Wikipedia, which is a set of entity-oriented documents with unique titles. The *rdfs:label* property for [an entity in DBpedia](https://dbpedia.org/resource/Jos%C3%A9_Napole%C3%B3n_Duarte) is the name of [the corresponding Wikipedia page](https://en.wikipedia.org/wiki/Jos%C3%A9_Napole%C3%B3n_Duarte), so is unique by virtue of the way Wikipedia works. We could make the identity more explicit, but less readable, by using a URI instead. We can do that in the Baleen RDF that backs this argument in any case.
+
+## Knowledge
+
+Relating mentions to globally unique identifiers takes our debate beyond the boundaries of a single report and brings *knowledge* to bear. We may have prior knowledge or we can build a *knowledge base* from reports through a process of *sensemaking*. We can use can use a knowledge base to interpret and act on reporting and use reports to validate what we know. Again, this is a process of questioning and confirmation that can be modelled as dialogue.
+
+	ANALYST1: THE "CASE OF MSGR ROMERO," refers to the assassination of Archbishop Óscar Romero
+
+This is essentially identifying an *event*. As for people above, we can use "the assassination of Archbishop Óscar Romero" as an informal entity identifier by adopting that specific form of words whenever we refer to it. Alternatively, we can explicitly reference a record of the event in a database such as [GTD](https://www.start.umd.edu/gtd/search/IncidentSummary.aspx?gtdid=198003240008). It isn't critical exactly how this sort of claim is expressed because it's part of a dialogue, and other agents in the dialogue can ask for further clarification if needed, or perhaps offer elucidation unprompted:
+
+	GTD: The assassination of Archbishop Óscar Romero is GTD incident 198003240008
+	Wikipedia: The assassination of Archbishop Óscar Romero is [described here](https://en.wikipedia.org/wiki/%C3%93scar_Romero#Assassination)
+	
+
