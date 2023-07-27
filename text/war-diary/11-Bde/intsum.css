@@ -1,0 +1,29 @@
+
+.doubtful {
+	#background: pink;
+}
+body {
+  font-family: Courier;
+  font-size: medium;
+  width: 50em;
+  padding-left: 4em;
+}
+
+p {
+	  text-indent: 2em;
+}
+
+h1 {
+	font-size: medium;
+}
+
+p.report_date {
+	font-style: italic;
+	text-indent: 0;
+	font-size: small;
+}
+
+p.signed {
+	font-style: italic;
+	text-indent: 0;
+}
