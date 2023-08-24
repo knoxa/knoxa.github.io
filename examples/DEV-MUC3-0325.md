@@ -53,7 +53,7 @@ Relating mentions to globally unique identifiers takes our debate beyond the bou
 
 	ANALYST1: THE "CASE OF MSGR ROMERO," refers to the assassination of Archbishop Óscar Romero
 
-This is essentially identifying an *event*. As for people above, we can use "the assassination of Archbishop Óscar Romero" as an informal entity identifier by adopting that specific form of words whenever we refer to it. Alternatively, we can explicitly reference a record of the event in a database such as [GTD](https://www.start.umd.edu/gtd/search/IncidentSummary.aspx?gtdid=198003240008). It isn't critical exactly how this sort of claim is expressed because it's part of a dialogue, and other agents in the dialogue can ask for further clarification if needed, or perhaps offer elucidation unprompted:
+This is essentially identifying an *event*. As for people above, we can use "the assassination of Archbishop Óscar Romero" as an informal entity identifier by adopting that specific form of words whenever we refer to it. Alternatively, we can explicitly refer to an event identifier in a database such as [GTD](https://www.start.umd.edu/gtd/search/IncidentSummary.aspx?gtdid=198003240008). It isn't critical exactly how this sort of claim is expressed because it's part of a dialogue, and other agents in the dialogue can ask for further clarification if needed, or perhaps offer elucidation unprompted:
 
 	GTD: The assassination of Archbishop Óscar Romero is GTD incident 198003240008
 	Wikipedia: The assassination of Archbishop Óscar Romero is  described at https://en.wikipedia.org/wiki/%C3%93scar_Romero#Assassination
