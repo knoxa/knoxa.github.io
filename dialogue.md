@@ -1,17 +1,17 @@
 # Linked text
 
-We can submit documents to Natural Language Processing (NLP) to create OWL/RDF linked data. This involves information extraction, interpretation and linking. If we want to make a claim about the world, and cite reports as evidence, then we should make it possible to check that evidence by tracing chains of inference back to the source text. This suggests capturing relationships between an OWL/RDF knowledge base and natural language expressions of the facts expressed therein. This is *linked text*.
+We can submit documents to natural language processing (NLP) to create OWL/RDF linked data. This involves information extraction, interpretation and linking. If we want to make a claim about the world, and cite reports as evidence, then we should make it possible to check that evidence by tracing chains of inference back to the source text. This suggests capturing relationships between an OWL/RDF knowledge base and natural language expressions of the facts expressed therein. This is *linked text*.
 
 We envisage that NLP is conducted by an ensemble of agents. Agents can operate directly on the text or they can operate on the output from other agents. Agents may specialize in a particular NLP task. One Agent might be doing the same thing as another. Agents have different capabilities. Agents may differ in the quality of correctness of what they produce. Some agents might be concerned with checking results rather than producing them. An individual agent doesn't have to be right. Agents may, or may not, co-operate with each other. Agents may be human or machine. 
 
 The general picture is one of dialogue and debate between a bunch of AI agents attempting to make sense of a document.
 
 ## A linked text model
-We need a model that realizes this vision. We don't have it yet, but we can think about what might shape it, and explore possibilities. Some desiderata are:
-- It should be simple to use simply. This suggests that it should be layered so that agents need only operate at the level they need. For example, a named entity recognition agent needs only to assert mentions of entities in text. It doesn't (necessarily) need to know about how to argue about them.
-- **It should be general purpose**.
-- It should support abstraction of arguments. 
-- It should allow humans to engage in the dialogue. This means human agents must be able to understand the arguments expressed by machine agents.
+We need a model that realizes this vision. We don't have it yet, but we can think about what might shape it, and then explore possibilities. Some desiderata are:
+- **It should be simple to use simply**. This suggests that it should be layered so that agents need only operate at the level they need. For example, a named entity recognition agent needs only to assert mentions of entities in text. It doesn't (necessarily) need to know about how to argue about them.
+- **It should be general purpose**. The model needs to represent anything text can describe. We'll 
+- **It should support abstraction of arguments**. Usually, you want 'just the facts' from an ensemble of NLP agents extracting facts from text, not the full dialogue that led to them, but the dialogue still needs to justify the claim facts to answer questions or challenges. This is an example of a wider pattern whereby 'low level' arguments might be packaged, or *abstracted*, as more succint 'high level' arguments.
+- **It should allow humans to engage in the dialogue**. This means human agents must be able to understand the arguments expressed by machine agents.
 
 ### Vocabulary
 We will model the agent claims, argument and dialogue as [Argument Interchange Format (AIF)](https://arg-tech.org/index.php/research/contributing-to-the-argument-interchange-format/). We will use [Baleen OWL](https://github.com/dstl/baleen/blob/master/baleen-rdf/src/test/resources/uk/gov/dstl/baleen/consumers/file/documentRelationsAsLinks.rdf) for the results of NLP. A knowledge base might have any OWL/RDF schema that models the desired information expressed in source text, and so will be different in different circumstances. For the purposes of discussion here, we will model the knowledge base using a general purpose ontology for capturing information about entities, relationships and events: the [Information Exchange Standard, v4.2.0 (IES4)](https://github.com/dstl/IES4/blob/master/ies.md).
@@ -24,7 +24,7 @@ Agents may process the same text independently. Nevertheless, we need to be able
 
 
 ### Strings and spans
-A string is a sequence of characters. A span is a string at a particular locuation in a document. The same string appearing at two different location in a document is two different spans. When we use Baleen OWL to express the results of NLP, we're dealing with spans. When we argue, we're dealing with strings. The assumption in taking this step is that the character sequence in the string means the same as that in the span it came from. In other words, we assume the character sequence has the same meaning wherever it might be used in the document. This will be true for proper names, and likely false for things pronouns. We won't worry much about this because arguments can still be made - and if they're ambigous or unclear, they can be criticized.
+A string is a sequence of characters. A span is a string at a particular location in a document. The same string appearing at two different location in a document is two different spans. When we use Baleen OWL to express the results of NLP, we're dealing with spans. When we argue, we're dealing with strings. The assumption in taking this step is that the character sequence in the string means the same as that in the span it came from. In other words, we assume the character sequence has the same meaning wherever it might be used in the document. This will be true for proper names, and likely false for things pronouns. We won't worry much about this because arguments can still be made - and if they're ambigous or unclear, they can be criticized.
 
 We can nevertheless construct arguments where the URI's of premises and conclusions are those of Baleen classes.
 
