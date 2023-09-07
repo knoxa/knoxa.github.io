@@ -39,7 +39,7 @@ This claim can explicitly contradict the alternative co-reference claim in the A
 If one agent makes a claim, another agent in the dialogue might ask a question about it:
 
 	NER1: "JOSE NAPOLEON DUARTE" is a person
-	CHK1: Is this a known person?58
+	CHK1: Is this a known person?
 	
 This is modelled in AIF as a *transition* from the locution making the claim to a locution asking the question. Any answer can then be linked into the dialogue as a transition from the question. Answers might assert an indentity or that the person is unknown. Any unanswered questions will indicate where further investigation or analysis is needed.
 
