@@ -27,3 +27,11 @@ p.signed {
 	font-style: italic;
 	text-indent: 0;
 }
+p.reference {
+		text-align: right;
+}
+
+span[typeof="btmaps:GridReference"] {
+	color: green;
+	font-weight: bold;
+}
