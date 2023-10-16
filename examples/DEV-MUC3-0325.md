@@ -58,4 +58,27 @@ This is essentially identifying an *event*. As for people above, we can use "the
 	GTD: The assassination of Archbishop Óscar Romero is GTD incident 198003240008
 	Wikipedia: The assassination of Archbishop Óscar Romero is  described at https://en.wikipedia.org/wiki/%C3%93scar_Romero#Assassination
 	
+## Sensemaking
 
+The report is from a newspaper, *El Mundo*, dated 31 July 1989. We can quote extracts from it as *locutions* made by the paper,
+
+	El Mundo (1989-07-31): ... FORMER PRESIDENT DUARTE ...
+	
+and then use these as premises for arguments. For example we might take this premise, and a rule that says,
+
+	RULES1: The adjective "former" inmplies a person no longer has a role.
+
+to make the argument:
+
+	SENSE1: José Napoleón Duarte ceased to be President of El Salvador before 31 July 1989.
+	
+This last argument assumes that we already have the knowledge to identify Duarte and his role. If not, we can simply make the same sort of argument in terms of the report text:
+
+	SENSE1: "DUARTE" ceased to be "PRESIDENT" before 31 July 1989.
+
+We then have the argument that "DUARTE" is "JOSE NAPOLEON DUARTE" above, and we can argue that the report context (see Dublin Core metadata in [DEV-MUC3-0325](http://dstl.github.io/muc3/dev/DEV-MUC3-0325.xhtml) page source) suggests "PRESIDENT" is "President of El Salvador". With these as premises, an agent might claim:
+
+	SENSE2: "JOSE NAPOLEON DUARTE" ceased to be President of El Salvador before 31 July 1989.
+
+
+This sort of argument lets us build new knowledge, and check or qualify existing knowledge.
