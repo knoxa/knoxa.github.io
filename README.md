@@ -4,7 +4,7 @@ These web pages cover my experiments with knowledge representation and reasoning
 
 ## Argumentation
 
-I'm applying [argumentation theory](https://dstl.github.io/eleatics/doc/argumentation/) to the 'reasoning' part of KRR. This is the topic of my my [linked-text](https://github.com/knoxa/argumentation) repository. I also make good use of the [Dstl eleatics](https://github.com/dstl/eleatics) repository.
+I'm applying [argumentation theory](https://dstl.github.io/eleatics/doc/argumentation/) to the *reasoning* part of KRR. This is the topic of my my [argumentation](https://github.com/knoxa/argumentation) repository. I also make good use of [Dstl eleatics](https://github.com/dstl/eleatics).
 
 ## Linked Text
 
