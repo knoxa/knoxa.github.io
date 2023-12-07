@@ -1,8 +1,16 @@
 # My web pages
 
-These web pages cover my experiments with knowledge representation and reasoning (KRR).
+These web pages cover my experiments with knowledge representation and reasoning (KRR). If you're more interested in 'what' than 'how' you can start with the [worked examples](examples/index).
 
-If you're more interested in 'what it does' than 'how it does it', you can start with the [worked examples](examples/index).
+## Argumentation
+
+I'm applying [argumentation theory](https://dstl.github.io/eleatics/doc/argumentation/) to the 'reasoning' part of KRR. This is the topic of my my [linked-text](https://github.com/knoxa/argumentation) repository. I also make good use of the [Dstl eleatics](https://github.com/dstl/eleatics) repository.
+
+## Linked Text
+
+Reasoning over information from text, with arguments grounded in the source text. This treats natural language text as a knowledge base, and is the topic of my [linked-text](https://github.com/knoxa/linked-text) repository.
+
+## Data
 
 ### Military History
 
