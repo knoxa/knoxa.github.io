@@ -1,6 +1,8 @@
 # Tacitus
 
-## Annals:
+## Annals
+
+These are the *Annals of Tacitus*, as translated by Alfred John Church and William Jackson Brodribb. The text was download from Perseus Digital Library (Catalog URI: [urn:cts:latinLit:phi1351.phi005](http://data.perseus.org/catalog/urn:cts:latinLit:phi1351.phi005)) as XML and transformed to XHTML.
 
 * [Book 1](annals/book1.xhtml)
 * [Book 2](annals/book2.xhtml)
