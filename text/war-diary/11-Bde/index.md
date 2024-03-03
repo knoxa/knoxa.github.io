@@ -1,5 +1,9 @@
 # 11<sup>th</sup> Brigade War Diary
 
+Selected transcriptions from the 11<sup>the</sup> Infantry Brigade War Diary from World War I held at The National Archive (TNA).
+
+The War Diaries are mixture of documents of various types. 
+
 ## Intelligence Reports
 
 - August 1917: [16<sup>th</sup>](1917-08-16-intsum.xhtml), [17<sup>th</sup>](1917-08-17-intsum.xhtml), [18<sup>th</sup>](1917-08-18-intsum.xhtml), [19<sup>th</sup>](1917-08-19-intsum.xhtml), 
