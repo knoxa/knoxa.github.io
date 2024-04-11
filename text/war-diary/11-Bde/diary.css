@@ -1,0 +1,63 @@
+
+.doubtful {
+	#background: pink;
+}
+
+body {
+  font-family: Courier;
+  font-size: medium;
+}
+
+
+td {
+	  padding-left: 1em;
+
+}
+
+td {
+		border-top: 1px dashed lightgrey;
+		border-right: none;
+		border-left: 1px dashed lightgrey;
+		border-bottom: none;
+}
+
+td > p {
+	margin: 5px;
+}
+
+h1 {
+	font-size: medium;
+}
+
+p.report_date {
+	font-style: italic;
+	text-indent: 0;
+	font-size: small;
+}
+
+p.signed {
+	font-style: italic;
+	text-indent: 0;
+}
+p.reference {
+		text-align: right;
+}
+
+span[typeof="btmaps:GridReference"] {
+	color: green;
+	font-weight: bold;
+}
+
+.table_heading {
+	font-weight: bold;
+}
+
+.underline-solid {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+
+.underline-dashed {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+}
