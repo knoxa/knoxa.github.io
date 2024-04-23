@@ -1,8 +1,10 @@
 # 11<sup>th</sup> Brigade War Diary
 
-Selected transcriptions from the 11<sup>the</sup> Infantry Brigade War Diary from World War I held at The National Archive (TNA).
+Selected transcriptions from the 11<sup>the</sup> Infantry Brigade War Diary from World War I held at The National Archive (TNA). The War Diaries are mixture of documents of various types. I'm making [index](index.xhtml) of the PDF files I've downloaded from TNA, and selectively dipping in to transcribe some of the documents ...
 
-The War Diaries are mixture of documents of various types. 
+## Monthly Diary Entries
+
+[March 1917](1917-03-diary.xhtml), [April 1917](1917-04-diary.xhtml)
 
 ## Intelligence Reports
 
