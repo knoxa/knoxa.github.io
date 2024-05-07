@@ -1,49 +1,48 @@
 # Linked text and dialogue
 
-We can submit documents to natural language processing (NLP) to create OWL/RDF linked data. This involves information extraction, interpretation and linking. If we want to make a claim about the world, and cite reports as evidence, then we should make it possible to check that evidence by tracing chains of inference back to the source text. This suggests capturing relationships between an OWL/RDF knowledge base and natural language expressions of the facts expressed therein. We'll call this *linked text*.
+I can submit documents to natural language processing (NLP) to create OWL/RDF linked data. This involves information extraction, interpretation and linking. If I want to make a claim about the world, and cite documents as evidence, then I should make it possible to check that evidence by tracing chains of inference back to the source text. This suggests capturing relationships between an OWL/RDF knowledge base and natural language expressions of the facts expressed therein. I'll call this *linked text*.
 
-We envisage that NLP is conducted by an ensemble of agents, either human or machine:
-- Agents can operate directly on the text or they can operate on the output from other agents.
+I envisage that NLP is conducted by an ensemble of agents, either human or machine:
+- Agents can operate directly on the text, or they can operate on the output from other agents.
 - Agents may specialize in a particular NLP task.
 - One Agent might be doing the same thing as another.
 - Agents have different capabilities.
 - Agents will differ in the quality or correctness of their claims.
-- An individual agent doesn't have to be right.
 - Some agents might be concerned with checking results rather than producing them.
 - Agents may co-operate or clash. This is *dialogue*.
 
 The general picture is one of dialogue and debate between a bunch of AI agents attempting to make sense of a document.
 
 ## A linked text model
-We need a model that realizes this vision. We don't have it yet, but we can think about what might shape it, and then explore possibilities. Some desiderata are:
+I need a model that realizes this vision. I don't have it yet, but I can think about what might shape it, and then explore possibilities. Some desiderata are:
 - **It should be simple to use simply**. This suggests that it should be layered so that agents need only operate at the level they need. For example, a named entity recognition agent needs only to assert mentions of entities in text. It doesn't necessarily need to know about how to argue about them.
 - **It should be general purpose**. Ultimately, the model should be able to represent anything text can describe. However, each agent should only be expected to know the minimum it needs to make a useful contribution to the dialogue. The initial stages of a dialogue are about labelling spans of text in documents as mentions of entities, deciding when different spans of text refer to the same entities, identifying those entities, and identifying relationships between them. An agent might assert that there is some sort of relationship between spans of text in a document without being able to say anything about the type of entities or relationship mentioned. This should be seen as an advantage as it makes the agent more generally useful - and other agents can fill in the details later.
 - **It should support abstraction of arguments**. Usually, you want 'just the facts' from an ensemble of NLP agents extracting facts from text, not the full dialogue that led to them, but the dialogue still needs to justify the claimed facts to answer any questions or challenges about them. This is an example of a wider pattern whereby 'low level' arguments might be packaged, or *abstracted*, as more succint 'high level' arguments.
 - **It should allow humans to engage in the dialogue**. This means human agents must be able to understand the arguments expressed by machine agents, and vice versa. Such methods for human-machine dialogue support *Explainable AI (XAI)*. 
 
 ### Vocabulary
-We will model the agent claims, argument and dialogue as [Argument Interchange Format (AIF)](https://arg-tech.org/index.php/research/contributing-to-the-argument-interchange-format/). We will use [Baleen OWL](https://github.com/dstl/baleen/blob/master/baleen-rdf/src/test/resources/uk/gov/dstl/baleen/consumers/file/documentRelationsAsLinks.rdf) to express the results of NLP. A knowledge base might have any OWL/RDF schema that models the desired information expressed in source text, and so will be different in different circumstances. For the purposes of discussion here, we will model the knowledge base using a general purpose ontology for capturing information about entities, relationships and events: the [Information Exchange Standard, v4.2.0 (IES4)](https://github.com/dstl/IES4/blob/master/ies.md).
+I model the agent claims, argument and dialogue as [Argument Interchange Format (AIF)](https://arg-tech.org/index.php/research/contributing-to-the-argument-interchange-format/). I use [Baleen OWL](https://github.com/dstl/baleen/blob/master/baleen-rdf/src/test/resources/uk/gov/dstl/baleen/consumers/file/documentRelationsAsLinks.rdf) to express the results of NLP. A knowledge base might have any OWL/RDF schema that models the desired information expressed in source text, and so will be different in different circumstances. For the purposes of discussion here, I model the knowledge base using a general purpose ontology for capturing information about entities, relationships and events: the [Information Exchange Standard, v4.2.0 (IES4)](https://github.com/dstl/IES4/blob/master/ies.md).
 
 ### Context
-NLP dialogues have a context. Where the dialogue is about the information in a document, the scope of the arguments is a document. This is made explicit in Baleen OWL but not in the text arguments generated. We collect these arguments in a named graph. There is an implied "in document X," clause in each argument generated by an agent operating on a single document. 
+NLP dialogues have a context. Where the dialogue is about the information in a document, the scope of the arguments is a document. This is made explicit in Baleen OWL but not in the text arguments generated. I collect these arguments in a named graph. There is an implied "in document X," clause in each argument generated by an agent operating on a single document. 
 
 ### Strings and spans
-A string is a sequence of characters. A span is a string at a particular location in a document. The same string appearing at two different places in a document is two different spans. When we use Baleen OWL to express the results of NLP we're dealing with spans. When we argue we're dealing with strings. The assumption in taking this step is that the character sequence in the string means the same as that in the span it came from. In other words, we assume the character sequence has the same meaning wherever it might be used in the document. This will be true for proper names, and likely false for pronouns. We won't worry much about this because arguments can still be made - and if they're ambigous or unclear, they can be criticized.
+A string is a sequence of characters. A span is a string at a particular location in a document. The same string appearing at two different places in a document is two different spans. When I use Baleen OWL to express the results of NLP, I'm dealing with spans. When I argue, I'm dealing with strings. The tacit assumption in taking this step is that the character sequence in the string means the same as that in the span it came from. In other words, I assume the character sequence has the same meaning wherever it might be used in the document. This will be true for proper names, and likely false for pronouns. I won't worry much about this because arguments can still be made - and if they're ambigous or unclear, they can be criticized.
 
-We can construct arguments where the URI's of premises and conclusions are those of Baleen mentions. In this case we're arguing with spans rather that strings, and a listener agent will need to understand Baleen in order to check the claim. We can, of course, do both: intitially offer a simple argument with strings, and back it up with a more specialized argument based on Baleen data is challenged.
+I can construct arguments where the URI's of premises and conclusions are those of Baleen mentions. In this case I'm arguing with spans rather that strings, and a listener agent will need to understand Baleen in order to check the claim. I can, of course, do both: intitially offer a simple argument with strings, and back it up with a more specialized argument based on Baleen data is challenged.
 
-We make Baleen mentions and coreferences to capture claims made by NLP agents. We assign each of these a skos:definition attribute with text that summarizes the claim.
+I make Baleen mentions and coreferences to capture claims made by NLP agents. I assign each of these a skos:definition attribute with text that summarizes the claim.
 
-We express the outputs from NLP as OWL/RDF linked data. We treat these outputs as claims made by one or more NLP agents that can be reasoned over, contradicted or questioned by other agents. We construct Argument Interchange Format (AIF) dialogues for these purposes. This positions the NLP OWL/RDF ontology as an AIF *adjunct ontology*.
+I express the outputs from NLP as OWL/RDF linked data. I treat these outputs as claims made by one or more NLP agents that can be reasoned over, contradicted or questioned by other agents. I construct Argument Interchange Format (AIF) dialogues for these purposes. This positions the NLP OWL/RDF ontology as an AIF *adjunct ontology*.
 
 ### URI
-Agents may process the same text independently. Nevertheless, we need to be able to relate their results. One option is to concatentate the URI of the source document with a [hash](https://github.com/dstl/eleatics/blob/master/xsl-utils/stringhash.xsl) of the text string.
+Agents may process the same text independently. Nevertheless, they'll need to relate their results if they're to engange in dialogue. One option is to concatentate the URI of the source document with a [hash](https://github.com/dstl/eleatics/blob/master/xsl-utils/stringhash.xsl) of the text string.
 
 ## Examples
 These examples here are drawn from the [MUC-3](https://github.com/dstl/muc3) corpus:
 
 * [DEV-MUC3-0325](examples/DEV-MUC3-0325.md)
 
-## Things we can do
+## Things to do
 - Find things by their relations to questions, taking into account whether or not questions are answered.
 - Use unanswered questions to direct further work. Consider also questions that have been answered, but where the answers are not backed up supporting arguments. 
