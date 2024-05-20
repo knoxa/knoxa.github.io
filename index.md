@@ -8,7 +8,7 @@ I'm applying [argumentation theory](https://dstl.github.io/eleatics/doc/argument
 
 ## Linked Text
 
-Reasoning over information from text, with arguments grounded in source text justifying linked data models. This treats natural language text as a knowledge base, and is the topic of my [linked-text](https://github.com/knoxa/linked-text) repository.
+I want to reason over information from text, with arguments grounded in source text justifying linked data models. This treats natural language text as a knowledge base, and is the topic of my [linked-text](https://github.com/knoxa/linked-text) repository.
 
 ## Data
 
