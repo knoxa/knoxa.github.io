@@ -31,6 +31,13 @@ This graph doesn't have separate components for each term in office because one 
 
 These graphs might also raise questions. For example, in the case of _Samsam es Sultaneh_ above, I can hypothesise that he was in office between May 5th and August 8th, but he resigned on May 31st and was re-appointed on June 20th. Was someone else in office in that gap? If not, what brought him back so quickly? It's simple enough to get all events relating to Persia in that timeframe and order them simple by time. The only intervening event is:
 
-	**June 14th**: Tabriz (North Persia) again occupied by Turkish forces
+	June 14th: Tabriz (North Persia) again occupied by Turkish forces
   
 Which, though suggestive, is frustratingly inconclusive. We don't always get answers though, and [his Wikipedia page](https://en.wikipedia.org/wiki/Najaf-Qoli_Khan_Bakhtiari) doesn't help. It doesn't show this gap, and has an end date for this term in office that is several days later, raising further questions.
+
+# NLP
+The examples here exploit very simple natural language processing (NLP), applied to source text, then captured in the source as semantic mark-up. All that is needed is named entity recognition (NER), plus co-reference resolution to ensure that the same name is always used for a specific entity - so, for the example above,
+
+	"M. Arian" refers to M. Constantino Arian
+	
+which is accounted for in the source text by setting the _@content_ attribute on a HTML _span_ element surrounding the entity name. I've used the entity type (from NER) in selecting data for the examples, but I could still do something useful without knowing any entity types - and infer something about those types from the events in which they play a role. Classifying entities by type will be useful in reasoning about them, but I don't have to commit to any specific ontolology if my chain of reasoning is rooted in the source text. 
