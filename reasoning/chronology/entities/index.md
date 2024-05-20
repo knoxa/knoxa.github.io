@@ -1,8 +1,6 @@
 # Entities linking events
 
-This is about making sense of a chronology of events through the mention of common entities. Some entities (such as people) can only be in one place at a time. Some entities (such as cities) are in the same place all the time. Concrete and identifiable entities (such as people or cities) have a _timeline_. That is to say a chain of events, ordered in time, in which they play part. Abstract entities (such as roles) are more slippery: they might be considered in a way that renders them concrete, the Office of President of the United States say, or in relationship to a concrete entity that describe the _state_ of that entity, a president's term in office say. Entities mentioned in the context of the same event can be assumed to have some sort of relationship.
-
-The proposition is that graphs linking events through mention of common entities encode information about the nature of those antities and their relationships. Let's explore ...
+This is about making sense of a chronology of events through the mention of common entities. Concrete and identifiable entities (such as people or cities) have a _timeline_. That is to say a chain of events, ordered in time, in which they play part. Abstract entities (such as roles) might be considered in a way that renders them concrete or, alternatively, thought of as describing the _state_ of a concrete entity. The proposition is that graphs linking events through mention of common entities encode information about the nature of those entities and their relationships. Let's explore ...
 
 These are events from _[Principle Events 1914-1918](https://tigersmuseum.github.io/history/events/ww1/events-1918.xhtml)_:
 
@@ -32,6 +30,6 @@ This graph doesn't have separate components for each term in office because one 
 
 These graphs might also raise questions. For example, in the case of _Samsam es Sultaneh_ above, I can hypothesise that he was in office between May 5th and August 8th, but he resigned on May 31st and was re-appointed on June 20th. Was someone else in office in that gap? If not, what brought him back so quickly? It's simple enough to get all events relating to Persia in that timeframe and order them simple by time. The only intervening event is:
 
-  **June 14th**: Tabriz (North Persia) again occupied by Turkish forces
+	**June 14th**: Tabriz (North Persia) again occupied by Turkish forces
   
 Which, though suggestive, is frustratingly inconclusive. We don't always get answers though, and [his Wikipedia page](https://en.wikipedia.org/wiki/Najaf-Qoli_Khan_Bakhtiari) doesn't help. It doesn't show this gap, and has an end date for this term in office that is several days later, raising further questions.
