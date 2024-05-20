@@ -1,17 +1,17 @@
 # Linked text and dialogue
 
-I can submit documents to natural language processing (NLP) to create OWL/RDF linked data. This involves information extraction, interpretation and linking. If I want to make a claim about the world, and cite documents as evidence, then I should make it possible to check that evidence by tracing chains of inference back to the source text. This suggests capturing relationships between an OWL/RDF knowledge base and natural language expressions of the facts expressed therein. I'll call this *linked text*.
+I can submit documents to natural language processing (NLP) to extract facts, and then reason over these facts to build knowledge. If I want to use this knowledge to make claims about the world, and cite documents as evidence, then I should make it possible to check that the claims are justified by the source text. This means that there must be paths to follow between documents and the knowledge structures built from them. I'll call this *linked text*.
 
-I envisage that NLP is conducted by an ensemble of agents, either human or machine:
+I envisage that NLP is conducted by an ensemble of agents, either human or machine, where:
 - Agents can operate directly on the text, or they can operate on the output from other agents.
 - Agents may specialize in a particular NLP task.
-- One Agent might be doing the same thing as another.
+- One agent might be doing the same thing as another.
 - Agents have different capabilities.
 - Agents will differ in the quality or correctness of their claims.
 - Some agents might be concerned with checking results rather than producing them.
 - Agents may co-operate or clash. This is *dialogue*.
 
-The general picture is one of dialogue and debate between a bunch of AI agents attempting to make sense of a document.
+The general idea is one of dialogue and debate between agents that collaborate in attempting to make sense of a document. NLP agents make claims justified by source text, and knowledge building agents make claims justified by NLP. Paths between documents and knowledge are captured in the dialogue. 
 
 ## A linked text model
 I need a model that realizes this vision. I don't have it yet, but I can think about what might shape it, and then explore possibilities. Some desiderata are:
