@@ -41,7 +41,7 @@ Agents may process the same text independently. Nevertheless, they'll need to re
 ## Examples
 These examples here are drawn from the [MUC-3](https://github.com/dstl/muc3) corpus:
 
-* [DEV-MUC3-0325](examples/DEV-MUC3-0325.md)
+* [DEV-MUC3-0325](/examples/DEV-MUC3-0325.md)
 
 ## Things to do
 - Find things by their relations to questions, taking into account whether or not questions are answered.
