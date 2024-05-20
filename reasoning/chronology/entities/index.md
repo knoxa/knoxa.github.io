@@ -1,6 +1,8 @@
 # Entities linking events
 
-This is about making sense of a chronology of events.
+This is about making sense of a chronology of events through the mention of common entities. Some entities (such as people) can only be in one place at a time. Some entities (such as cities) are in the same place all the time. Concrete and identifiable entities (such as people or cities) have a _timeline_. That is to say a chain of events, ordered in time, in which they play part. Abstract entities (such as roles) are more slippery: they might be considered in a way that renders them concrete, the Office of President of the United States say, or in relationship to a concrete entity that describe the _state_ of that entity, a president's term in office say. Entities mentioned in the context of the same event can be assumed to have some sort of relationship.
+
+The proposition is that graphs linking events through mention of common entities encode information about the nature of those antities and their relationships. Let's explore ...
 
 These are events from _[Principle Events 1914-1918](https://tigersmuseum.github.io/history/events/ww1/events-1918.xhtml)_:
 
