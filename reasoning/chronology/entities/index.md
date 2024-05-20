@@ -1,6 +1,6 @@
 # Entities linking events
 
-This is about making sense of a chronology of events through the mention of common entities. Concrete and identifiable entities (such as people or cities) have a _timeline_. That is to say a chain of events, ordered in time, in which they play part. Abstract entities (such as roles) might be considered in a way that renders them concrete or, alternatively, thought of as describing the _state_ of a concrete entity. The proposition is that graphs linking events through mention of common entities encode information about the nature of those entities and their relationships. Let's explore ...
+This is about making sense of a chronology of events through the mention of common entities. Concrete and identifiable entities (such as people or cities) have a _timeline_. That is to say a chain of events, ordered in time, in which they play part. Abstract entities (such as roles) might be considered in a way that renders them concrete, or perhaps thought of as describing the _state_ of a concrete entity. The proposition is that graphs linking events through mention of common entities encode information about the nature of those entities and their relationships. Let's explore ...
 
 These are events from _[Principle Events 1914-1918](https://tigersmuseum.github.io/history/events/ww1/events-1918.xhtml)_:
 
@@ -8,14 +8,15 @@ These are events from _[Principle Events 1914-1918](https://tigersmuseum.github.
 
 I've made use of the semantic mark-up in the file to select 1918 events that mention "Rumania" and at least one person. For each entity mentioned in an event, I've linked the event to the next that mentions the same entity, or to itself if the entity is not mentioned again. If you open [the image](romania1.svg) in a separate window, and "mouse over" the edges in the graph, you'll see the entity used to make each link.
 
-Information can be inferred from this graph. For example, apart from the King, the source only mentions Romanians in 1918 in the context of changes in political office. I can build a political timeline. More on that later. 
+Information can be inferred from [this graph](.romania1.graphml). For example, apart from the King, the source only mentions Romanians in 1918 in the context of changes in political office. I can build a political timeline. More on that later. 
 
 If I reduce multiple links between nodes, remove self-links, and restrict the graph to covering relations, I get ...
 
 ![Timeline](romania2.svg)
 
-... which is easier to follow as a timeline of political events. I've done something similar with the Royal Hampshire Regiment Museum's [diary of events](https://tigersmuseum.github.io/history/events/rhants/eventdiary.xhtml) to create a [First World War timeline](https://tigersmuseum.github.io/history/examples/ww1.svg).
+... which is easier to follow as a timeline of political events. I've done something similar with the Royal Hampshire Regiment Museum's [diary of events](https://tigersmuseum.github.io/history/events/rhants/eventdiary.xhtml) to create a [First World War timeline](https://tigersmuseum.github.io/history/examples/ww1.svg). Note that this graph is a partial order of events in time. It renders incomparable those events that can't be linked a chain of entities. It might therefore be useful in causal reasoning.
 
+## Sensemaking
 Each node in the above graphs relates to an event in the source XHTML. I can make lots of graphs from the source material in lots of ways. I can selectively build graphs by limiting which events I choose, e.g. {"Rumania", 1918, type = _person_} and try and interpret them; or I can construct larger graphs and whittle them down to something that makes more sense. For example, I can take the original graph above and restrict it to just nodes that mention _Rumanian Foreign Minister_, then remove any edge where the entity is not of type _person_: 
 
 ![Periods on office](romania3.svg)
