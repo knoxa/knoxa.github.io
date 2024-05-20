@@ -4,21 +4,21 @@ From [chronology.xhtml](chronology.xhtml) I can generate [events.graphml](events
 
 ![Julio-Claudian Family Tree](events.svg "A chronology")
 
-This is a preorder of instances and intervals as described [here](../chronology.md).
+This is a preorder of instances and intervals as described [here](/chronology).
 
 ## How it works
 
-A chronology lists events ordered in time, usually grouped by time period rather than explicitly sequenced. The structure of the chronology can be used to construct a preorder, as this [worked example](https://knoxa.github.io/examples/chronology/example.xhtml) describes.
+A chronology lists events ordered in time, usually grouped by time period rather than explicitly sequenced. The structure of the chronology can be used to construct a preorder, as this [worked example](/examples/chronology/example.xhtml) describes.
 
 The steps to get from the XHTML to the GraphML diagram are:
 
-1\. Transform [chronology.xhtml](chronology.xhtml) to _event XML_ with [chronology.xsl](../../xsl/chronology.xsl).
+1\. Transform [chronology.xhtml](chronology.xhtml) to _event XML_ with [chronology.xsl](https://github.com/knoxa/linked-text/blob/master/xsl/chronology.xsl).
 
-2\. Apply [sort.xsl](../../xsl/chronology/sort.xsl) to sort the event XML in time-order.
+2\. Apply [sort.xsl](https://github.com/knoxa/linked-text/blob/master/xsl/chronology/sort.xsl) to sort the event XML in time-order.
 
-3\. Apply [time-graphml.xsl](../../xsl/chronology/time-graphml.xsl) to make GraphML.
+3\. Apply [time-graphml.xsl](https://github.com/knoxa/linked-text/blob/master/xsl/xsl/chronology/time-graphml.xsl) to make GraphML.
 
-4\. Filter out edges that aren't covering relations with [covers.xsl](../../xsl/graphml/covers.xsl).
+4\. Filter out edges that aren't covering relations with [covers.xsl](https://github.com/knoxa/linked-text/blob/master/xsl/graphml/covers.xsl).
 
 
 ## Events from intervals
@@ -33,7 +33,7 @@ Each pair of incomparable events in this diagram suggests a question to ask. For
 
 	Was the birth of Drusus the Elder before or after the death of Augustus?
 	
-And the answer (in this case "before") adds a new link. I've spent some time answering such questions using Wikipedia; and periodically filtering redundant edges (using [covers.xsl](../../xsl/graphml/covers.xsl)) to assess progress and decide what questions to ask next. The result is [life-events2.graphml](life-events2.graphml). This is part of it:
+And the answer (in this case "before") adds a new link. I've spent some time answering such questions using Wikipedia; and periodically filtering redundant edges (using [covers.xsl](https://github.com/knoxa/linked-text/blob/master/xsl/graphml/covers.xsl)) to assess progress and decide what questions to ask next. The result is [life-events2.graphml](life-events2.graphml). This is part of it:
 
 ![Julio-Claudian life events](life-events2.svg "Life events")
 
