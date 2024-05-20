@@ -39,9 +39,9 @@ I express the outputs from NLP as OWL/RDF linked data. I treat these outputs as 
 Agents may process the same text independently. Nevertheless, they'll need to relate their results if they're to engange in dialogue. One option is to concatentate the URI of the source document with a [hash](https://github.com/dstl/eleatics/blob/master/xsl-utils/stringhash.xsl) of the text string.
 
 ## Examples
-These examples here are drawn from the [MUC-3](https://github.com/dstl/muc3) corpus:
+These examples are drawn from the [MUC-3](https://github.com/dstl/muc3) corpus:
 
-* [DEV-MUC3-0325](/examples/DEV-MUC3-0325.md)
+* [DEV-MUC3-0325](/examples/DEV-MUC3-0325)
 
 ## Things to do
 - Find things by their relations to questions, taking into account whether or not questions are answered.
