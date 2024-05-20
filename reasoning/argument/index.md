@@ -2,4 +2,4 @@
 
 ## Argumentation patterns
 
-* [Rewriting claims](./rewrite)
+* [Rewriting claims](rewrite.md)
