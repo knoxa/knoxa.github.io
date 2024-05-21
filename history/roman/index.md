@@ -7,4 +7,4 @@ Examples of deriving structured data from this knowledge base are:
 * [Marriages](marriage.md)
 * [A chronology of events](chronology.md).
 
-The structured data derived from the knowledge base: [julio-claudian.graphml](julio-claudian.graphml), [marriage.graphml](marriage.graphml) and [chronology.graphml](chronology.graphml).
+The derived structured data is: [julio-claudian.graphml](julio-claudian.graphml), [marriage.graphml](marriage.graphml) and [chronology.graphml](chronology.graphml).
