@@ -1,5 +1,7 @@
 # History
 
+I'm applying ideas about [reasoning over text](/reasoning) to historical sources.
+
 ## Web Resources
 
 ### The Ancient World
