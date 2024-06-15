@@ -1,10 +1,10 @@
-# Chronology
+# Constructing a chronology
 
 From [chronology.xhtml](chronology.xhtml) I can generate [events.graphml](events.graphml). The earliest events look like this ...
 
 ![Julio-Claudian Family Tree](events.svg "A chronology")
 
-This is a preorder of instances and intervals as described [here](/chronology).
+This is a preorder of instances and intervals as described [here](/reasoning/chronology).
 
 ## How it works
 
