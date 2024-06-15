@@ -21,13 +21,13 @@
 <p class="note">
 This example attempts to construct the Julio-Claudian family tree.
 </p>
-<p class="note">We derive arguments from historical source text. We quote extracts from the text and use them as evidence to support claims.
-We present all this in a 'workbook' style. This needs to be human readable, but have sufficient structure for it to be possible (ideally simple) to extract an AIF argument map. The idea is that the process of developing knowledge (by elaborating the arguments) is iterative: the 'workbook' can be updated/extended an re-evaluated repeatedly. 
+<p class="note">I derive arguments from historical source text. I quote extracts from the text and use them as evidence to support claims.
+I present all this in a 'workbook' style. This needs to be human readable, but have sufficient structure for it to be possible (ideally simple) to extract an AIF argument map. The idea is that the process of developing knowledge (by elaborating the arguments) is iterative: the 'workbook' can be updated/extended an re-evaluated repeatedly. 
 This document is an example of such a workbook. Sections with coloured backgrounds represent dialogue, with different colours representing different agents (human or machine). The rest is narrative to expound the process.
 </p>
 
 <p class="note">
-The aim is to construct very simple arguments as might reasonably be produced by natural language processing. These will be about entities and relationships. They are justified by the source text. They may or may not be correct. They can be rebutted or confirmed (or questioned) by other agents 'reading' the same text.
+My aim is to construct very simple arguments as might reasonably be produced by natural language processing. These will be about entities and relationships. They are justified by the source text. They may or may not be correct. They can be rebutted or confirmed (or questioned) by other agents 'reading' the same text.
 </p>
 
 <article about="urn:cts:latinLit:phi1348.abo012.perseus-eng1:4">
@@ -71,31 +71,30 @@ After quitting Macedonia, before he could declare himself a candidate for the co
 	
 	<img src="Suet-Aug-4-A.svg" alt="argument map for Suet. Aug. 4" />
 		
-	<p class="note">At this stage, we're identifying entities by the names expressed in the text. This is fine in the context of this single source reference, but is likely to be a problem when we try to relate entities across a number of source references.</p>
+	<p class="note">At this stage, I'm identifying entities by the names expressed in the text. This is fine in the context of this single source reference, but is likely to be a problem when I try to relate entities across a number of source references.</p>
 
-	<p class="note">If we later run into problems resolving the above entities, we can come back and add more claims. For example, after we've processed the next source reference below we'll see that there are at least three different Julias; so we might come back and add: </p>
+	<p class="note">If I later run into problems resolving the above entities, I can come back and add more claims. For example, after I've processed the next source reference below, it becomes apparent that there are at least three different Julias; so I might come back and add: </p>
 
 	<div class="analysis">
 		<p class="rewrite">"Julia" refers to <span class="name">Julia Minor</span>.</p>
 	</div>
 	
-	<p class="note">... and later still, we'll find that we want to 'tidy up' the Octavia references:</p>
+	<p class="note">... and later still, I'll find that I want to 'tidy up' the Octavia references:</p>
 
 	<div class="analysis">
 		<p class="rewrite">"Octavia the younger" refers <span class="name">Octavia the Younger</span>.</p>
 		<p class="rewrite">"the elder Octavia" refers to <span class="name">Octavia the Elder</span>.</p>
 	</div>
 	
-	<p class="note">These claims let us rewrite the earlier entity relationship arguments. The result is:</p>
-
+	<p class="note">These claims let me rewrite the earlier entity relationship arguments. The result is:</p>
 	
 	<img src="Suet-Aug-4-B.svg" alt="argument map for Suet. Aug. 4, with rewrite" />
 
 </article>
 
-<p class="note">The argument maps so far have no conflicts. We can assume the claims they make are facts and try to build some data structure, such as a family tree.</p>
+<p class="note">The argument maps so far have no conflicts. I can assume the claims they make are facts and try to build some data structure, such as a family tree.</p>
 
-<p class="note">We can take the claims of familial relationships, rewritten or not, and make a graph of people linked parent to child. The results can be analysed to check
+<p class="note">I can take the claims of familial relationships, rewritten or not, and make a graph of people linked parent to child. The results can be analysed to check
 the facts. For example, there's something wrong if the graph is not a tree, or if a child node has more than two parents. So far, the family tree has the same structure whether claims are rewritten or not.
 The result (rewritten) is:</p>
 
@@ -153,16 +152,16 @@ The result (rewritten) is:</p>
 	
 </article>
 
-<p class="note">Now it does make a significant difference whether we construct a family tree from raw or rewritten claims. In the former case we'll get cycles: Julia and Agrippa each link to themselves, and
+<p class="note">Now it does make a significant difference whether I construct a family tree from raw or rewritten claims. In the former case I'll get cycles: Julia and Agrippa each link to themselves, and
 the Julia in this quote is treated as the same Julia as above (Suet. Aug. 4), which creates a cycle in the graph. Rewriting sorts this out, and gives:</p>
 
 <img class="medium" src="family-a.svg" alt="family tree, extended" />
 
 <p class="note">The nodes labelled with question marks come from the grandparent relationship and indicate an unknown intermediate between grandparent and grandchild. It's clear from the 
-graph that Augustus is either the father of Marcus Agrippa or Julia the elder, but we haven't established which yet. Once we have, these nodes become redundant and can be deleted.</p>
+graph that Augustus is either the father of Marcus Agrippa or Julia the elder, but I haven't established which yet. Once I have, these nodes become redundant and can be deleted.</p>
 
 <p class="note">
-We can ask a question ...
+I can ask a question ...
 </p>
 
 <div class="analysis" about="urn:cts:latinLit:phi1348.abo012.perseus-eng1:62">
@@ -170,8 +169,7 @@ We can ask a question ...
 </div>
 
 <p class="note">
-This becomes part of the <strong>dialogue</strong>, but doesn't necessarily become part of the <strong>argument</strong>. It can if you want it to though. For example,
-we can argue that we're not prepared to believe any of the claims derived from the source quote until all questions about it have been answered. 
+This becomes part of the <strong>dialogue</strong>, but doesn't necessarily become part of the <strong>argument</strong>. It can if you want it to though. For example, you can argue that you're not prepared to believe any of the claims derived from the source quote until all questions about it have been answered. 
 </p>
 
 <p class="note">Next ...</p>
@@ -210,7 +208,7 @@ Adding these relationships to the family tree gives:
 
 
 <p class="note">
-... and we're now able to answer the question above:
+... and I'm now able to answer the question above:
 </p>
 <div class="analysis">
 <p class="answer">Augustus is the father of Julia the Elder.</p>
@@ -256,7 +254,7 @@ Adding these relationships to the family tree gives:
 		</ul>
 	</div>
 	
-	<p class="note">We may not get this from NLP, but it's clears from that context that we can also claim: </p>
+	<p class="note">I may not get this from NLP, but it's clears from that context that I can also claim: </p>
 
 	<div class="analysis">
 		<ul>
@@ -269,25 +267,25 @@ Adding these relationships to the family tree gives:
 		</ul>
 	</div>
 	
-	<p class="note">And we spot the ambiguity immediately ...</p>
+	<p class="note">And I spot the ambiguity immediately ...</p>
 	
 	<div class="analysis">
 		<p class="rewrite">"Agrippina" is ambigous, referring to <span class="name">Agrippina the Elder</span> as parent and <span class="name">Agrippina the Younger</span> as child.</p>
 	</div>
 	
-	<p class="note">At this point, we might go back to the claims above (Suet. Aug. 62) and add "Agrippina refers to Aggripina the Elder". If we don't 
-	(and we won't for time being), the family tree looks like this:</p>
+	<p class="note">At this point, I might go back to the claims above (Suet. Aug. 62) and add "Agrippina refers to Aggripina the Elder". If I don't 
+	(and I won't for time being), the family tree looks like this:</p>
 	
 	<img class="medium" src="family-c.svg" alt="family tree, two Agrippina's" />
 	
-	<p class="note">... and it might prompt us to ask the question:</p>
+	<p class="note">... and it might prompt me to ask the question:</p>
 	
 	<div class="analysis" about="urn:cts:latinLit:phi1348.abo014.perseus-eng1:7">
 		<p class="question">Is Aggripina (Suet. Aug. 62) the same person as Agrippina the Elder (Suet. Cal. 7)?</p>
 	</div>
 	
 	<p class="note">
-	Later, we'll find that "Drusus" is ambiguous, and we'll come back here and add:
+	Later, I'll find that "Drusus" is ambiguous, and I'll come back here and add:
 	</p>
 	
 	<div class="analysis">
@@ -295,7 +293,7 @@ Adding these relationships to the family tree gives:
 	</div>
 </article>
 
-<p class="note">So far, a few ambigous names aside, the claims made by information extraction agents are all acceptable. Next we consider what happens when an agents make a mistakes ...</p>
+<p class="note">So far, a few ambigous names aside, the claims made by information extraction agents are all acceptable. Next, let's consider what happens when an agents make a mistakes ...</p>
 
 <article about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:1.33">
 
@@ -350,9 +348,8 @@ Meantime <span class="person">Germanicus</span>, while, as I have related, he wa
 	<img class="small" src="Tacitus-Annals-1-33-A.svg" alt="argument map for Tacitus, Annals, 1.33" />
 	
 	<p class="note">
-	 We may (perhaps later) be in a position to resolve
-	the ambiguity. If so, there are various ways we might express our choice. One option is to simply "cross out" the wrong answers (as shown here). This doesn't take the false claim out of the
-	argument map, it just adds a "this is wrong" claim that contradicts it:
+	 I may (perhaps later) be in a position to resolve
+	the ambiguity. If so, there are various ways I might express my choice. One option is to simply "cross out" the wrong answers (as shown here). This doesn't take the false claim out of the argument map, it just adds a "this is wrong" claim that contradicts it:
 	</p>
 	
 	<img class="small" src="Tacitus-Annals-1-33-B.svg" alt="argument map for Tacitus, Annals, 1.33, with corrections" />
@@ -362,8 +359,7 @@ Meantime <span class="person">Germanicus</span>, while, as I have related, he wa
 <p class="note">And so on ...</p>
 
 <p class="note">The content of this workbook is structured to make it easy to manipulate. Each main source quote, and its accompanying claims, is contained in a HTML 
-<strong>article</strong> element. We can evaluate each article independently, or evaluate sets of articles together. Evaluations generate conflicts and questions that lead 
-to additions or amendments, and that focus and direct further analysis. When we have 'agreement', we can treat the acceptable claims as facts that can be added to a knowledge base. 
+<strong>article</strong> element. I can evaluate each article independently, or evaluate sets of articles together. Evaluations generate conflicts and questions that lead to additions or amendments, and that focus and direct further analysis. When I have 'agreement', I can treat the acceptable claims as facts that can be added to a knowledge base. 
 </p>
 
 <p class="note">
@@ -373,7 +369,7 @@ The story so far is:
 <img src="julio-claudian.svg" alt="Julio-Claudian family tree, the story so far" />
 
 <p class="note">
-The unknown parent of Drusus and Tiberius looks like a good next target; but rather than making this worked example more complicated, we'll continue the effort <a href="/reasoning/roman/family">elsewhere</a>.
+The unknown parent of Drusus and Tiberius looks like a good next target; but rather than making this worked example more complicated, I'll continue the effort <a href="/history/roman/family.xhtml">elsewhere</a>.
 </p>
 
 </body>
