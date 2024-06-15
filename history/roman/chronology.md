@@ -39,7 +39,7 @@ And the answer (in this case "before") adds a new link. I've spent some time ans
 
 This is much better, but not perfect. For example, Wikipedia says that Drusus Julius Caesar was born in the same year as Agrippina the Elder, but doesn't say more than that. Their births remain incomparable unless or until we can get more precise information from another source.
 
-Such knowledge isn't likely ever to be perfect though, and the advantage of this preorder is that it gives some sense of how much is known and where the gaps in knowledge are. Note that this preorder is of event instances, not life events per se. I can add in other events if I like...
+Such knowledge isn't likely ever to be perfect though, and the advantage of this preorder is that it gives some sense of how much is known and where the gaps in knowledge are. Note that this preorder is of event instances, not life events per se. I can add in other events ...
 
 ## Intervals from events
 
