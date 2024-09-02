@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:time="https://www.w3.org/TR/owl-time/"
+	xmlns:ies="http://ies.data.gov.uk/ies4#"
+	>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" href="../master.css" rel="stylesheet"/>
+<title>Places</title>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+<meta name="DC.source" content="The Elephant and the Fly"/>
+<meta name="DC.identifier" content="Example ..."/>
+</head>
+<body>
+
+<h1>Places</h1>
+
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book12.xhtml#50">Tacitus, Annals 12.50</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:12.50">
+		<blockquote>
+		On the advance of the Parthians, the Iberians dispersed without a battle, and the Armenian cities, Artaxata and Tigranocerta, submitted to the yoke.
+		</blockquote>
+		<div class="nlp">
+			<ul>
+				<li class="claim">
+					<span class="place">Artaxata</span> is a city in <span class="place">Armenia</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Tigranocerta</span> is a city in <span class="place">Armenia</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book15.xhtml#1">Tacitus, Annals 15.1</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:15.1">
+		<blockquote>
+		Tigranes, quitting Armenia, had ravaged the Adiabeni, a people on its border,<span class="ellipsis"> ...</span>
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="place">Armenia</span> borders <span class="place">Adiabene</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book15.xhtml#4">Tacitus, Annals 15.4</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:15.4">
+		<blockquote>
+		He had, in fact, occupied Tigranocerta, a city strong from the multitude of its defenders and the vastness of its fortifications. In addition, the river Nicephorius, the breadth of which is far from contemptible, circled a portion of its walls, and a wide fosse was drawn where they distrusted the protection of the stream.
+		</blockquote>
+		<div class="agent">
+			<ul>
+				<li class="claim">
+					<span class="place">Tigranocerta</span> is on the <span class="place">river Nicephorius</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book15.xhtml#5">Tacitus, Annals 15.5</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:15.5">
+		<blockquote>
+		<span class="ellipsis">... </span>at the town Nisibis, thirty-seven miles distant from Tigranocerta<span class="ellipsis"> ...</span>
+		</blockquote>
+		<div class="agent">
+			<ul>
+				<li class="claim">
+					<span class="place">Nisibis</span> is near <span class="place">Tigranocerta</span>.
+				</li>
+			</ul>
+		</div>
+		<div class="analysis">
+			<p class="premise">
+				If <span class="premise">Tigranocerta is a city in Armenia</span>, 
+				and <span class="premise">Nisibis is near Tigranocerta</span>, 
+				<span class="support">then</span> 
+				<span class="conclusion"><span class="place">Nisibis</span> is a town in <span class="place">Armenia</span>.</span>
+			</p>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<h2 class="note">Borders ...</h2>
+
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book15.xhtml#12">Tacitus, Annals 15.12</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:15.12">
+		<blockquote>
+		Corbulo, perfectly fearless, left half his army in Syria to retain the forts built on the Euphrates, and taking the nearest route, which also was not deficient in supplies, marched through the country of Commagene, then through Cappadocia, and thence into Armenia.
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					The river <span class="place">Euphrates</span> flows through <span class="place">Syria</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Syria</span> borders <span class="place">Commagene</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Commagene</span> borders <span class="place">Cappadocia</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Cappadocia</span> borders <span class="place">Armenia</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book2.xhtml#56">Tacitus, Annals 2.56</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.56">
+		<blockquote>
+		This had been of old an unsettled country from the character of its people and from its geographical position, bordering, as it does, to a great extent on our provinces and stretching far away to Media.
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="premise">"This" refers to Armenia</span>, <span class="support">so</span> <span class="conclusion"><span class="place">Armenia</span> borders <span class="place">Media</span></span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book3.xhtml#45">Tacitus, Annals 3.45</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:3.45">
+		<blockquote>
+		Silius meantime was advancing with two legions, and having sent forward some auxiliary troops was ravaging those villages of the Sequani, which, situated on the border, adjoin the Aedui, and were associated with them in arms.
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					The territory of the <span class="tribe">Sequani</span> borders the territory of the <span class="tribe">Aedui</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book2.xhtml#53">Tacitus, Annals 2.53</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.53">
+		<blockquote>
+		Germanicus, however, entered on the office at Nicopolis, a city of Achaia, whither he had arrived by the coast of Illyricum, after having seen his brother Drusus, who was then in Dalmatia, and endured a stormy voyage through the Adriatic and afterwards the Ionian Sea.
+		</blockquote>
+		<div class="nlp">
+			<ul>
+				<li class="claim">
+					<span class="place">Nicopolis</span> is a city in <span class="place">Achaia</span>.
+				</li>
+			</ul>
+		</div>
+			<div class="agent">
+			<ul>
+				<li class="claim">
+					The <span class="place">Adriatic Sea</span> borders the <span class="place">Ionian Sea</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Dalmatia</span> has a coast on the <span class="place">Adriatic Sea</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Achaia</span> has a coast on the <span class="place">Ionian Sea</span>.
+				</li>
+			</ul>
+		</div>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="place">Dalmatia</span> is in <span class="place">Illyricum</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.53">
+		<blockquote>
+		<span class="ellipsis">... </span>and, at the same time, in remembrance of his ancestors, he visited the bay which the victory of Actium had made famous,<span class="ellipsis"> ...</span>
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="place">Actium</span> is near <span class="place">Nicopolis</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.53">
+		<blockquote>
+		Thence he went to Athens,<span class="ellipsis"> ...</span>
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="person">Germanicus</span> is in <span class="place">Athens</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book2.xhtml#53">Tacitus, Annals 2.54</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.54">
+		<blockquote>
+		Thence he directed his course to Euboea and crossed to Lesbos,<span class="ellipsis"> ... </span>He then penetrated to the remoter parts of the province of Asia, visited the Thracian cities, Perinthus and Byzantium; next, the narrow strait of the the Propontis and the entrance of the Pontus,<span class="ellipsis"> ...</span>
+		</blockquote>
+		<div class="nlp">
+			<ul>
+				<li class="claim">
+					<span class="place">Perinthus</span> is a city in <span class="place">Thrace</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Byzantium</span> is a city in <span class="place">Thrace</span>.
+				</li>
+			</ul>
+		</div>
+		<div class="agent">
+			<ul>
+				<li class="claim">
+					<span class="place">Euboea</span> is en route from <span class="place">Athens</span> to <span class="place">Lesbos</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Perinthus</span> is en route from <span class="place">Lesbos</span> to <span class="place">Byzantium</span>.
+				</li>
+				<li class="claim">
+					The <span class="place">Propontis</span> borders the <span class="place" content="Pontus Euxinus">Pontus</span>.
+				</li>
+			</ul>
+			<p class="rewrite">"the Pontus" refers to <span class="name">Pontus Euxinus</span> (Black Sea).</p>
+		</div>
+	</div>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.54">
+		<blockquote>
+		In his return he attempted to see the sacred mysteries of the Samothracians, but north winds which he encountered drove him aside from his course. And so after visiting Ilium and surveying a scene venerable from the vicissitudes of fortune and as the birth-place of our people, he coasted back along Asia, and touched at Colophon, to consult the oracle of the Clarian Apollo.
+		</blockquote>
+		<div class="agent">
+			<ul>
+				<li class="claim">
+					<span class="place">Ilium</span> is en route from <span class="place">Byzantium</span> to <span class="place">Colophon</span>.
+				</li>
+				<li class="claim">
+					The <span class="site">oracle of the Clarian Apollo</span> is at <span class="place">Colophon</span>.
+				</li>
+				<li class="claim">
+					<span class="person">Germanicus</span> is in <span class="place">Colophon</span>.
+				</li>
+			</ul>
+		</div>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="place">Samothrace</span> is an island in the <span class="place">Aegean Sea</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<article>
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book2.xhtml#55">Tacitus, Annals 2.55</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.55">
+		<blockquote>
+		Cneius Piso meanwhile, that he might the sooner enter on his design, terrified the citizens of Athens by his tumultuous approach,<span class="ellipsis"> ...</span>
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="person">Cneius Piso</span> is in <span class="place">Athens</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.55">
+		<blockquote>
+		Then, by sailing rapidly and by the shortest route through the Cyclades, he overtook Germanicus at the island of Rhodes.
+		</blockquote>
+		<div class="agent">
+			<ul>
+				<li class="claim">
+					The <span class="place">Cyclades</span> are en route from <span class="place">Athens</span> to <span class="place">Rhodes</span>
+				</li>
+			</ul>
+		</div>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="person">Cneius Piso</span> and <span class="person">Germanicus</span> are at <span class="place">Rhodes</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.55">
+		<blockquote>
+		Scarcely allowing a day's interval, he left Germanicus and hastened on in advance. When he reached Syria<span class="ellipsis"> ...</span>
+		</blockquote>
+		<div class="agent">
+			<ul>
+				<li class="claim">
+					<span class="place">Rhodes</span> is en route from the <span class="place">Cyclades</span> to <span class="place">Syria</span>
+				</li>
+			</ul>
+		</div>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="person">Cneius Piso</span> is in <span class="place">Syria</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.55">
+		<blockquote>
+		Of all this Germanicus was aware, but his most pressing anxiety was to be first in reaching Armenia.
+		</blockquote>
+		<div class="agent">
+			<ul>
+				<li class="claim">
+					<span class="place">Rhodes</span> is en route from <span class="place">Colophon</span> to <span class="place">Armenia</span>
+				</li>
+			</ul>
+		</div>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="person">Germanicus</span> is in <span class="place">Armenia</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book2.xhtml#57">Tacitus, Annals 2.57</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.57">
+		<blockquote>
+		At length the two met at Cyrrhus, the winter-quarters of the tenth legion, each controlling his looks, Piso concealing his fears, Germanicus shunning the semblance of menace.
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					The winter-quarters of the <span class="unit">tenth legion</span> are at <span class="place">Cyrrhus</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Cyrrhus</span> is in <span class="place">Syria</span>.
+				</li>
+				<li class="claim">
+					<span class="person">Cneius Piso</span> and <span class="person">Germanicus</span> are at <span class="place">Cyrrhus</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+
+<hr/>
+<article typeof="ies:State">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book2.xhtml#58">Tacitus, Annals 2.58</a>:</p>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.58">
+		<blockquote>
+		He begged meanwhile that Vonones might not be kept in Syria, where; by emissaries from an easy distance, he might draw the chiefs of the tribes into civil strife. Germanicus' answer as to the alliance between Rome and Parthia was dignified: as to the king's visit and the respect shown to himself, it was graceful and modest. Vonones was removed to Pompeiopolis, a city on the coast of Cilicia.
+		</blockquote>
+		<div class="nlp">
+			<ul>
+				<li class="claim">
+					<span class="place">Pompeiopolis</span> is a city on the coast of <span class="place">Cilicia</span>.
+				</li>
+			</ul>
+		</div>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="person">Germanicus</span> removes <span class="person" content="Vonones I">Vonones</span> from <span class="place">Syria</span> to <span class="place">Pompeiopolis</span>.
+				</li>
+			</ul>
+			<p class="rewrite">"Vonones" refers to <span class="name">Vonones I</span>.</p>
+		</div>
+	</div>
+</article>
+
+</body>
+</html>

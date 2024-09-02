@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:time="https://www.w3.org/TR/owl-time/"
+	xmlns:ies="http://ies.data.gov.uk/ies4#"
+	>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" href="../master.css" rel="stylesheet"/>
+<title>Knowledge</title>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+<meta name="DC.source" content="The Elephant and the Fly"/>
+<meta name="DC.identifier" content="Example ..."/>
+</head>
+<body>
+
+<h1>Knowledge</h1>
+
+<p class="note">Asserted knowledge...</p>
+
+<article about="_:province">
+	<div>
+		<p class="claim" about="#province" typeof="skos:Concept rdf:Bag" rel="rdfs:member">
+			These are <span class="class" content="province">provinces</span>: <span about="#cappadocia" class="place">Cappadocia</span>, <span about="#narbongaul" class="place">Narbon Gaul</span>, <span about="#uppergermany" class="place">Upper Germany</span>, <span about="#lowergermany" class="place">Lower Germany</span>, <span about="#pannonia" class="place">Pannonia</span>, <span about="#syria" class="place">Syria</span>.
+		</p>
+	</div>
+</article>
+
+<p class="note">I might want to use this information in a <a href="https://en.wikipedia.org/wiki/Controlled_natural_language">controlled natural language (CNL)</a> claim such as: 'Cappadocia is a province'. Rather, than listing all provinces individually in that form, I will list them 'informally' as above. I can get CNL by post-processing - perhaps generating a formal concept lattice, then making CNL from there.</p>
+
+<article about="_:kingdom">
+	<div>
+		<p class="claim" about="#kingdom" typeof="skos:Concept rdf:Bag" rel="rdfs:member">
+			These are <span class="class" content="kingdom">kingdoms</span>: <span about="#armenia" class="place">Armenia</span>, <span about="#parthia" class="place">Parthia</span>, <span about="#sophene" class="place">Sophene</span>.
+		</p>
+	</div>
+</article>
+
+</body>
+</html>

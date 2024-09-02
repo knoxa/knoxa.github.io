@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:time="https://www.w3.org/TR/owl-time/"
+	xmlns:ies="http://ies.data.gov.uk/ies4#"
+	xmlns:this="http://example.com/history#"
 	>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -13,11 +17,17 @@
 <meta name="DC.source" content="The Elephant and the Fly"/>
 <meta name="DC.identifier" content="Example ..."/>
 </head>
-<body typeof="rdf:Seq">
+<body about="_:chronology" typeof="rdf:Seq">
 
-<h2>A chronology of events.</h2>
+<h1>A chronology of events</h1>
 
-<article typeof="time:Interval">
+<p class="note">
+The HTML <em>articles</em> on this page are of type time:Interval. Intervals are ordered as presented, indicated by the containing
+HTML body element having type rdf:Seq.
+</p>
+
+
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1348.abo014.perseus-eng1:8">
 
@@ -39,8 +49,9 @@ Caius Caesar was born on the day before the calends of September, at the time hi
 </div>
 
 </article>
+<hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:1.5">
 <p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book1.xhtml#5">Tacitus, Annals 1.5</a>:</p>
@@ -52,7 +63,7 @@ For Livia had surrounded the house and its approaches with a strict watch, and f
 		<ul>
 			<li typeof="rdf:Seq">
 				<span class="claim">The death of <span class="person">Augustus</span>. </span>
-				<span class="claim" about="#newreign"><span class="person">Tiberius</span> succeeds <span class="person">Augustus</span> as emperor.</span>
+				<span class="claim" about="urn:me:newreign" property="rdfs:label"><span class="person">Tiberius</span> succeeds <span class="person">Augustus</span> as emperor.</span>
 			</li>
 		</ul>
 	</div>
@@ -64,13 +75,17 @@ For Livia had surrounded the house and its approaches with a strict watch, and f
 <blockquote>
 The first crime of the new reign was <span class="event">the murder of Postumus Agrippa</span>.
 </blockquote>
-	<div class="analysis">
+	<div class="nlp">
 		<ul>
 			<li class="claim">
 				The death of <span class="person">Postumus Agrippa</span>.
 			</li>
+		</ul>
+	</div>
+	<div class="analysis">
+		<ul>
 			<li typeof="rdf:Seq">
-				<span class="claim" about="#newreign"><span class="person">Tiberius</span> becomes emperor</span> before <span class="claim">the death of <span class="person">Postumus Agrippa</span>.</span>
+				<span class="claim" about="urn:me:newreign" property="rdfs:label"><span class="person">Tiberius</span> becomes emperor</span> before <span class="claim">the death of <span class="person">Postumus Agrippa</span>.</span>
 			</li>
 		</ul>
 	</div>
@@ -160,36 +175,44 @@ The same year witnessed <span class="event">the establishment of religious cerem
 
 <hr/>
 
-<article typeof="time:Interval">
-<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:1.55">
-<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book1.xhtml#55">Tacitus, Annals 1.55</a>:</p>
-<blockquote>
-<span class="event">In the consulship of Drusus Caesar and Caius Norbanus</span>, <span class="event">Germanicus had a triumph decreed him</span>, though war still lasted.
-</blockquote>
-	<div class="analysis">
-		<ul>
-			<li class="claim">
-				<span class="person">Drusus Caesar</span> and <span class="person">Caius Norbanus</span> are consuls.
-			</li>
-		</ul>
-	</div>
-</div>
+<article typeof="time:Interval" rel="rdfs:member">
 
-<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:1.56">
-<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book1.xhtml#56">Tacitus, Annals 1.56</a>:</p>
-<blockquote>
-After burning Mattium, the capital of the tribe, and ravaging the open country, Germanicus marched back towards the Rhine, the enemy not daring to harass the rear of the retiring army, which was his usual practice whenever he fell back by way of stratagem rather than from panic.</blockquote>
-</div>
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:1.55">
+		<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book1.xhtml#55">Tacitus, Annals 1.55</a>:</p>
+		<blockquote>
+		<span class="event">In the consulship of Drusus Caesar and Caius Norbanus</span>, <span class="event">Germanicus had a triumph decreed him</span>, though war still lasted.
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="person">Drusus Caesar</span> and <span class="person">Caius Norbanus</span> are consuls.
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:1.56">
+		<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book1.xhtml#56">Tacitus, Annals 1.56</a>:</p>
+		<blockquote>
+		After burning Mattium, the capital of the tribe, and ravaging the open country, Germanicus marched back towards the Rhine, the enemy not daring to harass the rear of the retiring army, which was his usual practice whenever he fell back by way of stratagem rather than from panic.
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					<span class="person">Germanicus</span> destroys <span class="place">Mattium</span>, the capital of the <span class="tribe">Chatti</span>.
+				</li>
+			</ul>
+		</div>
+	</div>
+
 </article>
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.1">
-
 	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book2.xhtml#1">Tacitus, Annals 2.1</a>:</p>
-
 	<blockquote>
 	IN the consulship of Sisenna Statilius Taurus and Lucius Libo there was a commotion in the kingdoms and Roman provinces of the East.
 	</blockquote>
@@ -202,6 +225,47 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 		</ul>
 	</div>
 
+</div>
+
+<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.42">
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book2.xhtml#42">Tacitus, Annals 2.42</a>:</p>
+	<div>
+		<blockquote>
+		King Archelaus had been in possession of Cappadocia for fifty years,<span class="ellipsis"> ... </span>In his anguish and in the weariness of old age, and from being unused, as a king, to equality, much less to degradation, not, certainly, from fear of the charges fabricated against him, he ended his life, by his own act or by a natural death. His kingdom was reduced into a province,<span class="ellipsis"> ...</span>
+		</blockquote>
+
+		<div class="analysis">
+			<ol typeof="rdf:Seq">
+				<li class="claim">
+					The death of <span class="person">Archelaus</span>.
+				</li>
+				<li class="claim">
+					<span class="place">Cappadocia</span> becomes a province.
+				</li>
+			</ol>
+		</div>
+	</div>
+	<div>
+		<blockquote>
+		During the same time, on the deaths of Antiochus and Philopator, kings respectively of the Commageni and Cilicians, these nations became excited, a majority desiring the Roman rule, some, that of their kings. The provinces too of Syria and Judaea, exhausted by their burdens, implored a reduction of tribute.
+		</blockquote>
+		<div class="analysis">
+			<ul>
+				<li class="claim">
+					The death of <span class="person" content="Antiochus III">Antiochus</span>.
+				</li>
+				<li class="claim">
+					The death of <span class="person" content="Philopator II">Philopator</span>.
+				</li>
+			</ul>
+		</div>	
+		<div class="analysis">
+			<p>
+				<span class="rewrite">"Antiochus" refers to <span class="name">Antiochus III</span> and</span>
+				<span class="rewrite">"Philopator" refers to <span class="name">Philopator II</span>.</span>
+			</p>
+		</div>
+	</div>
 </div>
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.47">
@@ -245,7 +309,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 	<div class="analysis">
 		<ul>
 			<li class="claim">
-				<span class="person">Furius Camillus</span> defeats<span class="person">Tacfarinas</span> in battle.
+				<span class="person">Furius Camillus</span> defeats <span class="person">Tacfarinas</span> in battle.
 			</li>
 		</ul>
 	</div>
@@ -256,7 +320,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.53">
 
@@ -294,11 +358,32 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 </div>
 
+<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.56">
+
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book2.xhtml#56">Tacitus, Annals 2.56</a>:</p>
+
+	<blockquote>
+	Cappadocia meanwhile, which had been reduced to the form of a province, received as its governor Quintus Veranius. <span class="ellipsis"> ... </span>Quintus Servaeus was appointed to Commagene, then first put under a praetor's jurisdiction.
+	</blockquote>
+
+	<div class="analysis">
+		<ul>
+			<li class="claim">
+				<span class="person">Quintus Veranius</span> is governor of <span class="place">Cappadocia</span>.
+			</li>
+			<li class="claim">
+				<span class="person">Quintus Servaeus</span> is appointed to oversee <span class="place">Commagene</span>.
+			</li>
+		</ul>
+	</div>
+
+</div>
+
 </article>
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:2.59">
 
@@ -341,7 +426,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:3.2">
 
@@ -384,7 +469,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:3.31">
 
@@ -408,7 +493,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:3.52">
 
@@ -432,7 +517,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:4.1">
 
@@ -456,7 +541,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:4.17">
 
@@ -476,24 +561,6 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 </div>
 
-<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:4.23">
-
-	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book4.xhtml#23">Tacitus, Annals 4.23</a>:</p>
-
-	<blockquote>
-	This year at last released Rome from her long contest with the Numidian Tacfarinas.
-	</blockquote>
-
-	<div class="analysis">
-		<ul>
-			<li>
-				<span class="claim"><span class="person">Tacfarinas</span>' revolt ends.</span>
-			</li>
-		</ul>
-	</div>
-
-</div>
-
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:4.25">
 
 	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book4.xhtml#25">Tacitus, Annals 4.25</a>:</p>
@@ -505,7 +572,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 	<div class="analysis">
 		<ul>
 			<li>
-				<span class="claim">The death of <span class="person">Tacfarinas</span>.</span>
+				<span class="claim"><span class="person">Tacfarinas</span>' revolt ends with his death.</span>
 			</li>
 		</ul>
 	</div>
@@ -515,7 +582,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:4.34">
 
@@ -539,7 +606,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:4.46">
 
@@ -563,7 +630,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:4.62">
 
@@ -587,7 +654,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:4.68">
 
@@ -611,7 +678,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:5.1">
 
@@ -640,7 +707,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 <p class="note">There's a 12 year gap in Tacitus' Annals at this point ...</p>
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:6.1">
 
@@ -664,7 +731,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:6.15">
 
@@ -694,7 +761,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:6.28">
 
@@ -721,7 +788,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:6.31">
 
@@ -745,7 +812,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:6.40">
 
@@ -769,7 +836,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:6.45">
 
@@ -799,7 +866,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 <p class="note">Another break in Tacitus' narrative here ...</p>
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1348.abo016.perseus-eng1:6">
 
@@ -823,7 +890,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1348.abo014.perseus-eng1:59">
 
@@ -848,7 +915,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1348.abo015.perseus-eng1:27">
 
@@ -872,7 +939,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:11.11">
 
@@ -882,6 +949,13 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 	It was during this consulship, in the eight hundredth year after the foundation of Rome and the sixty-fourth after their celebration by Augustus that the secular games were exhibited.
 	</blockquote>
 	<!-- 47 AD ? -->
+	<div class="analysis">
+		<ul>
+			<li class="claim">
+				The <span about="dbp:Secular_Games">Secular Games</span> are celebrated.
+			</li>
+		</ul>
+	</div>
 
 </div>
 
@@ -889,7 +963,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:11.23">
 
@@ -914,7 +988,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:12.5">
 
@@ -934,11 +1008,39 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 </div>
 
+<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:12.23">
+
+	<p class="ref"><a href="https://knoxa.github.io/text/tacitus/annals/book12.xhtml#23">Tacitus, Annals 12.23</a>:</p>
+
+	<blockquote>
+	Ituraea and Judae, on the death of their kings, Sohaemus and Agrippa, were annexed to the province of Syria.
+	</blockquote>
+
+	<div class="analysis">
+		<ul>
+			<li class="claim">
+				The death of <span class="person">Sohaemus</span>, <span class="role">king of Ituraea</span>.
+			</li>
+			<li class="claim">
+				The death of <span class="person" content="Herod Agrippa">Agrippa</span>, <span class="role">king of Judaea</span>.
+			</li>
+			<li class="claim">
+				<span class="place">Ituraea</span> and <span class="place">Judaea</span> become parts of the province of <span class="place">Syria</span>.
+			</li>
+		</ul>
+	</div>
+	<div class="analysis">
+		<p>
+			<span class="rewrite">"Agrippa" refers to <span class="name">Herod Agrippa</span>.</span>
+		</p>
+	</div>
+</div>
+
 </article>
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:12.25">
 
@@ -965,7 +1067,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:12.41">
 
@@ -989,7 +1091,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:12.52">
 
@@ -1013,7 +1115,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:12.58">
 
@@ -1040,7 +1142,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:12.64">
 
@@ -1068,7 +1170,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:13.11">
 
@@ -1110,7 +1212,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:13.25">
 
@@ -1134,7 +1236,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:13.31">
 
@@ -1158,7 +1260,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:13.34">
 
@@ -1178,11 +1280,27 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 </div>
 
+<div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:13.34">
+
+	<blockquote>
+	Early in this year a war between Parthia and Rome about the possession of Armenia, which, feebly begun, had hitherto dragged on, was vigorously resumed.
+	</blockquote>
+
+	<div class="analysis">
+		<ul>
+			<li class="claim">
+				War resumes between <span class="place">Parthia</span> and <span class="place">Rome</span> over the possession of <span class="place">Armenia</span>.
+			</li>
+		</ul>
+	</div>
+
+</div>
+
 </article>
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:14.1">
 
@@ -1224,7 +1342,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:14.20">
 
@@ -1248,7 +1366,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:14.29">
 
@@ -1272,7 +1390,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:14.48">
 
@@ -1334,7 +1452,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:15.23">
 
@@ -1358,7 +1476,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:15.33">
 
@@ -1400,7 +1518,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:15.48">
 
@@ -1427,7 +1545,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 
 <hr/>
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1351.phi005.perseus-eng1:16.14">
 
@@ -1454,7 +1572,7 @@ After burning Mattium, the capital of the tribe, and ravaging the open country, 
 <hr/>
 
 
-<article typeof="time:Interval">
+<article typeof="time:Interval" rel="rdfs:member">
 
 <div about="urn:cts:latinLit:phi1348.abo016.perseus-eng1:57">
 
