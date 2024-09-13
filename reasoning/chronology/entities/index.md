@@ -6,7 +6,7 @@ These are events from _[Principle Events 1914-1918](https://tigersmuseum.github.
 
 ![Events linked by entity](romania1.svg)
 
-I've made use of the semantic mark-up in the file to select 1918 events that mention "Rumania" and at least one person. For each entity mentioned in an event, I've linked the event to the next that mentions the same entity, or to itself if the entity is not mentioned again. If you open [the image](romania1.svg) in a separate window, and "mouse over" the edges in the graph, you'll see the entity used to make each link.
+I've made use of semantic mark-up in the file to select 1918 events that mention "Rumania" and at least one person. For each entity mentioned in an event, I've linked the event to the next that mentions the same entity, or to itself if the entity is not mentioned again. If you open [the image](romania1.svg) in a separate window, and "mouse over" the edges in the graph, you'll see the entity used to make each link.
 
 Information can be inferred from [this graph](.romania1.graphml). For example, apart from the King, the source only mentions Romanians in 1918 in the context of changes in political office. I can build a political timeline. If I reduce multiple links between nodes, remove self-links, and restrict the graph to covering relations, I get ...
 
@@ -27,11 +27,11 @@ Trying the same trick with _Persian Prime Minister_ for 1917 and 1918 gives
 
 This graph doesn't have separate components for each term in office because one person "succeeds" another, so the incumbent is the edge coming into the node and successor is the outgoing edge - but I can still naively generate hypotheses about terms in office from this structure based on the first and last mention of each person. These aren't necessarily going to be correct. For example, it'll be a period out of office, not in office, for _Vossuq ed Douleh_ who "resigns" when first mentioned and is later re-appointed.
 
-These graphs might also raise questions. For example, in the case of _Samsam es Sultaneh_ above, I can hypothesise that he was in office between May 5th and August 8th, but he resigned on May 31st and was re-appointed on June 20th. Was someone else in office in that gap? If not, what brought him back so quickly? It's simple enough to get all events relating to Persia in that timeframe and order them simple by time. The only intervening event is:
+These graphs might also raise questions. For example, in the case of _Samsam es Sultaneh_ above, I can hypothesise that he was in office between May 5th and August 8th, but he resigned on May 31st and was re-appointed on June 20th. Was someone else in office in that gap? If not, what brought him back so quickly? The only other event relating to Persia in that timeframe is:
 
 	June 14th: Tabriz (North Persia) again occupied by Turkish forces
   
-Which, though suggestive, is frustratingly inconclusive. We don't always get answers though, and [his Wikipedia page](https://en.wikipedia.org/wiki/Najaf-Qoli_Khan_Bakhtiari) doesn't help. It doesn't show this gap, and has an end date for this term in office that is several days later, raising further questions.
+Which, though suggestive, is frustratingly inconclusive. His [Wikipedia page](https://en.wikipedia.org/wiki/Najaf-Qoli_Khan_Bakhtiari) doesn't help. It doesn't show this gap, and has an end date for this term in office that is several days later, raising further questions.
 
 # NLP
 The examples here exploit very simple natural language processing (NLP), applied to source text, then captured in the source as semantic mark-up. All that is needed is named entity recognition (NER), plus co-reference resolution to ensure that the same name is always used for a specific entity - so, for the example above,
