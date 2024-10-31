@@ -1,6 +1,6 @@
 # Entities linking events
 
-This is about making sense of a chronology of events through the mention of common entities. Concrete and identifiable entities (such as people or cities) have a _timeline_. That is to say a chain of events, ordered in time, in which they play part. Abstract entities (such as roles) might be considered in a way that renders them concrete, or perhaps thought of as describing the _state_ of a concrete entity. The proposition is that graphs linking events through mention of common entities encode information about the nature of those entities and their relationships. Let's explore ...
+Concrete and identifiable entities (such as people or cities) have a _timeline_. That is to say a chain of events, ordered in time, in which they play part. Abstract entities (such as roles) might be considered in a way that renders them concrete, or perhaps thought of as describing the _state_ of a concrete entity. The proposition is that graphs linking events through mention of common entities encode information about the nature of those entities and their relationships. Let's explore ...
 
 These are events from _[Principle Events 1914-1918](https://tigersmuseum.github.io/history/events/ww1/events-1918.xhtml)_:
 
