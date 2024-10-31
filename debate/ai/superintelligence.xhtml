@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:time="https://www.w3.org/TR/owl-time/"
+	xmlns:ies="http://ies.data.gov.uk/ies4#"
+	xmlns:core="https://knoxa.github.io/ai#"
+	xmlns:this="https://search.worldcat.org/search?q=isbn%3A9780199678112#"
+	>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" href="master.css" rel="stylesheet"/>
+<title>Superintelligence</title>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+<meta name="DC.source" content="The Elephant and the Fly"/>
+<meta name="DC.identifier" content="Example ..."/>
+</head>
+<body>
+
+<article>
+
+<h2 id="#superintelligence">Superintelligence</h2>
+
+	<div about="this:1">
+		<p class="ref"><a href="https://search.worldcat.org/search?q=isbn%3A9780199678112">Bostrom, N. (2017)</a></p> <!-- ch 5,  ch 8.. -->
+
+		<p class="note">Given the premise of a superintelligence ...</p>
+		<blockquote>
+			<em>Superintelligence</em>: Any intellect that greatly exceeds the cognitive performance of humans in virtually all domains of interest. 
+		</blockquote>
+	</div>
+	
+	<p class="note">... that forms a singleton ...</p>
+	<div about="this:1">
+		<blockquote about="this:singletonclaim">
+			The initial superintelligence might obtain a decisive strategic advantage. This superintelligence would then be in a position to form a a singleton.
+		</blockquote>
+		
+		<div about="this:singletonclaim" class="analysis">
+			<p class="question">
+				What is a singleton? 
+			</p>
+		</div>
+	</div>
+
+	<div about="this:1">
+		<blockquote about="this:singleton">
+			<em>Singleton</em>:  A world order in which there is, at the highest level of decision-making, only one effective agency. 
+		</blockquote>
+	</div>
+	
+	<p class="note">... together with the orthogonality thesis ...</p>
+	
+	<div about="this:1">
+	
+		<blockquote about="this:orthogonality">
+			<em>Orthogonality thesis</em>: Intelligence and final goals are orthogonal axes along which possible agents can freely vary. 
+		</blockquote>
+
+		<blockquote>
+			The orthogonality thesis suggests that we cannot blithely assume that a superintelligence will necessarily share
+			any of the final values stereotypically associated with wisdom and intellectual development in humans.
+		</blockquote>
+	</div>
+		
+	<p class="note">... and instrumental convergence thesis ...</p>
+
+	<div about="this:1">
+		<blockquote about="this:instrumental-convergence">
+			<em>Instrumental convergence thesis</em>: We can identify "convergent instrumental values", subgoals that are useful for the attainment of a wide 
+			range of possible final goals in a wide range of possible environments - subgoals that are therefore likely to be pursued by a broad class of intelligent agents.
+		</blockquote>
+		
+		<div about="this:instrumental-convergence" class="analysis">
+		<p class="question">
+			What are these instrumental subgoals? 
+			<!-- 
+			<span class="answer">
+			They are the AI drives identified by Omohundro.
+			</span>
+			 -->
+		</p>
+		</div>
+		
+	</div>
+
+	<p class="note">... support the conclusion of an existential threat to humanity.</p>
+	
+	<div about="this:1">
+		<blockquote class="premise">
+			<span class="ellipsis">[Given a <span class="premise refer" about="this:singleton">singleton</span>, <span class="premise refer" about="this:orthogonality">the orthogonality thesis</span>, 
+			<span class="premise refer" about="this:instrumental-convergence">the instrumental convergence thesis</span>] </span>
+			The <span class="support">outcome could easily be</span> one in which <span class="conclusion" about="core:extinction">humanity quickly becomes extinct</span>.
+		</blockquote>
+	</div>
+	
+</article>
+
+
+<h3>Argument map</h3>
+<p>
+<a href="AIF/superintelligence.txt">
+<img class="medium" src="images/superintelligence.svg" alt="argument map for the superintelligence claims" />
+</a>
+</p>
+
+</body>
+</html>
