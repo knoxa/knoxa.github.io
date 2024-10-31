@@ -1,6 +1,6 @@
-#Arguing about Artificial Intelligence
+# Arguing about Artificial Intelligence
 
-##Introduction
+## Introduction
 This is an exercise in capturing debate on a suitably large and interesting topic, with the aim of demonstrating (and further developing) ideas about collecting, evaluating and explaining arguments. This is [argumentation](https://dstl.github.io/eleatics/doc/argumentation/).
 
 The only fixed technical point is the use of [Argument Interchange Format (AIF)](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) to model argument and dialogue. AIF gives a common structure that all parties can use. Arguments link through shared premises and conclusions to form *argument maps*. If different parties use the same identifier when they refer to the same claim, their respective lumps of AIF can be added together and the 'linked data' nature of AIF will make the connections. I'll discuss constructing and evaluating AIF argument maps in a separate [technical details](technical.md) page.
@@ -10,7 +10,7 @@ Debate is an iterative process. The purpose of this document is to provide a run
 ## Existential threat
 Let's start with the [singularity claim](singularity.xhtml) workbook. This grounds *the singularity claim* in essays by Good and Vinge. Next, Bostrom defines a [superintelligence](superintelligence.xhtml#superintelligence) and a case for it potentially threatening humanity. So far, there is no contention.
 
-[Muller and Cannon](both-ways.xhtml) reconstruct the existential risk argument and attack its validity. This is an undercut, which is expressed in AIF by attacking an RA-node. Something to think about here is that the restated existential threat argument isn't exactly the one expressed by Bostrom: It uses *the singularity claim* as a premise instead of a singleton, and it doesn't use the *instrumental convergence thesis*. This doesn't affect the validity of the undercutting argument, but it does mean that there are two RA-nodes that conclude *humanity quickly becomes extinct*, and only one of them is undercut:  
+[Müller and Cannon](both-ways.xhtml) reconstruct the existential risk argument and attack its validity. This is an undercut, which is expressed in AIF by attacking an RA-node. Something to think about here is that the restated existential threat argument isn't exactly the one expressed by Bostrom: It uses *the singularity claim* as a premise instead of a singleton, and it doesn't use the *instrumental convergence thesis*. This doesn't affect the validity of the undercutting argument, but it does mean that there are two RA-nodes that conclude *humanity quickly becomes extinct*, and only one of them is undercut:  
 
 ![Undercutting the extinction argument](images/extinction.svg)
 
