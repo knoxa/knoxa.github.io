@@ -1,0 +1,77 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:time="http://www.w3.org/2006/time#"
+    xmlns:aif="http://www.arg.dundee.ac.uk/aif#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:ies="http://ies.data.gov.uk/ies4#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <aif:TA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="urn:eleatics:md5:8D7565A5DAA34B7F81D06950EBA9B43E">
+        <aif:claimText xml:lang="en">What are these instrumental subgoals?</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#instrumental-convergence">
+        <aif:claimText xml:lang="en">Instrumental convergence thesis: We can identify "convergent instrumental values", subgoals that are useful for the attainment of a wide range of possible final goals in a wide range of possible environments - subgoals that are therefore likely to be pursued by a broad class of intelligent agents.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">questioning</aif:claimText>
+  </aif:TA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#superintelligence">
+        <aif:claimText xml:lang="en">Superintelligence: Any intellect that greatly exceeds the cognitive performance of humans in virtually all domains of interest.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#explosion">
+        <aif:claimText xml:lang="en">The singularity-related idea that interests us here is the possibility of an intelligence explosion particularly the prospect of machine superintelligence</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="urn:eleatics:md5:E72F91A98D280CFB3663D1791CBEF43A">
+        <aif:claimText xml:lang="en">The orthogonality thesis suggests that we cannot blithely assume that a superintelligence will necessarily share any of the final values stereotypically associated with wisdom and intellectual development in humans.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#orthogonality">
+        <aif:claimText xml:lang="en">Orthogonality thesis: Intelligence and final goals are orthogonal axes along which possible agents can freely vary.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://knoxa.github.io/ai#extinction">
+        <aif:claimText xml:lang="en">humanity quickly becomes extinct</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise rdf:resource="https://search.worldcat.org/search?q=isbn%3A9780199678112#instrumental-convergence"/>
+    <aif:Premise rdf:resource="https://search.worldcat.org/search?q=isbn%3A9780199678112#orthogonality"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#singleton">
+        <aif:claimText xml:lang="en">Singleton: A world order in which there is, at the highest level of decision-making, only one effective agency.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:5C9E5CE0086A0BEDDD5DDDCE8EE8B298">
+        <aif:claimText xml:lang="en">[Given a singleton the orthogonality thesis the instrumental convergence thesis] The outcome could easily be one in which humanity quickly becomes extinct</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion rdf:resource="https://search.worldcat.org/search?q=isbn%3A9780199678112#singleton"/>
+    <aif:Premise rdf:resource="https://search.worldcat.org/search?q=isbn%3A9780199678112#superintelligence"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#singletonclaim">
+        <aif:claimText xml:lang="en">The initial superintelligence might obtain a decisive strategic advantage This superintelligence would then be in a position to form a singleton</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+</rdf:RDF>

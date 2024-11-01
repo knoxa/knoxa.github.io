@@ -1,5 +1,8 @@
 # Constructing and manipulating argument maps
 
+
+The key dependency is the use of [Argument Interchange Format (AIF)](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) to model argument and dialogue.
+
 ## Constructing AIF
 
 1. I use [XHTML+RDFa](https://en.wikipedia.org/wiki/XHTML%2BRDFa) to create a 'workbook'. I apply [claims.xsl](https://github.com/knoxa/linked-text/blob/master/xsl/claims.xsl) to transform workbooks to AIF.
@@ -36,9 +39,4 @@ I'm currently being a bit lax in making these distinctions. At the moment, I'm j
 
 ## Argument mining
 One aspect of this is NLP directed at constructed argument maps. Another aspect is NLP aimed at claims in multiple arguments to work out their relationships: Are they the same? Do they agree? Are they contradictory?
-
-## Issues
-
-* **RDF Identifiers** - Unless I need to refer to them later, I'm using blank node identifiers for I-nodes and S-nodes. I construct these using the XSL generate-id() function. They will be unique within the scope of one XHTML document, but not necessarily between documents. This can cause problems when merging the generated AIF by simply concatenating the TTL files. I need to generate URIs for everything, or load fragments into separate RDF models and merge those. I can force the latter point by saving fragment as RDF-XML (so simple concatenation is not an option).
-
 
