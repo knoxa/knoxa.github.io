@@ -1,11 +1,7 @@
 # Arguing about Artificial Intelligence
 
 ## Introduction
-This is an exercise in capturing debate on a suitably large and interesting topic, by way of demonstrating (and further developing) ideas about collecting, evaluating and explaining arguments. This is [argumentation](https://dstl.github.io/eleatics/doc/argumentation/).
-
-The only fixed technical point is the use of [Argument Interchange Format (AIF)](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) to model argument and dialogue. Arguments link through shared premises and conclusions to form *argument maps*. If different parties use the same identifier when they refer to the same claim, their respective lumps of AIF can be added together and the 'linked data' nature of AIF will make the connections. I'll discuss constructing and evaluating AIF argument maps in a separate [technical details](technical.md) page.
-
-Debate is an iterative process. The purpose of this document is to provide a running commentary ...
+This is an exercise in capturing debate, on a suitably large and interesting topic, to demonstrate (and further develop) ideas about collecting, evaluating and explaining arguments. It's [argumentation](https://dstl.github.io/eleatics/doc/argumentation/). This document provides a running commentary on the debate. I'll discuss the [technical details](technical.md) separately. 
 
 ## Existential threat
 Let's start with the [singularity claim](singularity.xhtml) workbook. This grounds *the singularity claim* in essays by Good and Vinge. Next, Bostrom defines a [superintelligence](superintelligence.xhtml#superintelligence) and a case for it potentially threatening humanity. So far, there is no contention.
@@ -20,5 +16,9 @@ In this particular case, we need to understand the differences between 'general 
 
 ## The singularity
 The argument for existential threat depends on the singularity claim, which in turn builds on the premise of an "intelligence explosion" over a short time scale, "perhaps in the blink of an eye". In his book [The Singularity is Near](https://en.wikipedia.org/wiki/The_Singularity_Is_Near), Ray Kurzweil develops [the law of accelerating returns](accelerating-returns.xhtml) in support of this premise. Some arguments against the singularity, such as [the complexity brake](complexity-brake.xhtml), question the exponential nature of the intelligence explosion.
+
+David Chalmers published [a philosophical analysis of the singularity](chalmers.xhtml) that constructs and discusses the argument for the singularity and potential defeaters. This provides a useful framework for assessing arguments for and against. It too raises questions about what is meant by 'intelligence'.
+
+Chalmers considers three classes of artificial intelligence: AI, AI+ and AI++. The first is human-level intelligence (meaning Artificial General Intelligence, AGI), the second is greater than human intelligence (of the sort that triggers the "intelligence explosion"), and the third is the singularity (or superintelligence). If we're joining argument from different sources together, we need to understand variations in terminology. Mapping terminology is something that would both help argument mining and be helped by argument mining.
 
 *work-in-progress*
