@@ -40,3 +40,6 @@ I'm currently being a bit lax in making these distinctions. At the moment, I'm j
 ## Argument mining
 One aspect of this is NLP directed at constructed argument maps. Another aspect is NLP aimed at claims in multiple arguments to work out their relationships: Are they the same? Do they agree? Are they contradictory?
 
+### Terminology
+If we're joining argument from different sources together, we need to understand variations in terminology. Mapping terminology is something that would both help argument mining and be helped by argument mining.
+
