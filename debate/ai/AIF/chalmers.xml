@@ -1,0 +1,166 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:time="http://www.w3.org/2006/time#"
+    xmlns:aif="http://www.arg.dundee.ac.uk/aif#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:ies="http://ies.data.gov.uk/ies4#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <aif:RA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#evolve2">
+        <aif:claimText xml:lang="en">If evolution produced human-level intelligence, then we can produce AI (before long).</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#evolve1">
+        <aif:claimText xml:lang="en">Evolution produced human-level intelligence.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#equivalence">
+        <aif:claimText xml:lang="en">There will be AI (before long, absent defeaters).</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#intelligence">
+        <aif:claimText xml:lang="en">Assuming that there is an intelligence measure that assigns an intelligence value to arbitrary systems.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#proportionality">
+        <aif:claimText xml:lang="en">The proportionality thesis: increases in intelligence (or increases of a certain sort) always lead to proportionate increases in the capacity to design intelligent systems.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#values">
+        <aif:claimText xml:lang="en">If an AI+ exists that greatly values the creation of greater AI+.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#exist2">
+        <aif:claimText xml:lang="en">For all n &gt; 0, if an AI(n) exists, then absent defeaters, there will be an AI(n+1)</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+  </aif:RA-node>
+  <aif:CA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#motivation">
+        <aif:claimText xml:lang="en">AI(n) might lack motivation to develop AI(n+1).</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion rdf:resource="https://consc.net/papers/singularityjcs.pdf#exist2"/>
+  </aif:CA-node>
+  <aif:RA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#emulate1">
+        <aif:claimText xml:lang="en">If we emulate this machine, there will be AI.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#emulate2">
+        <aif:claimText xml:lang="en">We will have the capacity to emulate this machine (before long).</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#emulate3">
+        <aif:claimText xml:lang="en">The human brain is a machine.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion rdf:resource="https://consc.net/papers/singularityjcs.pdf#equivalence"/>
+  </aif:RA-node>
+  <aif:CA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#prevent">
+        <aif:claimText xml:lang="en">AI(n) might be actively prevented from developing AI(n+1).</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion rdf:resource="https://consc.net/papers/singularityjcs.pdf#exist2"/>
+  </aif:CA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://knoxa.github.io/ai/core#singularity">
+        <aif:claimText xml:lang="en">There will be AI++ (before too long, absent defeaters).</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#amplification">
+        <aif:claimText xml:lang="en">If there is AI+, there will be AI++ (soon after, absent defeaters).</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#extension">
+        <aif:claimText xml:lang="en">If there is AI, there will be AI+ (soon after, absent defeaters).</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise rdf:resource="https://consc.net/papers/singularityjcs.pdf#equivalence"/>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#ext3">
+        <aif:claimText xml:lang="en">Extending the method that produces an AI will yield an AI+.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#ext2">
+        <aif:claimText xml:lang="en">If AI is produced by an extendible method, we will have the capacity to extend the method (soon after).</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#ex1">
+        <aif:claimText xml:lang="en">If there is AI, AI will be produced by an extendible method.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion rdf:resource="https://consc.net/papers/singularityjcs.pdf#extension"/>
+  </aif:RA-node>
+  <aif:CA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#diminishing">
+        <aif:claimText xml:lang="en">Diminishing returns: although we can create systems more intelligent than ourselves, increases in intelligence diminish from there.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion rdf:resource="https://consc.net/papers/singularityjcs.pdf#exist2"/>
+  </aif:CA-node>
+  <aif:CA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#xx1">
+        <aif:claimText xml:lang="en">Other methods for creating AI do seem likely to be extendible.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#x1">
+        <aif:claimText xml:lang="en">Not every method of creating human-level intelligence is an extendible method.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+  </aif:CA-node>
+  <aif:RA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#exist3">
+        <aif:claimText xml:lang="en">If for all n there exists an AI(n), there will be AI++.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise rdf:resource="https://consc.net/papers/singularityjcs.pdf#exist2"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#amplify1">
+        <aif:claimText xml:lang="en">If there exists AI+, then there exists an AI(1).</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion rdf:resource="https://consc.net/papers/singularityjcs.pdf#amplification"/>
+  </aif:RA-node>
+  <aif:CA-node>
+    <aif:Premise rdf:resource="https://consc.net/papers/singularityjcs.pdf#x1"/>
+    <aif:Conclusion rdf:resource="https://consc.net/papers/singularityjcs.pdf#ex1"/>
+  </aif:CA-node>
+  <rdf:Description rdf:about="https://consc.net/papers/singularityjcs.pdf">
+    <rdf:type rdf:resource="http://www.arg.dundee.ac.uk/aif#"/>
+  </rdf:Description>
+  <aif:CA-node>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://consc.net/papers/singularityjcs.pdf#resources">
+        <aif:claimText xml:lang="en">AI(n) might lack resources to develop AI(n+1).</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Conclusion rdf:resource="https://consc.net/papers/singularityjcs.pdf#exist2"/>
+  </aif:CA-node>
+</rdf:RDF>

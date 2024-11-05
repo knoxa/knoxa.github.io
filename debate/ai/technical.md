@@ -1,7 +1,7 @@
-# Constructing and manipulating argument maps
+# Argument maps
 
 
-The key dependency is the use of [Argument Interchange Format (AIF)](https://www.arg-tech.org/wp-content/uploads/2011/09/aif-spec.pdf) to model argument and dialogue. Arguments link through shared premises and conclusions to form *argument maps*. If different parties use the same identifier when they refer to the same claim, their respective lumps of AIF can be added together and the 'linked data' nature of AIF will make the connections. 
+The key dependency is the use of [Argument Interchange Format (AIF)](https://www.arg.tech/index.php/research/contributing-to-the-argument-interchange-format/) to model argument and dialogue. Arguments link through shared premises and conclusions to form *argument maps*. If different parties use the same identifier when they refer to the same claim, their respective lumps of AIF can be added together and the 'linked data' nature of AIF will make the connections. 
 
 ## Constructing AIF
 
@@ -19,9 +19,9 @@ The key dependency is the use of [Argument Interchange Format (AIF)](https://www
 
 ## Models of dialogue and debate
 
-The fixed point in all of this is the use of [Argumentation Interchange Format (AIF)](https://www.arg.tech/index.php/research/contributing-to-the-argument-interchange-format/) to model arguments and debate. I use the AIF-RDF specification [here](https://www.arg.tech/wp-content/uploads/AIF-RDF.owl).
+I use the AIF-RDF specification [here](https://www.arg.tech/wp-content/uploads/AIF-RDF.owl).
 
-AIF supports the idea of extension through *adjunct ontologies*, bits of model specification that can be used to extend the core AIF in interesting and useful ways. For example, [S-AIF](https://dl.acm.org/doi/10.1145/3007210) and [T-AIF](https://doi.org/10.48550/arXiv.1812.06745) let you model the speakers in a debate and their relationships, thereby bringing credibility and trust into argument evaluation. I'm not using these (for the moment at least), but I'm keeping the door open by doing things like using a [DOI](https://www.doi.org/), where possible, to link to the source of quoted arguments. Tools such as [Crossref](https://www.crossref.org/) could then be used to get information about the authors of the quoted documents.
+AIF supports the idea of extension through *adjunct ontologies*, bits of model specification that can be used to extend the core AIF in interesting and useful ways. For example, [S-AIF](https://dl.acm.org/doi/10.1145/3007210) and [T-AIF](https://doi.org/10.48550/arXiv.1812.06745) let you model the speakers in a debate and their relationships, thereby bringing credibility and trust into argument evaluation. I'm not using these (for the moment at least), but I'm keeping the door open by doing things like using a [DOI](https://www.doi.org/), where possible, to link to the source of quoted arguments. Tools such as [Crossref](https://www.crossref.org/) can then be used to get information about authors.
 
 ### Diagrams
 Diagrams are useful, but AIF argument maps become cluttered and complex very quickly. I'll use diagrams in explanation, but these are often going to be selected fragments of larger arguments maps. You'll be perfectly justified in treating these with suspicion: It's the AIF model itself that has authority, not any selective depiction.
@@ -35,7 +35,11 @@ I'm currently being a bit lax in making these distinctions. At the moment, I'm j
 
 ### Questions
 
+It's useful to capture questions that are raised in a debate. I'm modelling these as locution that links from the locution that raises a question via a TA-node.
+
 ### Rewrites
+
+AIF has an MA-node to support rewriting or rephrasing arguments. I can use it in the AI debate to assert an equivalence relationship between arguments expressed by different speakers. However. doing this needs thinking about: two arguments might be equivalent in some contexts, but not others; asserting equivalence is making a claim, and this ought to be defeasible.
 
 ## Argument mining
 One aspect of this is NLP directed at constructed argument maps. Another aspect is NLP aimed at claims in multiple arguments to work out their relationships: Are they the same? Do they agree? Are they contradictory?
