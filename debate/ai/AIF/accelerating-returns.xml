@@ -18,6 +18,11 @@
       </aif:I-node>
     </aif:Conclusion>
     <aif:Premise>
+      <aif:I-node rdf:about="https://link.springer.com/chapter/10.1007/978-3-662-05642-4_16#1">
+        <aif:claimText xml:lang="en">There's even exponential growth in the rate of exponential growth.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
       <aif:I-node rdf:about="https://knoxa.github.io/ai#accelerating-returns">
         <aif:claimText xml:lang="en">An analysis of the history of technology shows that technological change is exponential, contrary to the common-sense "intuitive linear" view.</aif:claimText>
       </aif:I-node>
@@ -31,9 +36,6 @@
   </aif:RA-node>
   <aif:I-node rdf:about="urn:eleatics:md5:D130B9D9BC9EF499710E967C2E892CEC">
     <aif:claimText xml:lang="en">In an evolutionary process, positive feedback increases order exponentially. A correlate is that the “returns” of an evolutionary process (such as the speed, cost-effectiveness, or overall “power” of a process) increase exponentially over time — both for biology and technology.</aif:claimText>
-  </aif:I-node>
-  <aif:I-node rdf:about="urn:eleatics:md5:E99DA188FA390003DF152F0801D76016">
-    <aif:claimText xml:lang="en">There's even exponential growth in the rate of exponential growth.</aif:claimText>
   </aif:I-node>
   <aif:I-node rdf:about="urn:eleatics:md5:CA09211EC8A8A26CE7313069799AB4BB">
     <aif:claimText xml:lang="en">In technological evolution, human ingenuity combined with ever-changing market conditions keep the process of innovation going.</aif:claimText>

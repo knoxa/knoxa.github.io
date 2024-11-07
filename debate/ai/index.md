@@ -1,9 +1,7 @@
 # Arguing about Artificial Intelligence
 
 ## Introduction
-This is an exercise in capturing debate, on a suitably large and interesting topic, to demonstrate and develop my ideas about collecting, evaluating and explaining arguments. It's about [argumentation](https://dstl.github.io/eleatics/doc/argumentation/).
-
-This document is commentary on the debate. I'll discuss the [technical details](technical.md) separately. 
+This is an exercise in capturing debate, on a suitably large and interesting topic, to demonstrate and develop ideas about collecting, evaluating and explaining arguments. It's about [argumentation](https://dstl.github.io/eleatics/doc/argumentation/). This document is commentary on the debate. I'll discuss the [technical details](technical.md) separately. 
 
 ## Existential threat
 Let's start with the [singularity claim](singularity.xhtml) workbook. This grounds *the singularity claim* in essays by Good and Vinge. Next, Bostrom defines a [superintelligence](superintelligence.xhtml#superintelligence) and a case for it potentially threatening humanity. So far, there is no contention.
@@ -29,12 +27,10 @@ As depicted, the supporting and conflicting arguments are on an equal footing. E
 
 ## Where next?
 
-From what I've read so far, most people arguing against the singularity focus on [the amplification premise](chalmers.xhtml#amplification), with some of the proposed defeaters applying also to [the extension premise](chalmers.xhtml#extension).
+Bostrom's argument for existential risk assumes an all-powerful singleton. It depends on the singularity happening really fast to make it plausible that one AI project can suddenly expand to superintelligence and suppress all competition before any others can follow suit. With less than hyperbolic expansion to singularity there might be more than one AI reaching superintelligence, so no singleton.
 
--- full argument
--- modularity
-Can we break this down into meaningful sub-arguments? This sort of thing seems to happen in the literature anyway, with a potentially complex network of arguments condensed into a single "thesis" I-node in and argument map. Toulmin.
+From what I've read so far, most people arguing against the singularity focus on [the amplification premise](chalmers.xhtml#amplification), with some of the proposed defeaters applying also to [the extension premise](chalmers.xhtml#extension). See, for example, [Against the singularity hypothesis](https://doi.org/10.1007/s11098-024-02143-5). There's more that could be done here to tease these arguments out. Even without existential risk, there is plenty of potential risk from superintelligent AI, so this is worth taking further.
 
-We need to consider the [terminology](technical.md#terminology) used by different parties in the debate and decide when different terms mean the same thing. For example, Chalmers considers three classes of artificial intelligence: AI, AI+ and AI++. The first is human-level intelligence (meaning Artificial General Intelligence, AGI), the second is greater than human intelligence (of the sort that triggers the intelligence explosion), and the third is the singularity (or artificial superintelligence, ASI). Chalmers doesn't distinguish between general and instrumental intelligence, but he does seek to deflect aruments about the nature of intelligence with a rephrasing of the amplification argument in terms of correlated cognitive capacities. Again: what is intellgence anyway?
+I think where argumentation is useful in this debate is in understanding what some of the more vague and sensational claims actually mean. One way to do this is to raise and answers [questions](technical.md#questions) about those claims. These can be part of the wider dialogue. Questions and answers might just be for information, defining [technical terms](technical.md#terminology) say, or they may play a role in evaluating arguments. For example, I might choose not to accept claims with unanswered questions. I can start by raising [some questions](questions.xhtml).
 
-... *work-in-progress*
+It's worth exploring the composition of argument maps. As it stands, the complete argument map here (assembled from all the workbooks) has about 100 nodes, and will get bigger. Can we break a large argument map down into meaningful, but related, sub-arguments that make it easier to comprehend? This sort of thing seems to happen in the philosphical literature anyway, with a potentially complex network of arguments effectively condensed into a single "thesis" I-node in and argument map. Alternatively, are there techniques that can make sense of, and explain, large and complex arguments maps.
