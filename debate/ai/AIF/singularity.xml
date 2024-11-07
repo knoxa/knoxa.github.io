@@ -1,0 +1,53 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:time="http://www.w3.org/2006/time#"
+    xmlns:aif="http://www.arg.dundee.ac.uk/aif#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:ies="http://ies.data.gov.uk/ies4#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://knoxa.github.io/ai/core#singularity">
+        <aif:claimText xml:lang="en">This is the singularity claim: Superintelligent AI is a realistic prospect and it would be out of human control</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://knoxa.github.io/ai/singularity#good2">
+        <aif:claimText xml:lang="en">Thus the first ultraintelligent machine is the last invention that man need ever make, provided that the machine is docile enough to tell us how to keep it under control.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:17F89C356E9A9D2C14C137E505717559">
+        <aif:claimText xml:lang="en">If it is not 'docile enough' the creation of the 'first ultraintelligent machine' is the singularity</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="urn:eleatics:md5:C3D0E857BEF45359973183E324F61108">
+        <aif:claimText xml:lang="en">From the human point of view this change will be a throwing away of all the previous rules, perhaps in the blink of an eye, an exponential runaway beyond any hope of control.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:E75F9D5DBDC7444E47D7AE58B0785A71">
+        <aif:claimText xml:lang="en">When greater-than-human intelligence drives progress, that progress will be much more rapid. In fact, there seems no reason why progress itself would not involve the creation of still more intelligent entities - on a still-shorter time scale.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion rdf:resource="https://knoxa.github.io/ai/singularity#good2"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://knoxa.github.io/ai/singularity#good1">
+        <aif:claimText xml:lang="en">Let an ultraintelligent machine be defined as a machine that can far surpass all the intellectual activities of any man however clever. Since the design of machines is one of these intellectual activities, an ultraintelligent machine could design even better machines; there would then unquestionably be an ‘intelligence explosion’, and the intelligence of man would be left far behind.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion rdf:resource="https://knoxa.github.io/ai/core#singularity"/>
+    <aif:Premise rdf:resource="urn:eleatics:md5:C3D0E857BEF45359973183E324F61108"/>
+    <aif:claimText xml:lang="en">infer from text</aif:claimText>
+  </aif:RA-node>
+</rdf:RDF>

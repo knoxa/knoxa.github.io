@@ -1,0 +1,65 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:time="http://www.w3.org/2006/time#"
+    xmlns:aif="http://www.arg.dundee.ac.uk/aif#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:ies="http://ies.data.gov.uk/ies4#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://knoxa.github.io/ai#complexity-brake">
+        <aif:claimText xml:lang="en">We call this issue the complexity brake. As we go deeper and deeper in our understanding of natural systems, we typically find that we require more and more specialized knowledge to characterize them, and we are forced to continuously expand our scientific theories in more and more complex ways.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://www.technologyreview.com/2011/10/12/190773#1">
+        <aif:claimText xml:lang="en">But history tells us that the process of original scientific discovery just doesn’t behave this way, especially in complex areas like neuroscience, nuclear fusion, or cancer research. Overall scientific progress in understanding the brain rarely resembles an orderly, inexorable march to the truth, let alone an exponentially accelerating one. Instead, scientific advances are often irregular, with unpredictable flashes of insight punctuating the slow grind-it-out lab work of creating and testing theories that can fit with experimental observations. Truly significant conceptual breakthroughs don’t arrive when predicted, and every so often new scientific paradigms sweep through the field and cause scientists to re-evaluate portions of what they thought they had settled.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:I-node rdf:about="urn:eleatics:md5:2A240708200505C13B01616A0CE22720">
+    <aif:claimText xml:lang="en">While we suppose this kind of singularity might one day occur, we don’t think it is near. In fact, we think it will be a very long time coming.</aif:claimText>
+  </aif:I-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="urn:eleatics:md5:72467AFF2760C274934EB25A5E93FBC0">
+        <aif:claimText xml:lang="en">If the singularity is going to occur on anything like Kurzweil’s timeline though then we absolutely require a massive acceleration of our scientific progress in understanding every facet of the human brain</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:985C44197A9E259D7FA389CC034A1FFA">
+        <aif:claimText xml:lang="en">Futurists like Vernor Vinge and Ray Kurzweil have argued that the world is rapidly approaching a tipping point, where the accelerating pace of smarter and smarter machines will soon outrun all human capabilities. They call this tipping point the singularity, because they believe it is impossible to predict how the human future might unfold after this point.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="urn:eleatics:md5:A0E4F56097FEBEE3DA65844F1C91E5F7">
+        <aif:claimText xml:lang="en">The amazing intricacy of human cognition should serve as a caution to those who claim the singularity is close. Without having a scientifically deep understanding of cognition, we can’t create the software that could spark the singularity. Rather than the ever-accelerating advancement predicted by Kurzweil, we believe that progress toward this understanding is fundamentally slowed by the complexity brake.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise rdf:resource="https://knoxa.github.io/ai#complexity-brake"/>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:CA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://knoxa.github.io/ai#singularity">
+        <aif:claimText xml:lang="en">the singularity</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise rdf:resource="https://knoxa.github.io/ai#complexity-brake"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:BC3CCC86AD0985986102A06CE92934E0">
+        <aif:claimText xml:lang="en">These kinds of fundamental shifts don’t support the overall Moore’s Law-style acceleration needed to get to the singularity on Kurzweil’s schedule</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default conflict</aif:claimText>
+  </aif:CA-node>
+  <aif:RA-node>
+    <aif:Conclusion rdf:resource="https://knoxa.github.io/ai#singularity"/>
+    <aif:Premise rdf:resource="urn:eleatics:md5:72467AFF2760C274934EB25A5E93FBC0"/>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+</rdf:RDF>
