@@ -34,14 +34,18 @@ I'm currently being a bit lax in making these distinctions. At the moment, I'm j
 
 ### Questions
 
-It's useful to capture questions that are raised in a debate. I'm modelling these as locution that links from the locution that raises a question via a TA-node.
+It's useful to capture questions that are raised in a debate. I'm modelling a question as a locution that links from the locution that prompts it, via a TA-node.
 
 ### Rewrites
 
-AIF has an MA-node to support rewriting or rephrasing arguments. I can use it in the AI debate to assert an equivalence relationship between arguments expressed by different speakers. However. doing this needs thinking about: two arguments might be equivalent in some contexts, but not others; asserting equivalence is making a claim, and this ought to be defeasible.
+AIF has an MA-node to support rewriting or rephrasing arguments. I can use it in the AI debate to assert an equivalence relationship between arguments expressed by different speakers. This needs thinking about: two arguments might be equivalent in some contexts, but not others; asserting equivalence is making a claim, and this ought to be defeasible.
+
+### Composition
+
+It's worth exploring the composition of large argument maps. Can we break a large argument map down into meaningful, but related, sub-arguments that make it easier to comprehend? This sort of thing seems to happen in the philosphical literature anyway, with a potentially complex network of arguments effectively condensed into a single "thesis" I-node in an argument map. The [Toulmin pattern](https://dstl.github.io/eleatics/argumentation/toulmin/) might be useful here.
 
 ## Argument mining
-One aspect of this is NLP directed at constructed argument maps. Another aspect is NLP aimed at claims in multiple arguments to work out their relationships: Are they the same? Do they agree? Are they contradictory?
+This is NLP for the purpose of constructing argument maps. Manually constructed arguments maps provide training data for argument mining methods. Conceivably, a dialgoue that defines terms could be used directly by an argument mining agent.
 
 ### Terminology
 If we're joining argument from different sources together, we need to understand variations in terminology. Mapping terminology is something that would both help argument mining and be helped by argument mining.
