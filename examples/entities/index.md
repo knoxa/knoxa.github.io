@@ -8,7 +8,7 @@ These are events from _[Principle Events 1914-1918](https://tigersmuseum.github.
 
 I've made use of semantic mark-up in the file to select 1918 events that mention "Rumania" and at least one person. For each entity mentioned in an event, I've linked the event to the next that mentions the same entity, or to itself if the entity is not mentioned again. If you open [the image](romania1.svg) in a separate window, and "mouse over" the edges in the graph, you'll see the entity used to make each link.
 
-Information can be inferred from [this graph](.romania1.graphml). For example, apart from the King, the source only mentions Romanians in 1918 in the context of changes in political office. I can build a political timeline. If I reduce multiple links between nodes, remove self-links, and restrict the graph to covering relations, I get ...
+Information can be inferred from [this graph](romania1.graphml). For example, apart from the King, the source only mentions Romanians in 1918 in the context of changes in political office. I can build a political timeline. If I reduce multiple links between nodes, remove self-links, and restrict the graph to covering relations, I get ...
 
 ![Timeline](romania2.svg)
 
