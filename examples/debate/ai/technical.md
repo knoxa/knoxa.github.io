@@ -1,4 +1,6 @@
-# Argument maps
+# Argumentation
+
+## Argument maps
 
 The key dependency is the use of [Argument Interchange Format (AIF)](https://www.arg.tech/index.php/research/contributing-to-the-argument-interchange-format/) to model argument and dialogue. Arguments link through shared premises and conclusions to form *argument maps*. If different parties use the same identifier when they refer to the same claim, their respective lumps of AIF can be added together and the 'linked data' nature of AIF will make the connections. 
 

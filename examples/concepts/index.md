@@ -83,8 +83,8 @@ If these strings are from two different objects ("Messoudieh" and "Messudiyeh") 
 
 ## Things to think about
 
-Concept lattices relate objects through common attributes and attributes through common objects. It's useful in ontology.
+Concept lattices relate objects through common attributes, and attributes through common objects. It's useful in ontology.
 
-Can FCA be used as part of a NLP process to extract information from text? FCA can certainly be used to derive structured results from the output of NLP, but it might also be useful internally to some NLP process to check progress and direct the focus of specialist NLP algorithms.
+Can FCA be used as part of a NLP process to extract information from text? FCA can certainly be used to derive structured results from the output of NLP, but it might also be useful internally to some NLP process to assess intermediate results and direct the focus of specialist NLP algorithms.
 
 It's a modelling choice to decide what constitutes an object or attribute. How do concept lattices compare if the same data is modelled in different ways? Does comparing alternative models of the same data provide extra insights?
