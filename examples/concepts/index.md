@@ -2,7 +2,7 @@
 
 This example draws on data published by the [Royal Hampshire Regiment Museum](https://tigersmuseum.github.io/history/). The starting point is a file called [ships.txt](https://tigersmuseum.github.io/history/events/ww1/ships.txt), which is a list of noun phrases about ships taken from the WW1 chronologies mentioned on the [World War I](https://tigersmuseum.github.io/history/docs/ww1.html) page.
 
-The chronologies are machine-readable XHTML. The proper names of any ships mentioned are inside HTML *span* elements with a *class* attribute set to *vessel*. This makes it easy to create a dictionary of ship names from the chronologies. I've also hand-crafted a dictionary of nationalities, and a dictionary covering the types of ship mentioned in the noun phrases. In general, noun phrases concerning a common entity type will contain adjectives and nouns that can be considered attributes of the entity. The phrases in [ships.txt](https://tigersmuseum.github.io/history/events/ww1/ships.txt) may include proper names, the classes of ship, and nationalities.
+The chronologies are machine-readable XHTML. The proper names of any ships mentioned are inside HTML *span* elements with a *class* attribute set to *vessel*. This makes it easy to create a dictionary of ship names from the chronologies. I've also hand-crafted a dictionary of nationalities, and a dictionary covering the types of ship mentioned in the noun phrases. In general, noun phrases describing an entity will contain adjectives and nouns that can be considered attributes of the entity. The phrases in [ships.txt](https://tigersmuseum.github.io/history/events/ww1/ships.txt) may include proper names, the classes of ship, and nationalities.
 
 [Formal concept analysis (FCA)](https://en.wikipedia.org/wiki/Formal_concept_analysis) is a method that takes objects and attributes and constructs a *concept lattice*. Each node in the lattice represents a *concept* associated with zero or more objects and zero or more attributes. Each object and attribute appears in the lattice only once. In a lattice diagram, an object attached to a concept node is associated with all the attributes reachable by moving up the diagram, and an attribute attached to a concept node is associated with all the objects reachable by moving down the diagram. 
 
@@ -74,9 +74,17 @@ I can also add to the mix a statement like:
 
 This doesn't affect the concept lattice structure at all, but what it does do is add that sentence to the collection of strings in the "Ariadne" object. This is at least a reminder that "Ariadne" is ambiguous. It might prompt me to disambiguate the object if I'm interested in distinguishing between the vessels, or I can just leave it like that if I'm not.
 
-Above, I made an assumption that a name equates to an identity, and found a case of different entities with the same name that contradicted the assumption. There is also the case where the same entity has two different names. For example, the chronologies data has a few cases where the same vessel is named with different spellings:
+Above, I made an assumption that a name equates to an identity and found a case (Ariadne) that contradicted this assumption. There is also a contrary case where the same entity has two different names. For example, the chronologies data sometimes has the same vessel named with different spellings:
 
 	TURKISH BATTLESHIP "MESSOUDIEH"
 	THE TURKISH BATTLESHIP MESSUDIYEH
 
 If these strings are from two different objects ("Messoudieh" and "Messudiyeh") then both objects end up at the same node in the concept lattice because they are both "turkish" and "battleship". It's easy to judge they might be variations on the same name by eye, or by some NLP algorithm such as Soundex. If one or other were described as "dreadnought" rather than "battleship" then they wouldn't appear at the same concept lattice node. However, they would be close to each other in the lattice because other noun phrases in the input bring the attributes "battleship" and "dreadnought" together. The dictionaries I use allow preferred and alternative labels, so I can associate both names with a preferred transliteration, [Mesudiye](https://en.wikipedia.org/wiki/Ottoman_ironclad_Mesudiye), and make one object containing both strings.
+
+## Things to think about
+
+Concept lattices relate objects through common attributes and attributes through common objects. It's useful in ontology.
+
+Can FCA be used as part of a NLP process to extract information from text? FCA can certainly be used to derive structured results from the output of NLP, but it might also be useful internally to some NLP process to check progress and direct the focus of specialist NLP algorithms.
+
+It's a modelling choice to decide what constitutes an object or attribute. How do concept lattices compare if the same data is modelled in different ways? Does comparing alternative models of the same data provide extra insights?
