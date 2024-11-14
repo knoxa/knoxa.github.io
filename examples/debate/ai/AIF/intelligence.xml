@@ -1,0 +1,55 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:time="http://www.w3.org/2006/time#"
+    xmlns:aif="http://www.arg.dundee.ac.uk/aif#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:ies="http://ies.data.gov.uk/ies4#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://doi.org/10.48550/arXiv.0706.3639#p1">
+        <aif:claimText xml:lang="en">Intelligence is a property that an individual agent has as it interacts with its environment or environments.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://doi.org/10.48550/arXiv.0706.3639#ih">
+        <aif:claimText xml:lang="en">Intelligence refers to the mental capacity to learn from experiences, adapt to new situations, understand and handle abstract concepts, and use knowledge to manipulate one’s environment. It includes skills such as problem-solving, critical thinking, learning quickly, and understanding complex ideas.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:2BB97A2F68FC4CA11B2544E9DEBAF688">
+        <aif:claimText xml:lang="en">This is a definition of human intelligence so applies to "an individual agent"</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://doi.org/10.48550/arXiv.0706.3639#p3">
+        <aif:claimText xml:lang="en">Intelligence depends on how able the agent is to adapt to different objectives and environments.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise rdf:resource="https://doi.org/10.48550/arXiv.0706.3639#ih"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:6BE7CC1AF3D933BE891116D2667D05A4">
+        <aif:claimText xml:lang="en">It also relates intelligence to interaction with the environment</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://doi.org/10.48550/arXiv.0706.3639#conclusion">
+        <aif:claimText xml:lang="en">Intelligence measures an agent’s ability to achieve goals in a wide range of environments.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise rdf:resource="https://doi.org/10.48550/arXiv.0706.3639#p3"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://doi.org/10.48550/arXiv.0706.3639#p2">
+        <aif:claimText xml:lang="en">Intelligence is related to the agent’s ability to succeed or profit with respect to some goal or objective.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise rdf:resource="https://doi.org/10.48550/arXiv.0706.3639#p1"/>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+</rdf:RDF>
