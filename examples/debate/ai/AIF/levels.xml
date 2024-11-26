@@ -1,0 +1,94 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:time="http://www.w3.org/2006/time#"
+    xmlns:aif="http://www.arg.dundee.ac.uk/aif#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:ies="http://ies.data.gov.uk/ies4#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="this:p4">
+        <aif:claimText xml:lang="en">Focus on Potential, not Deployment.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="this:p4p">
+        <aif:claimText xml:lang="en">Requiring deployment as a condition of measuring AGI introduces non-technical hurdles such as legal and social considerations, as well as ethical and safety concerns.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="urn:eleatics:md5:D9BFAB72FD29D09251786A818EF019E1">
+        <aif:claimText xml:lang="en">It is not a necessary precursor for AGI that systems possess qualities such as consciousness or sentience</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="this:p1p">
+        <aif:claimText xml:lang="en">AGI systems need not necessarily think or understand in a human-like way.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="this:p6">
+        <aif:claimText xml:lang="en">Focus on the Path to AGI, not a Single Endpoint.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="this:p6p">
+        <aif:claimText xml:lang="en">We posit there is value in defining “Levels of AGI.”</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:I-node rdf:about="this:p2">
+    <aif:claimText xml:lang="en">Focus on [both] Generality and Performance.</aif:claimText>
+  </aif:I-node>
+  <aif:CA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="this:p3">
+        <aif:claimText xml:lang="en">Focus on Cognitive and Metacognitive, but not Physical, Tasks.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:CA34D69568209C7DE997DEF50626F37C">
+        <aif:claimText xml:lang="en">It is possible that embodiment in the physical world is necessary for building the world knowledge to be successful on some cognitive tasks</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default conflict</aif:claimText>
+  </aif:CA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="urn:eleatics:md5:241F40CE3A04CE3C77D5F71570609FA3">
+        <aif:claimText xml:lang="en">This may mean eschewing traditional AI metrics that are easy to automate or quantify but may not capture the skills that people would value in an AGI.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="this:p5">
+        <aif:claimText xml:lang="en">Focus on Ecological Validity.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion rdf:resource="this:p3"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="this:p3p">
+        <aif:claimText xml:lang="en">We suggest that the ability to perform physical tasks increases a system’s generality, but should not be considered a necessary prerequisite to achieving AGI.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="this:p1">
+        <aif:claimText xml:lang="en">Focus on Capabilities, not Processes.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise rdf:resource="this:p1p"/>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
+</rdf:RDF>
