@@ -5,12 +5,6 @@
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:ies="http://ies.data.gov.uk/ies4#"
     xmlns:foaf="http://xmlns.com/foaf/0.1/">
-  <aif:I-node rdf:about="urn:eleatics:md5:0B16E6604C807358EEAC339AB45D5BBA">
-    <aif:claimText xml:lang="en">The resources underlying the exponential growth of an evolutionary process are relatively unbounded.</aif:claimText>
-  </aif:I-node>
-  <aif:I-node rdf:about="urn:eleatics:md5:9DC488FE0F525B83FF705FD96D2AC61B">
-    <aif:claimText xml:lang="en">One resource is the (ever-growing) order of the evolutionary process itself.</aif:claimText>
-  </aif:I-node>
   <aif:RA-node>
     <aif:Conclusion>
       <aif:I-node rdf:about="https://knoxa.github.io/ai#singularity">
@@ -34,16 +28,37 @@
     </aif:Premise>
     <aif:claimText xml:lang="en">default support</aif:claimText>
   </aif:RA-node>
-  <aif:I-node rdf:about="urn:eleatics:md5:D130B9D9BC9EF499710E967C2E892CEC">
-    <aif:claimText xml:lang="en">In an evolutionary process, positive feedback increases order exponentially. A correlate is that the “returns” of an evolutionary process (such as the speed, cost-effectiveness, or overall “power” of a process) increase exponentially over time — both for biology and technology.</aif:claimText>
-  </aif:I-node>
-  <aif:I-node rdf:about="urn:eleatics:md5:CA09211EC8A8A26CE7313069799AB4BB">
-    <aif:claimText xml:lang="en">In technological evolution, human ingenuity combined with ever-changing market conditions keep the process of innovation going.</aif:claimText>
-  </aif:I-node>
-  <aif:I-node rdf:about="urn:eleatics:md5:491D64C1FFD9B5984C0D94BEEF7580C4">
-    <aif:claimText xml:lang="en">Technology, like any evolutionary process, builds on itself. This aspect will continue to accelerate when the technology itself takes full control of its own progression.</aif:claimText>
-  </aif:I-node>
-  <aif:I-node rdf:about="urn:eleatics:md5:D6A8D4C6F1B198998F4C021013B1CCB9">
-    <aif:claimText xml:lang="en">The other required resource is the "chaos" of the environment in which the evolutionary process takes place and which provides the options for further diversity.</aif:claimText>
-  </aif:I-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://link.springer.com/chapter/10.1007/978-3-662-05642-4_16#2c">
+        <aif:claimText xml:lang="en">In an evolutionary process positive feedback increases order exponentially A correlate is that the “returns” of an evolutionary process (such as the speed cost-effectiveness or overall “power” of a process) increase exponentially over time — both for biology and technology</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://link.springer.com/chapter/10.1007/978-3-662-05642-4_16#2p1">
+        <aif:claimText xml:lang="en">Technology, like any evolutionary process, builds on itself. This aspect will continue to accelerate when the technology itself takes full control of its own progression.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://link.springer.com/chapter/10.1007/978-3-662-05642-4_16#2p2">
+        <aif:claimText xml:lang="en">The resources underlying the exponential growth of an evolutionary process are relatively unbounded.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://link.springer.com/chapter/10.1007/978-3-662-05642-4_16#2p5">
+        <aif:claimText xml:lang="en">In technological evolution, human ingenuity combined with ever-changing market conditions keep the process of innovation going.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://link.springer.com/chapter/10.1007/978-3-662-05642-4_16#2p3">
+        <aif:claimText xml:lang="en">One resource is the (ever-growing) order of the evolutionary process itself.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://link.springer.com/chapter/10.1007/978-3-662-05642-4_16#2p4">
+        <aif:claimText xml:lang="en">The other required resource is the "chaos" of the environment in which the evolutionary process takes place and which provides the options for further diversity.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
 </rdf:RDF>
