@@ -1,0 +1,144 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:time="http://www.w3.org/2006/time#"
+    xmlns:aif="http://www.arg.dundee.ac.uk/aif#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:ies="http://ies.data.gov.uk/ies4#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://doi.org/10.1201/9781351251389-3#self-protect">
+        <aif:claimText xml:lang="en">AIs will be self-protective.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:A9FFEBEDAE202E16141E132106A229EA">
+        <aif:claimText xml:lang="en">For most utility functions utility will not accrue if the system is turned off or destroyed</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://doi.org/10.1201/9781351251389-3#utility">
+        <aif:claimText xml:lang="en">AIs will try to preserve their utility functions.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://doi.org/10.1201/9781351251389-3#clarify">
+        <aif:claimText xml:lang="en">Self-improving systems will be driven to clarify their goals and represent them as economic utility functions. They will also strive for their actions to approximate rational economic behavior.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:E47DF11966C0237643C1D7CD71E3E1D7">
+        <aif:claimText xml:lang="en">This will lead almost all systems to protect their utility functions from modification and their utility measurement systems from corruption</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="urn:eleatics:md5:FB0C18BAB1E71D826976A9CB316C2247">
+        <aif:claimText xml:lang="en">Intelligent systems will need to be carefully designed to prevent them from behaving in harmful ways</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://doi.org/10.1201/9781351251389-3#drives">
+        <aif:claimText xml:lang="en">We identify a number of “drives” that will appear in sufficiently advanced AI systems of any design. We call them drives because they are tendencies which will be present unless explicitly counteracted.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:TA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://doi.org/10.1201/9781351251389-3#improve">
+        <aif:claimText xml:lang="en">AIs will want to self-improve.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://doi.org/10.1201/9781351251389-3#question">
+        <aif:claimText xml:lang="en">What are these AI drives?</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">answering</aif:claimText>
+  </aif:TA-node>
+  <aif:TA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://doi.org/10.1201/9781351251389-3#counterfeit">
+        <aif:claimText xml:lang="en">AIs will try to prevent counterfeit utility.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise rdf:resource="https://doi.org/10.1201/9781351251389-3#question"/>
+    <aif:claimText xml:lang="en">answering</aif:claimText>
+  </aif:TA-node>
+  <aif:RA-node>
+    <aif:Conclusion rdf:resource="https://doi.org/10.1201/9781351251389-3#improve"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:6224983B94B109EDECDA8A454FBF5B12">
+        <aif:claimText xml:lang="en">Goal-seeking systems will have drives to model their own operation and to improve themselves</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:TA-node>
+    <aif:Conclusion rdf:resource="https://doi.org/10.1201/9781351251389-3#self-protect"/>
+    <aif:Premise rdf:resource="https://doi.org/10.1201/9781351251389-3#question"/>
+    <aif:claimText xml:lang="en">answering</aif:claimText>
+  </aif:TA-node>
+  <aif:TA-node>
+    <aif:Conclusion rdf:resource="https://doi.org/10.1201/9781351251389-3#utility"/>
+    <aif:Premise rdf:resource="https://doi.org/10.1201/9781351251389-3#question"/>
+    <aif:claimText xml:lang="en">answering</aif:claimText>
+  </aif:TA-node>
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://doi.org/10.1201/9781351251389-3#rational">
+        <aif:claimText xml:lang="en">AIs will want to be rational.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise rdf:resource="https://doi.org/10.1201/9781351251389-3#clarify"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:7BBC7C7BC46F0285ABD50A0E83FB944C">
+        <aif:claimText xml:lang="en">One important way for a system to better meet its goals is to ensure that future self-improvements will actually be in the service of its present goals</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:TA-node>
+    <aif:Conclusion rdf:resource="https://doi.org/10.1201/9781351251389-3#rational"/>
+    <aif:Premise rdf:resource="https://doi.org/10.1201/9781351251389-3#question"/>
+    <aif:claimText xml:lang="en">answering</aif:claimText>
+  </aif:TA-node>
+  <aif:RA-node>
+    <aif:Conclusion rdf:resource="https://doi.org/10.1201/9781351251389-3#counterfeit"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:DC8427F08E73299921B1F19A3A089B8E">
+        <aif:claimText xml:lang="en">They [AIs] will want their subcomponents to try to maximize utility but to not do it by counterfeiting or shortcutting the measurement systems</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+  <aif:TA-node>
+    <aif:Conclusion rdf:resource="https://doi.org/10.1201/9781351251389-3#question"/>
+    <aif:Premise rdf:resource="https://doi.org/10.1201/9781351251389-3#drives"/>
+    <aif:claimText xml:lang="en">questioning</aif:claimText>
+  </aif:TA-node>
+  <aif:TA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="https://doi.org/10.1201/9781351251389-3#efficiency">
+        <aif:claimText xml:lang="en">AIs will want to acquire resources and use them efficiently.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise rdf:resource="https://doi.org/10.1201/9781351251389-3#question"/>
+    <aif:claimText xml:lang="en">answering</aif:claimText>
+  </aif:TA-node>
+  <aif:RA-node>
+    <aif:Conclusion rdf:resource="https://doi.org/10.1201/9781351251389-3#efficiency"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="urn:eleatics:md5:C071CF4392C904CCA21F314716BF41E5">
+        <aif:claimText xml:lang="en">All computation and physical action requires the physical resources of space time matter and free energy Almost any goal can be better accomplished by having more of these resources</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">default support</aif:claimText>
+  </aif:RA-node>
+</rdf:RDF>

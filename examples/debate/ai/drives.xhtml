@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:dc="http://purl.org/dc/elements/1.1/" 
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:time="https://www.w3.org/TR/owl-time/"
+	xmlns:ies="http://ies.data.gov.uk/ies4#"
+	xmlns:core="https://knoxa.github.io/ai#"
+	xmlns:this="https://doi.org/10.1201/9781351251389-3#"
+	>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" href="master.css" rel="stylesheet"/>
+<title>AI Drives</title>
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"/>
+<meta name="DC.source" content="The Elephant and the Fly"/>
+<meta name="DC.identifier" content="Example ..."/>
+</head>
+<body>
+
+<!-- 
+https://selfawaresystems.com/wp-content/uploads/2008/01/ai_drives_final.pdf
+
+https://www.lesswrong.com/posts/gbKhdCLNrAebarXNM/ai-prediction-case-study-5-omohundro-s-ai-drives
+ -->
+ 
+ 
+<h1>The basic AI drives</h1>
+
+<article>
+
+	<div about="this:1">
+		<blockquote about="this:drives">
+			 We identify a number of “drives” that will appear in sufficiently advanced AI systems of any design. We call them drives because they are tendencies which will be present unless explicitly counteracted.
+		</blockquote>
+	</div>
+
+	<div about="this:drives" class="analysis">
+	<p class="question" about="this:question">
+		What are these AI drives? 
+	</p>
+	</div>
+
+</article>
+
+<article class="answer-list" about="this:question">
+
+	<div about="this:1">
+		<p class="ref"><a href="https://selfawaresystems.com/wp-content/uploads/2008/01/ai_drives_final.pdf">Omohundro, N. (2008)</a></p>
+
+		<blockquote about="this:improve">
+			AIs will want to self-improve. 
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote about="this:rational">
+			 AIs will want to be rational. 
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote about="this:utility">
+			 AIs will try to preserve their utility functions. 
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote about="this:counterfeit">
+			 AIs will try to prevent counterfeit utility. 
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote about="this:self-protect">
+			 AIs will be self-protective. 
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote about="this:efficiency">
+			 AIs will want to acquire resources and use them efficiently. 
+		</blockquote>
+	</div>
+	
+</article>
+
+<article>
+
+	<h2>Supporting arguments</h2>
+
+	<div about="this:1">
+		<blockquote class="conclusion">
+			 <span class="support">Intelligent systems will need to be carefully designed</span> <span class="premise refer" about="this:drives">to prevent them from behaving in harmful ways</span>.
+ 		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote class="premise">
+			  <span class="support">All computation and physical action requires the physical resources of space, time, matter, and free energy.</span> <span class="conclusion refer" about="this:efficiency">Almost any goal can be better accomplished by having more of these resources.</span>
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote class="premise">
+			  Goal-seeking systems will have <span class="support">drives to model their own operation</span> and to <span class="conclusion refer" about="this:improve">improve themselves</span>.
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote class="premise">
+			   They [AIs] will want their subcomponents to <span class="support">try to maximize utility</span> but to <span class="conclusion refer" about="this:counterfeit">not do it by counterfeiting or shortcutting the measurement systems</span>.
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote class="premise">
+			For most utility functions, <span class="support">utility will not accrue</span> <span class="conclusion refer" about="this:self-protect">if the system is turned off or destroyed</span>.
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote class="premise">
+			  <span class="support">One important way</span> for a system to <span class="premise refer" about="this:clarify">better meet its goals</span> is to <span class="conclusion refer" about="this:rational">ensure that future self-improvements will actually be in the service of its present goals</span>.
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote about="this:clarify">
+			  Self-improving systems will be driven to clarify their goals and represent them as economic utility functions. They will also strive for their actions to approximate rational economic behavior.
+		</blockquote>
+	</div>
+
+	<div about="this:1">
+		<blockquote class="premise">
+			<span class="premise refer" about="this:clarify">This</span> will <span class="support">lead almost all systems to</span> <span class="conclusion refer" about="this:utility">protect their utility functions</span> from modification and their utility measurement systems from corruption.
+ 		</blockquote>
+	</div>
+	
+</article>
+
+<br/>
+
+<h2>Argument map</h2>
+<p>
+<a href="AIF/drives.xml">
+<img class="medium" src="images/drives.svg" alt="argument map for AI drives" />
+</a>
+</p>
+
+</body>
+</html>
