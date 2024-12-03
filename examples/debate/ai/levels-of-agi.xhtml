@@ -7,7 +7,8 @@
 	xmlns:time="https://www.w3.org/TR/owl-time/"
 	xmlns:ies="http://ies.data.gov.uk/ies4#"
 	xmlns:core="https://knoxa.github.io/ai#"
-	xmlns:this="this:"
+	xmlns:bostrom="https://search.worldcat.org/search?q=isbn%3A9780199678112#"
+	xmlns:this="https://arxiv.org/pdf/2311.02462#"
 	>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -36,9 +37,28 @@ We propose a framework for classifying the capabilities and behavior of Artifici
 
 	<div about="https://arxiv.org/pdf/2311.02462">
 		<p class="ref"><a href="https://arxiv.org/pdf/2311.02462">Morris et al (2024)</a></p>
+
+		<blockquote about="this:principles">
+			We analyze existing definitions of AGI, and distill six principles that a useful ontology for AGI should satisfy.
+		</blockquote>
+
+		<div about="this:principles" class="analysis">
+		<p>
+			<span class="question" about="this:question">What are the principles that a useful ontology for AGI should satisfy?</span>
+			<span>They are given <span class="answer" about="this:question" resource="this:p1 this:p2 this:p3 this:p4 this:p5 this:p6">below</span>.</span>
+		</p>
+		</div>
+	
+	</div>
+
+	<div about="https://arxiv.org/pdf/2311.02462">
 		
-		<blockquote about="this:p1p">
-			AGI systems need not necessarily think or understand in a human-like way.
+		<div class="analysis">
+			<p>The first claim is <span class="premise" about="bostrom:orthogonality">the orthogonality thesis</span>.</p>
+		</div>
+		
+		<blockquote class="conclusion" about="this:p1p">
+			AGI systems <span class="support">need</span> <span class="premise refer" about="bostrom:orthogonality">not necessarily think or understand in a human-like way</span>.
 		</blockquote>
 
 		<blockquote about="this:p1">
