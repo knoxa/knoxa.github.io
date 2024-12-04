@@ -5,6 +5,19 @@
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
     xmlns:ies="http://ies.data.gov.uk/ies4#"
     xmlns:foaf="http://xmlns.com/foaf/0.1/">
+  <aif:RA-node>
+    <aif:Conclusion>
+      <aif:I-node rdf:about="urn:eleatics:md5:E72F91A98D280CFB3663D1791CBEF43A">
+        <aif:claimText xml:lang="en">The orthogonality thesis suggests that we cannot blithely assume that a superintelligence will necessarily share any of the final values stereotypically associated with wisdom and intellectual development in humans.</aif:claimText>
+      </aif:I-node>
+    </aif:Conclusion>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#orthogonality">
+        <aif:claimText xml:lang="en">Orthogonality thesis: Intelligence and final goals are orthogonal axes along which possible agents can freely vary.</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+  </aif:RA-node>
   <aif:TA-node>
     <aif:Conclusion>
       <aif:I-node rdf:about="urn:eleatics:md5:8D7565A5DAA34B7F81D06950EBA9B43E">
@@ -31,20 +44,7 @@
     </aif:Premise>
     <aif:claimText xml:lang="en">default support</aif:claimText>
   </aif:RA-node>
-  <aif:RA-node>
-    <aif:Conclusion>
-      <aif:I-node rdf:about="urn:eleatics:md5:E72F91A98D280CFB3663D1791CBEF43A">
-        <aif:claimText xml:lang="en">The orthogonality thesis suggests that we cannot blithely assume that a superintelligence will necessarily share any of the final values stereotypically associated with wisdom and intellectual development in humans.</aif:claimText>
-      </aif:I-node>
-    </aif:Conclusion>
-    <aif:Premise>
-      <aif:I-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#orthogonality">
-        <aif:claimText xml:lang="en">Orthogonality thesis: Intelligence and final goals are orthogonal axes along which possible agents can freely vary.</aif:claimText>
-      </aif:I-node>
-    </aif:Premise>
-    <aif:claimText xml:lang="en">selective quote</aif:claimText>
-  </aif:RA-node>
-  <aif:RA-node>
+  <aif:RA-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#supportextinction">
     <aif:Conclusion>
       <aif:I-node rdf:about="https://knoxa.github.io/ai#extinction">
         <aif:claimText xml:lang="en">humanity quickly becomes extinct</aif:claimText>

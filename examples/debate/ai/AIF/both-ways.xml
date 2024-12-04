@@ -7,8 +7,8 @@
     xmlns:foaf="http://xmlns.com/foaf/0.1/">
   <aif:RA-node>
     <aif:Conclusion>
-      <aif:I-node rdf:about="urn:eleatics:md5:538C01EC684E55869F26BC59BADD8CA0">
-        <aif:claimText xml:lang="en">We find that the singularity claim requires a notion of ‘general intelligence’, while the orthogonality thesis requires a notion of ‘instrumental intelligence’.</aif:claimText>
+      <aif:I-node rdf:about="urn:eleatics:md5:AA7E33CB115DDBA1B9914D05FB0C80D3">
+        <aif:claimText xml:lang="en">Taken together the singularity claim and orthogonality thesis may amount to an existential threat from AI</aif:claimText>
       </aif:I-node>
     </aif:Conclusion>
     <aif:Premise>
@@ -16,20 +16,20 @@
         <aif:claimText xml:lang="en">the argument for existential risk from AI has two premises, namely the singularity claim and the orthogonality thesis.</aif:claimText>
       </aif:I-node>
     </aif:Premise>
-    <aif:claimText xml:lang="en">selective quote</aif:claimText>
+    <aif:claimText xml:lang="en">infer from text</aif:claimText>
   </aif:RA-node>
   <aif:RA-node>
     <aif:Conclusion>
-      <aif:I-node rdf:about="https://doi.org/10.1111/rati.12320#concern">
-        <aif:claimText xml:lang="en">Our concern is with the validity of the argument: It appears that for each of the two premises to be charitably interpreted as true they must be interpreted as using the term ‘intelligence’ in different ways If that is the case they cannot be combined as premises into a valid argument for existential risk from AI</aif:claimText>
+      <aif:I-node rdf:about="urn:eleatics:md5:538C01EC684E55869F26BC59BADD8CA0">
+        <aif:claimText xml:lang="en">We find that the singularity claim requires a notion of ‘general intelligence’, while the orthogonality thesis requires a notion of ‘instrumental intelligence’.</aif:claimText>
       </aif:I-node>
     </aif:Conclusion>
-    <aif:Premise rdf:resource="urn:eleatics:md5:538C01EC684E55869F26BC59BADD8CA0"/>
+    <aif:Premise rdf:resource="urn:eleatics:md5:9B99C36F72289763527A37F598E63AF6"/>
     <aif:claimText xml:lang="en">selective quote</aif:claimText>
   </aif:RA-node>
   <aif:CA-node>
     <aif:Conclusion>
-      <aif:RA-node rdf:about="https://doi.org/10.1111/rati.12320#infer1">
+      <aif:RA-node rdf:about="https://search.worldcat.org/search?q=isbn%3A9780199678112#supportextinction">
         <aif:Conclusion>
           <aif:I-node rdf:about="https://knoxa.github.io/ai#extinction">
             <aif:claimText xml:lang="en">an existential threat from AI</aif:claimText>
@@ -45,20 +45,20 @@
             <aif:claimText xml:lang="en">the singularity claim</aif:claimText>
           </aif:I-node>
         </aif:Premise>
-        <aif:Premise>
-          <aif:I-node rdf:about="urn:eleatics:md5:AA7E33CB115DDBA1B9914D05FB0C80D3">
-            <aif:claimText xml:lang="en">Taken together the singularity claim and orthogonality thesis may amount to an existential threat from AI</aif:claimText>
-          </aif:I-node>
-        </aif:Premise>
+        <aif:Premise rdf:resource="urn:eleatics:md5:AA7E33CB115DDBA1B9914D05FB0C80D3"/>
         <aif:claimText xml:lang="en">default support</aif:claimText>
       </aif:RA-node>
     </aif:Conclusion>
-    <aif:Premise rdf:resource="https://doi.org/10.1111/rati.12320#concern"/>
+    <aif:Premise>
+      <aif:I-node rdf:about="https://doi.org/10.1111/rati.12320#concern">
+        <aif:claimText xml:lang="en">Our concern is with the validity of the argument: It appears that for each of the two premises to be charitably interpreted as true they must be interpreted as using the term ‘intelligence’ in different ways If that is the case they cannot be combined as premises into a valid argument for existential risk from AI</aif:claimText>
+      </aif:I-node>
+    </aif:Premise>
     <aif:claimText xml:lang="en">default conflict</aif:claimText>
   </aif:CA-node>
   <aif:RA-node>
-    <aif:Conclusion rdf:resource="urn:eleatics:md5:AA7E33CB115DDBA1B9914D05FB0C80D3"/>
-    <aif:Premise rdf:resource="urn:eleatics:md5:9B99C36F72289763527A37F598E63AF6"/>
-    <aif:claimText xml:lang="en">infer from text</aif:claimText>
+    <aif:Conclusion rdf:resource="https://doi.org/10.1111/rati.12320#concern"/>
+    <aif:Premise rdf:resource="urn:eleatics:md5:538C01EC684E55869F26BC59BADD8CA0"/>
+    <aif:claimText xml:lang="en">selective quote</aif:claimText>
   </aif:RA-node>
 </rdf:RDF>
