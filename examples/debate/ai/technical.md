@@ -52,3 +52,8 @@ This is NLP for the purpose of constructing argument maps. Manually constructed 
 ### Terminology
 If we're joining argument from different sources together, we need to understand variations in terminology. Mapping terminology is something that would both help argument mining and be helped by argument mining.
 
+## Argumentation Schemes
+
+[Argumentation schemes](https://www.researchgate.net/publication/335517695_Argumentation_Schemes) are stereotypical patterns of argument. An argumentation scheme suggests _critical questions_ that can be used to explore the strength or validity of an argument. Argumentation schemes can be used to classify arguments, and the classification used to assess their worth. See also [Dstl eleatics](https://github.com/dstl/eleatics/wiki/Argumentation-Schemes).
+
+ A list of argumentation schemes [here](view-source:https://dstl.github.io/eleatics/argumentation/schemes.xhtml). This is XHTML+RDFa and AIF can be extracted from this document. 
