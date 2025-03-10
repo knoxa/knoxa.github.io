@@ -2,7 +2,7 @@
 .doubtful {
 	#background: pink;
 }
-body {
+article {
   font-family: Courier;
   font-size: medium;
   width: 50em;
@@ -49,9 +49,4 @@ span[typeof="btmaps:GridReference"] {
 .underline-dashed {
   text-decoration-line: underline;
   text-decoration-style: dashed;
-}
-
-span.place {
-	color: green;
-	font-weight: bold;
 }

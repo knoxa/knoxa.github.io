@@ -2,20 +2,27 @@
 .doubtful {
 	#background: pink;
 }
+
 body {
   font-family: Courier;
   font-size: medium;
-  width: 50em;
-  padding-left: 4em;
 }
 
-p {
-	  text-indent: 2em;
+
+td {
+	  padding-left: 1em;
+
 }
 
-p.indent {
-	text-indent: 0em;
-	padding-left: 4em;
+td {
+		border-top: 1px dashed lightgrey;
+		border-right: none;
+		border-left: 1px dashed lightgrey;
+		border-bottom: none;
+}
+
+td > p {
+	margin: 5px;
 }
 
 h1 {
@@ -38,6 +45,10 @@ p.reference {
 
 span[typeof="btmaps:GridReference"] {
 	color: green;
+	font-weight: bold;
+}
+
+.table_heading {
 	font-weight: bold;
 }
 
