@@ -1,8 +1,6 @@
 # 11<sup>th</sup> Brigade War Diary, 1914
 
-Selected transcripts from the 11<sup>th</sup> Infantry Brigade War Diary from World War I held at The National Archive (TNA).
-
-See the [index](1914-index.xhtml) of PDF files downloaded from TNA, and links to transcribed documents below.
+Selected transcripts from the 11<sup>th</sup> Infantry Brigade War Diary for 1914, held at The National Archive (TNA). There is a [catalogue](1914-index.xhtml) of the relevant source PDF files downloaded from TNA. Links to transcribed documents are below.
 
 ## Monthly Diary Entries
 
