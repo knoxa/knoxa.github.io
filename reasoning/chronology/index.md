@@ -16,4 +16,4 @@ Points to note:
 
 A partial order of events may be apparent in a historical text even if precise timings aren't. For example, The Annals of Tacitus relate events to Roman consulships, which are contiguous time intervals. Other intervals can be constructed from the text, such as the reign of an emperor. Some event order can be be inferred. For example, people are born before they die, and they are born after any of their ancestors and before any of their descendants. A [simple example](/examples/chronology/example.xhtml) gives a flavour of this analysis. It's drawn from [a Roman history chronology](/history/roman/chronology), which includes technical discussion of the steps involved.
 
-Events can be linked by the mention of common entities to form timelines. These timelines can be used to infer information about the entities and their relationships. See the [entity linking example](entities).
+Events can be linked by the mention of common entities to form timelines. These timelines can be used to infer information about the entities and their relationships. See the [entity linking example](/examples/entities).
