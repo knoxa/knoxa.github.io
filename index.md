@@ -21,4 +21,4 @@ Transcripts from First World War [war diaries](https://knoxa.github.io/war-diary
 
 ### Ancient History
 
-The [Annals of Tacitus](https://knoxa.github.io/text/tacitus/).
+The [Annals of Tacitus](https://knoxa.github.io/tacitus/).
