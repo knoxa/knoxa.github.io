@@ -1,6 +1,6 @@
 # Places
 
-See [tigersmuseum](https://tigersmuseum.github.io/history/docs/places.html)
+Assigning text strings in documents to the concept of [place](https://www.oxfordbibliographies.com/display/document/obo-9780199874002/obo-9780199874002-0159.xml).
  
 ## Semantic mark-up
  
