@@ -60,3 +60,27 @@ and convert to something more formal later if neccessary.
 Dates and times are inside a [HTML _time_](https://www.w3schools.com/Tags/tag_time.asp) element with the _datetime_ attribute set if at all possible.
 
 You can use the HTML _content_ attribute on any element to assert an alternative text content. I use this on HTML
+
+
+-------------
+
+
+## Many hands
+
+I'm not going to be be rigourous about applying mark-up "rules". I'm probably not going to be comprehensive either.
+I'll focus my efforts on the documents that interest me. I'll develop and extend mark-up iteratively as I explore the documents.
+How I use semantic mark-up will may change as I explore.
+
+Information extraction from text should therefore be viewed as being enabled by semantic mark-up rather than depending on it. 
+If you don't want this mark-up, it's easy to strip out. If you do want this mark-up (or you're prepared to give it a go) then you want to be able
+to assess it critically.
+
+
+https://en.wikipedia.org/wiki/Semantic_HTML
+
+Keep it simple
+You're not the only one playing this game
+Collaboration is a good thing
+pass it rounf first, cut it up later
+
+linked-text repository?

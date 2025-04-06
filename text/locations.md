@@ -13,7 +13,10 @@ Locations may be described relative to other locations:
 	300 yards N of road junction ¼ mile N of E of LA HUTTE
 	the S.E. side of the railway about 350 yards N.E. of level crossing N. of first E in LE TOUQUET
 
-How 
+How
+
+The advantage of semantic mark-up is that it captures analysis of natural language text in the context of the text itself. Further, the original text is recoverable 
+by simply stripping out the mark-up. This means you can critically assess the process that created it in deciding whether to use it, or you can simply ignore it. 
  
 When do you need precise locations? I can search for any placenames in an general area that interests me and the
 reference locations (LE TOUQUET and LA HUTTE) will let me find these reports. If I need a precise point, I can work that out for myself as part of
@@ -70,7 +73,8 @@ I'll focus my efforts on the documents that interest me. I'll develop and extend
 How I use semantic mark-up will may change as I explore.
 
 Information extraction from text should there be view as being enabled by semantic mark-up rather than depending on it. 
-If you don't want this mark-up, it's easy to strip out.
+If you don't want this mark-up, it's easy to strip out. If you do want this mark-up (or you're prepared to give it a go) then you want to be able
+to assess it critically.
 
 
 Extract the place labels as a set of strings: For each span element, take the value of the _content_ attribute if set, or the text value of the element if not.
