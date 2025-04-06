@@ -1,18 +1,24 @@
 # Structure and Semantics
 
-I want to make the war diary transcripts readable by machines as well as humans.
+I can extract information from a text corpus and present it to you, but I'll make judgements and assumptions in doing so that you might not agree with, or that might simply be wrong.
+When I present the information I'm making claims not stating facts, and
+I should provide references so you can relate my claims the original source and critically assess them.
 
-I want to make it possible for different parties to share knowledge derived from war diaries. I can extract information from war diaries and present it to you, but
-I'll make jusdgements and assumptions in doing so that you might not agree with, or that might simply be wrong.
-I'm therefore making a claim when presenting information rather stating a fact. You may want to critically assess my claims.
-I provide references so you can track my claims back to the original source.
+I should also share the intermediate results and workings on which I base claims. In particular, I will do some data preparation work that makes the source text more
+amenable to machine processing. Sharing this, and encouraging common practice, opens up possibilites for collaboration in information extraction and
+[text as a knowledge base](https://knoxa.github.io/linked-text/).
 
-Since all the source material comes from The National Archive, I use [their citation scheme](https://www.nationalarchives.gov.uk/help-with-your-research/citing-records-national-archives/) 
-for any source material I transcribe.
+## War Diary 
+
+These ideas are easier to get across in the context of a specific example. I'll use the [war-diary](https://knoxa.github.io/war-diary/) corpus, which contains
+selected transcripts from the war diaries of British units in the Forst World War held in The National Archive (TNA).
 
 ## Source References
 
 TNA aren't completely clear in their terminology describing a record, but here's my interpretation for war diaries.
+
+Since all the source material comes from The National Archive, I use [their citation scheme](https://www.nationalarchives.gov.uk/help-with-your-research/citing-records-national-archives/) 
+for any source material I transcribe.
 
 The *series* for Western Front diaries is [WO 95](https://discovery.nationalarchives.gov.uk/browse/r/h/C14303). Below this is the record [WO 95/1486](https://discovery.nationalarchives.gov.uk/details/r/C4554637) covering the 1914 diaries for 11<sup>th</sup>Infantry Brigade.
 I'll also call this level of record as a series. This lets me refer to the next level down as a *piece*. The 1914 diary is then in 3 pieces:
@@ -58,7 +64,3 @@ How I use semantic mark-up will may change as I explore. See my notes [here](mar
 
 The advantage of semantic mark-up is that it captures analysis of natural language text in the context of the text itself. Further, the original text is recoverable 
 by simply stripping out the mark-up. This means you can critically assess the process that created it in deciding whether to use it, or you can simply ignore it. 
-
-
-linked-text repository?
-
