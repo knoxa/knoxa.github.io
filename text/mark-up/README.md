@@ -1,4 +1,4 @@
-# Semantic Mark-up
+# Semantic mark-up
 
 Conventions for marking up People, [Places](places) and Organizations.
 

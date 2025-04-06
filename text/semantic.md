@@ -84,3 +84,9 @@ Collaboration is a good thing
 pass it rounf first, cut it up later
 
 linked-text repository?
+
+
+A CSS stylesheet colours these green. 
+
+The advantage of semantic mark-up is that it captures analysis of natural language text in the context of the text itself. Further, the original text is recoverable 
+by simply stripping out the mark-up. This means you can critically assess the process that created it in deciding whether to use it, or you can simply ignore it. 
