@@ -7,11 +7,11 @@ See [tigersmuseum](https://tigersmuseum.github.io/history/docs/places.html)
 I enclose mentions of places in HTML _span_ elements with _class_ set to "place". I'm happy to nest one place inside another.
 For example: 
 
-	300 yards N of road junction ¼ mile N of E of LA HUTTE	
+	300 yards North of road junction ¼ mile North of E of LA HUTTE	
 
 contains,
 
-    road junction ¼ mile N of E of LA HUTTE	
+    road junction ¼ mile North of E of LA HUTTE	
 
 which in turn contains,
 
@@ -33,4 +33,4 @@ In this example, the word "there" is an anapahor for "PONT L'ÉVÈQUE". I can ma
 ## Structure 
 
 A Place may have other Places nested inside it. These capture parent-child and sibling relationships between places. An outer span will include words or phrases,
-such as "main road", alongside the nested span. These describe attributes of places or the relationships between them.
+such as "road junction", alongside the nested span. These describe attributes of places or the relationships between them.
