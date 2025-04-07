@@ -10,7 +10,7 @@ amenable to machine processing. Sharing this, and encouraging common practice, o
 ## War Diary 
 
 These ideas are easier to get across in the context of a specific example. I'll use the [war-diary](https://knoxa.github.io/war-diary/) corpus, which contains
-selected transcripts from the war diaries of British units that fought in in the First World War, held in The National Archive (TNA).
+selected transcripts from the war diaries, held in The National Archive (TNA), of British units that fought in in the First World War.
 
 Notes on my experiments with the War Diary corpus are [here](war-diary).
 
@@ -24,7 +24,7 @@ If I download a piece I get one or more PDF files, each of which is an *item*. I
 than one item, each gets a one-up number added to the piece reference. I include these item numbers in any source reference I make. The page numbers in my references refer to the
 pages of the item PDF file.
 
-## Structure
+## Document Structure
 
 Hereafter, I'll use the term *document* to refer to an original artefact or its transcript, and I'll say *source document* or *transcribed document* if the context doen't make that clear. 
 
@@ -34,6 +34,12 @@ I use the [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dc
 Larger documents may be composed of smaller ones. For example, signals, messages and reports for the same day may be collected together as an appendix.
 When transcribing, I put each of these lowest-level (atomic) documents inside a HTML _article_. The idea is that these articles can be extracted separately 
 and independently if desired. For that reason, I've adopted the practice of including a TNA reference inside each article.
+
+### Forms
+
+Many of the source documents are forms. These might have a tabular structure, or might have headers and footers for metadata fields. I use HTML _table_ elements
+labelled with _class_ attributes to capture this structure.
+
 
 ## Semantic mark-up
 
