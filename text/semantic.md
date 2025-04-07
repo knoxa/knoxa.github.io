@@ -1,7 +1,6 @@
 # Structure and Semantics
 
-I can extract information from a text corpus and present it to you, but I'll make judgements and assumptions in doing so that you might not agree with, or that might simply be wrong.
-When I present the information I'm making claims not stating facts.
+I can extract information from a text corpus and present it to you, but in doing so I'll make assumptions and judgements, which means I'm making claims not stating facts.
 I should provide references so you can relate my claims the original source and critically assess them.
 I should also share the intermediate results and workings on which I base claims, particularly data preparation that makes the source text more
 amenable to machine processing. Sharing this, and encouraging common practice, opens up possibilites for collaboration in information extraction and
@@ -10,21 +9,21 @@ amenable to machine processing. Sharing this, and encouraging common practice, o
 ## War Diary 
 
 These ideas are easier to get across in the context of a specific example. I'll use the [war-diary](https://knoxa.github.io/war-diary/) corpus, which contains
-selected transcripts from the war diaries of British units in the Forst World War held in The National Archive (TNA).
+selected transcripts from the war diaries of British units that fought in in the First World War, held in The National Archive (TNA).
 
 ## Source References
 
-Since all the source material comes from The National Archive, I use [their citation scheme](https://www.nationalarchives.gov.uk/help-with-your-research/citing-records-national-archives/) 
+Since all the source material comes from TNA, I use [their citation scheme](https://www.nationalarchives.gov.uk/help-with-your-research/citing-records-national-archives/) 
 for any source material I transcribe. For example, the *series* for Western Front diaries is [WO 95](https://discovery.nationalarchives.gov.uk/browse/r/h/C14303). Below this is the record [WO 95/1486](https://discovery.nationalarchives.gov.uk/details/r/C4554637) covering the 1914 diaries for 11<sup>th</sup>Infantry Brigade.
 I'll also call this level of record as a series, which makes the next level down a *piece*. The 1914 diary is then in 3 pieces:
 [WO 95/1486/1](https://discovery.nationalarchives.gov.uk/details/r/C14016968), [WO 95/1486/2](https://discovery.nationalarchives.gov.uk/details/r/C14016969) and [WO 95/1486/3](https://discovery.nationalarchives.gov.uk/details/r/C14016970).
 If I download a piece I get one or more PDF files, each of which is an *item*. If there's only one item, the PDF filename reflects the piece reference. If there's more 
 than one item, each gets a one-up number added to the piece reference. I include these item numbers in any source reference I make. The page numbers in my references refer to the
-pages of the item PDF document.
+pages of the item PDF file.
 
 ## Structure
 
-Hereafter, I'll use the term *document* to refer to an original artefact or its transcription, and I'll say *source document* or *transcribed document* if the context doen't make that clear. 
+Hereafter, I'll use the term *document* to refer to an original artefact or its transcript, and I'll say *source document* or *transcribed document* if the context doen't make that clear. 
 
 The documents are [XHTML](https://en.wikipedia.org/wiki/XHTML). This is a well formed [XML](https://en.wikipedia.org/wiki/XML), so readily machine processable.
 I use the [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) *source* term to add the TNA reference to the HTML _head_ element of each transcribed document.
