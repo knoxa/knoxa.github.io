@@ -1,8 +1,9 @@
-# Structure and Semantics
+# Knowledge from Text
 
 I can extract information from a text corpus and present it to you, but in doing so I'll make assumptions and judgements, which means I'm making claims not stating facts.
 I should provide references so you can relate my claims the original source and critically assess them.
-I should also share the intermediate results and workings on which I base claims, particularly data preparation that makes the source text more
+
+I can also help you by sharing the intermediate results and workings on which I base claims, particularly data preparation that makes the source text more
 amenable to machine processing. Sharing this, and encouraging common practice, opens up possibilites for collaboration in information extraction and
 [text as a knowledge base](https://knoxa.github.io/linked-text/).
 
@@ -10,6 +11,8 @@ amenable to machine processing. Sharing this, and encouraging common practice, o
 
 These ideas are easier to get across in the context of a specific example. I'll use the [war-diary](https://knoxa.github.io/war-diary/) corpus, which contains
 selected transcripts from the war diaries of British units that fought in in the First World War, held in The National Archive (TNA).
+
+Notes on my experiments with the War Diary corpus are [here](war-diary).
 
 ## Source References
 
@@ -52,4 +55,6 @@ to HTML. If you don't know about HTML then you can just transcribe source docume
 
 I'm not going to be be rigourous about applying mark-up "rules". I'm probably not going to be comprehensive either.
 I'll focus my efforts on the documents that interest me. I'll develop and extend mark-up iteratively as I explore the documents.
-How I use semantic mark-up will likely change as I explore. See my notes [here](mark-up).
+How I use semantic mark-up will likely change as I explore.
+
+Notes on my use of semantic mark-up are [here](mark-up).
