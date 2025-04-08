@@ -9,19 +9,22 @@ Given a set of independently created KML files, I may end up with multiple label
 These issues can be avoided with painstaking care in creating and curating KML files, but doing that in a collaborative environment requires one of the
 parties to assume an authorative role and effectively manage a GIS database. I'm not going to be that careful about it anyway. Instead, the approach 
 I'll adopt is to allow for the possibility of mistakes creeping into the process of locating places mentioned in text.
-I'll consider how those mistakes might be detected and corrected.
+I'll consider how those mistakes might be detected and corrected, or perhaps safely ignored.
+An alternative approach to disambiguation considers _context_ when mapping from place labels as they appear in the source text through to locations. The preferred label map and geospatial data 
+might be different in different contexts, and the context chosen to eliminate ambiguity. The issue is then one of defining and managing "context".
 
+In outline:
 
-1. Extract the place labels as a set of strings: For each span element, take the value of the _content_ attribute if set, or the text value of the element if not.
+1. I construct a set of strings from the place mentions: For each span element, I take the value of the _content_ attribute if set, or the text value of the element if not.
 
-1. The same place may have different labels. Taking inspiration from SKOS, I'll consider one of these to be the _preferred label_ and the rest to be _alternate labels_.
-I choose preferred labels to be the f_Placemark_ names in my KML.
+1. The same place may have different labels. Taking inspiration from SKOS, I consider one of these to be the _preferred label_ and the rest to be _alternate labels_.
+I choose preferred labels to be the _Placemark_ names in my KML.
 
-1. The next step is to map the set of extracted labels to a set of preferred labels.
-This is a mapping function that takes a label x to a preferred label p(x), with the constraint that p(p(x)) = p(x).
+1. The next step is to map the set of places to a set of preferred labels.
+This is a mapping function that takes a label _x_ to a preferred label _p(x)_, with the constraint that _p(p(x)) = p(x)_.
 
-1. This assumes that Placemark names are unique. In general, they won't be. I therefore map from preferred label to a set of locations. If the returned
-set has one element the place name is unique, if there is more that one element the name is ambiguous.
+1. If the _Placemark_ names are unique they serve to identify the location. In general, they won't be. I therefore construct a map from preferred label to a set of locations.
+If the returned set has one element the preferred place name is unique, if there is more that one element the name is ambiguous.
 
 ### Issues
 
@@ -36,22 +39,8 @@ I might be more interested in the reference points used to describe a place than
 
 ### Geometry
 
-Rivers and roads are lines rather than points.
-
-A town or city isn't really a point, but we're used to sticking pins in maps to show where they are. By convention, a point in the centre of a town 
-is that town's location.
-
-A line may be described by reference to a point:
-
-	main road through GUISCARD
-
-In this case, if the information I want is that a unit passed through the point, I'm happy to record just the point.
-
-One approach to disambiguation would be to enforce unique preferred labels (which is what Wikipedia does) for each location, but this has an overhead in
-managing and enforcing the uniqueness in the geospatial data, and it requires care in mapping to preferred label. Instead, I'm happy to live with 
-mistakes caused by erroneous assumptions provided there are ways of detecting and correcting them, or perhaps determining they have little impact on conclusions and ignoring them.
-An alternative approach would be to consider _context_ when mapping from place labels as they appear in the source text through to locations. The preferred label map and geospatial data 
-might be different in different contexts, and chosen to eliminate ambiguity.
-
-
+A town or city isn't really a point, but we're used to sticking pins in maps to show where they are.
+By convention, a point in the centre of a town is that town's location.
+Rivers and roads are lines rather than points. Countries and administrative regions are polygons. If a general region has a geometry, then it too will be a polygon, but 
+it might also be just a short-hand name covering a set of point locations without a geometry of its own. 
 
