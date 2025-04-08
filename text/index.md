@@ -12,7 +12,7 @@ amenable to machine processing. Sharing this, and encouraging common practice, o
 These ideas are easier to get across in the context of a specific example. I'll use the [war-diary](https://knoxa.github.io/war-diary/) corpus, which contains
 selected transcripts from the war diaries, held in The National Archive (TNA), of British units that fought in in the First World War.
 
-Notes on my experiments with the War Diary corpus are [here](war-diary).
+Notes on my exploration of the War Diary corpus are [here](war-diary).
 
 ## Source References
 
@@ -38,7 +38,7 @@ and independently if desired. For that reason, I've adopted the practice of incl
 ### Forms
 
 Many of the source documents are forms. These might have a tabular structure, or might have headers and footers for metadata fields. I use HTML _table_ elements
-labelled with _class_ attributes to capture this structure.
+appropriately labelled with _class_ attributes to capture this structure.
 
 
 ## Semantic mark-up
