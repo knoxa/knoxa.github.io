@@ -59,7 +59,7 @@ I transcribe source documents to XHTML directly. I add semantic mark-up later, a
 If you don't know about XHTML then you can create HTML and use one of the many available 'cleaner' utilities to convert it
 to HTML. If you don't know about HTML then you can just transcribe source documents in your favourite word processor, and there will still be a way to get to XHTML ultimately.
 
-I'm not going to be be rigourous about applying mark-up "rules". I'm probably not going to be comprehensive either.
+I'm not going to be be rigorous about applying mark-up "rules". I'm probably not going to be comprehensive either.
 I'll focus my efforts on the documents that interest me. I'll develop and extend mark-up iteratively as I explore the documents.
 How I use semantic mark-up will likely change as I explore.
 
