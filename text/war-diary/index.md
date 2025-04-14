@@ -12,7 +12,7 @@ truce developed in front of the 1st Battalion Hampshire Regiment<sup> [1]</sup>.
 In August 1914 the 4<sup>th</sup> Infantry Division were pitched into the retreat from Mons, fought in the First Battle of the Marne, 
 and took part the subsequent advance to the Aisne.
 The movement tables for these periods are in the 11<sup>th</sup> Brigade war diary. 
-These provide an interesting example of information extraction that I describe [separately](movements-4Div.md).
+These provide an interesting example of information extraction that I describe [separately](movements-4div.md).
 
 ## References
 
