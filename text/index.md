@@ -1,6 +1,6 @@
 # Knowledge from Text
 
-I can extract information from a text corpus and present it to you, but in doing so I'll make assumptions and judgements, which means I'm making claims not stating facts.
+I can extract information from a text corpus and present it to you, but in doing so I'll make assumptions and judgements, so I'm making claims not stating facts.
 I should provide references so you can relate my claims the original source and critically assess them.
 
 I can also help you by sharing the intermediate results and workings on which I base claims, particularly data preparation that makes the source text more
