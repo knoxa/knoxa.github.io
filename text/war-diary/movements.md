@@ -1,10 +1,10 @@
-# Movements of the 4sup>th</sup> Division
+# Movements
 
 The 4th Infantry Division produced movement tables covering [the Retreat from Mons](https://knoxa.github.io/war-diary/11-Bde/1914/1914-08-Appendix10.xhtml)<sup> [1,2]</sup> 
 and [the Advance to the Aisne](https://knoxa.github.io/war-diary/11-Bde/1914/1914-10-Appendix55.xhtml#movement)<sup> [3]</sup>.
 
 In the 11 Bde war diary, the August movements<sup> [1]</sup> were photographed with a fold in the page that obscures a couple of lines.
-I managed to find exactly the same source document in the 4 Div diary<sup> [2]</sup>, clearly photographed in its entirety. This raises the question of what to do
+Fortunately, exactly the same source document appears in the 4 Div diary<sup> [2]</sup>, clearly photographed in its entirety. This raises the question of what to do
 when a corpus includes multiple copies of the same source document. I've chosen to use the 4 Div copy to fill in the missing lines when transcribing the 11 Bde copy.
 I've justified this by added the TNA reference for both source documents to the transcript. A transcript with more than one TNA source reference is therefore
 assumed to derive from more than one source document.
@@ -15,8 +15,8 @@ The movements tables give times and locations. The first<sup> [1,2]</sup> includ
 to get a chronology. The **Notes** column also mentions some places in describing events that happen in transit. These events don't have precise timings, but I can assume that
 the movements of a single concrete entity are totally ordered, and insert these events between the appropriate 'departure' and 'arrival' events.
 
-The second movement table isn't quite as simple. The events are just departures and arrivals, and they may include the mention of more than one place.
-Sometimes, instead of recording departures and arrival in different row, they are recorded together as happening during the same day. In this case, I've 
+The second movement table isn't quite as simple. The events are just arrivals and (sometimes) departures, and they may include the mention of more than one place.
+Occasionally, departures and arrivals are recorded together as happening during the same day. In this case, I've 
 added semantic markup to delimit the events in the **Places** column. Each of these events has the same date, so can't be ordered explicity, but I assume they
 are presented in time order and add them to the chronology accordingly.
 
@@ -27,7 +27,7 @@ records the relationship between 4 Div and a place. I can produce this in stages
 
 1. I restrict the processing of source material to just the transcripts referenced below. If I know which files contain the transcripts (as I do)
 I can just feed those into the process. If I don't, I can crawl all transcripts and look for the references. In general, a file may include a number
-of transcribed documents. These are in separate HTML articles, so Iselect just those from an input file that match the references I want. For this example,
+of transcribed documents. These are in separate HTML articles, so I select just those from an input file that match the references I want. For this example,
 the two movement tables are contiguous. Instead of processing them separately, I can collect the relevant transcript data into a single file and process
 them together to get a single chronology covering the whole period. I can run a pre-processing script that collects "work" as HTML, then treat this document
 as my input.
@@ -54,10 +54,13 @@ What should the output be? It's possible to capture the final data structure fro
 take the final result and generate a rewritten XHTML movements table. This would capture the same information as the transcribed one, but with structural
 wrinkles smoothed out. It would be both human readble, and machine readable to the extent of making the information extraction (step 2 above) relatively trivial.
 
-There's other information to be derived from these source documents. Notably, the geographicd coordinates of the places mentioned. Also, perhap, the 
-relationship between 4 Div and the people and organizations mention. I'm taking the view that different structured data results can be got from the same source text
+There's other information to be derived from these source documents. Notably, the geographic coordinates of the places mentioned. Also, perhaps, the 
+relationship between 4 Div and the people and organizations mentioned. I'm taking the view that different structured data results can be got from the same source text
 by applying different end-to-end processing, possibly by different parties. Seperate processes are potentially relatable if they start from the same source reference,
 so it's important to record the source reference as metadata on the results.
+
+The movement tables each relate to a single broader event: 'Retreat from Mons' and 'Advance to the Aisne'. Processing each separately gives information
+about wider events that will be relevant to much other source material covering the same events.
 
 ## References
 
