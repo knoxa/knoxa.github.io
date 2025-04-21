@@ -29,7 +29,7 @@ records the relationship between 4 Div and a place. I can produce this in stages
 I can just feed those into the process. If I don't, I can crawl all transcripts and look for the references. In general, a file may include a number
 of transcribed documents. These are in separate HTML articles, so I select just those from an input file that match the references I want. For this example,
 the two movement tables are contiguous. Instead of processing them separately, I can collect the relevant transcript data into a single file and process
-them together to get a single chronology covering the whole period. I can run a pre-processing script that collects "work" as HTML, then treat this document
+them together to get a single chronology covering the whole period. I can run a pre-processing script that collects 'work' as XHTML, then treat this document
 as my input.
 
 2. I apply an XSL transform to create a structured output from the XHTML. This assumes there is enough structure in the XHTML to do so. The description
@@ -39,9 +39,12 @@ that does the relevant information extraction. This is bespoke to this use case,
 tools for manipulating chronology.
 
 3. This example includes a lot of explicit ordering based on timestamps, and a few 'in transit' events that aren't timestamped themselves 
-but occur between timestamped events. The output format is a partial order of contiguous departure and arrival events, with a few explicity
-specified links for the transit events. A utility stylesheet connects together the nodes. Another restricts the
-ordering relationship to just covering relationships. The result should be (and is) a total order. 
+but occur between timestamped events. The output format is a partial order of contiguous departure and arrival events, with a few explicitly
+specified links for the in transit events. A utility stylesheet connects together the nodes. Another restricts the
+ordering relationship to just covering relationships. The result should be (and is) a total order.
+
+4. At this stage, everything in the chronology is an instant in time. A spell in one place is recorded as an arrival event followed some time later by a
+departure event. I can link consecutive events that mention the same place to make an interval covering the time between arrival and departure.
 
 ## Notes
 
@@ -52,7 +55,7 @@ There are trade-offs between adding semantic mark-up upstream, and NLP processin
 
 What should the output be? It's possible to capture the final data structure from above, or transform to some presentation format. It would be possible, for example, to
 take the final result and generate a rewritten XHTML movements table. This would capture the same information as the transcribed one, but with structural
-wrinkles smoothed out. It would be both human readble, and machine readable to the extent of making the information extraction (step 2 above) relatively trivial.
+wrinkles smoothed out. It would be both human readable, and machine readable to the extent of making the information extraction (at step 2 above) relatively trivial.
 
 There's other information to be derived from these source documents. Notably, the geographic coordinates of the places mentioned. Also, perhaps, the 
 relationship between 4 Div and the people and organizations mentioned. I'm taking the view that different structured data results can be got from the same source text
