@@ -22,7 +22,7 @@ token as an attribute. Instead, I'll do it the other way round: Objects are toke
 that token features. This choice makes it easy to eliminate tokens that aren't discrimantory by simply deleting the object. As we'll see later,
 it makes possible to add objects to influence results.
 
-### General Murray
+### Similar names
 
 This example is drawn from [World War I Chronology](https://tigersmuseum.github.io/history/docs/ww1.html). As far as tokenization is concerned,
 I filter against a stop list of ranks and titles, and I apply both Soundex and Metaphone to each token and add these to the set.
@@ -102,21 +102,18 @@ Tracing mention of the name back to the corpus shows that "General Murray" means
 * This output is correct if the "A" in "A. Murray" doesn't stand for "Archibald", but in fact it does. The "truth" here is two person objects; one being Person 1 above,
 and the other being a union of the attributes of Person 2 and Person 3.
 
-## Assumptions
+### Assumptions
 
-There are two explicit assumptions described in this example concerning generating person objects from a concept lattice. There are other assumptions,
-not made explicit, in how the subset of names to process is selected and in how the tokenization works. There are lots of variations that could be made on 
-these themes to tune the process one way or another. In general though, we should always assume that the outputs are _claims_ not _facts_. We might 
-trust a process well enough to deem its claims worth checking. We might compare various methods and look for corroboration or contradiciton.
+There are two explicit assumptions described in this example concerning generating person objects from a concept lattice which I'll paraphrase as "top concepts are people" and "names below are the same person".
+There are other assumptions, not made explicit, in how the subset of names to process is selected and in how the tokenization works. These will affect the 
+concept lattice produced.
 
-An advantage of producing output as a putative person object with associated attrbiutes is that we can use FCA to analyse the results.
+The use of Metaphone and Soundex encodings, for example, weakens the "top objects are people" assumption.
+The reason is that several name tokens will encode to the same string, so the encoded token is a more common object than any of the source tokens that map to it.
+This means it is likely to appear lower in the concept lattice with an upwards branch towards concepts carrying the different corresponding source tokens.
+This can be seen in the next example.
 
-The use of Metaphone and Soundex encodings weakens the assumption that attributes higher in the concept lattice correspond to individuals.
-The reason is that several name tokens will encode to the same string.
-The encoded token is then a more common object than any of the source tokens that map to it.
-This means it is likely to appear lower in the concept lattice with an upwards branch towards each of the different corresponding source tokens.
-
-## Synonyms
+### Synonyms
 
 The use of encodings such as Soundex and Metaphone allow for different transliterations or spellings of the same name. For example,
 
@@ -133,6 +130,19 @@ If I take out the original name token objects (leaving just the ones created by 
 ![A concept lattice - Alex encoded only](names-alex-code.svg)
 
 This now gives me 2 people, which is again wrong - "Alexandra Feodorovna" and "Prince Alexander" are different people. The problem here is that
-Soundex token "A425" doesn't distinguish between "Alexandra" and "Alexander", which is an important distinction to make in this context.
+Soundex token "A425" doesn't distinguish between "Alexandra" and "Alexander", which is an important distinction to make in this context. If delete
+the object for token "A425" before the FCA step, I get:
 
-![A concept lattice - Alex fixed](alex-fix.svg)
+![A concept lattice - Alex fixed](names-alex-fix.svg)
+
+This is 
+
+
+---
+In general though, we should always assume that the outputs are _claims_ not _facts_. We might 
+trust a process well enough to deem its claims worth checking. We might compare various methods and look for corroboration or contradiciton.
+
+An advantage of producing output as a putative person object with associated attrbiutes is that we can use FCA to analyse the results.
+---
+
+## Assertions
