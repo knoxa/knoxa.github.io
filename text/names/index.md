@@ -22,11 +22,12 @@ token as an attribute. Instead, I'll do it the other way round: Objects are toke
 that token features. This choice makes it easy to eliminate tokens that aren't discrimantory by simply deleting the object. As we'll see later,
 it makes possible to add objects to influence results.
 
-## An example
+## General Murray
 
 This example is drawn from [World War I Chronology](https://tigersmuseum.github.io/history/docs/ww1.html). As far as tokenization is concerned,
 I filter against a stop list of ranks and titles, and I apply both Soundex and Metaphone to each token and add these to the set.
-To make it easier to follow, I restrict the input to this set of names:
+To make it easier to follow, I restrict the input to this a set of names covering two different people,
+[Sir Archibald James Murray](https://en.wikipedia.org/wiki/Archibald_Murray) and [Sir James Wolfe Murray](https://en.wikipedia.org/wiki/James_Wolfe_Murray):
 
     General Murray
     Lieut-General Sir A. J. Murray
@@ -38,25 +39,75 @@ To make it easier to follow, I restrict the input to this set of names:
     Sir A. Murray
     LieutGeneral Sir Archibald Murray
 	
- These names cover two different people, [Sir Archibald James Murray](https://en.wikipedia.org/wiki/Archibald_Murray) and [Sir James Wolfe Murray](https://en.wikipedia.org/wiki/James_Wolfe_Murray).
- 
- Applying FCA produces this concept lattice:
- 
- ![A concept lattice from names](names-fca1.svg)
- 
- This is the GraphML procuded by the FCA implementation in my [argumentation](https://github.com/knoxa/argumentation/tree/main) repository, loaded into yEd and exported as SVG.
- There isn't a layout method for lattice diagrams in yEd, so I've laid this out hierarchically, and made the edges directed so that they point "upward" towards the most common attribute.
- The attribute labels appear on the diagram beside concept nodes. The object labels aren't visible, but you'll see them if you open the image in a new tab and mouse over concept nodes.
 
-What I'd like as output is a set of objects where each represents a distinct person, with the various representation of their names as attributes.
-Ther are some things I can do:
+Applying FCA produces this concept lattice ...
+ 
+![A concept lattice from names](names-fca1.svg)
+ 
+This diagram is the GraphML procuded by the FCA implementation in my [argumentation](https://github.com/knoxa/argumentation/tree/main) repository, loaded into yEd and exported as SVG.
+There isn't a layout method for lattice diagrams in yEd, so I've used a hierarchical layout and made the edges directed so that they point "upward" towards the most common attribute.
+The attribute labels appear on the diagram beside concept nodes. The object labels aren't visible, but you'll see them if you open the image in a new tab and mouse over concept nodes.
 
-1. Names are equivalent if they appear at the same concept node. I could make a person object from each concept node that has one or more attributes.
+What I'd like as output from entity disambiguation is a set of objects where each represents a distinct person, with their names as attributes.
 
-2. Attributes (names) towards the top of the lattice are associated with more objects (tokens) than attributes towards the bottom.
+Attributes on the same concept node are equivalent.
+Attributes (names) towards the top of the lattice are associated with more objects (tokens) than attributes towards the bottom.
 The top attributes are therefore "longer" names that tend to have more tokens.
-I can argue that this makes them more likely to identify a specific individual. I could make a person
-object from each of of these top objects. Further, all the tokens relating to the name(s) in the top concept are found in the set of concepts below.
-Any name attributes associate with these concepts is constitent with the top name attribute in that it is formed from a subset of its tokens.
+I can argue that this makes them more likely to identify a specific individual and make a person object from each of of these top concepts.
+I get three person objects from this assumption:
 
- 
+	Person 1
+		General Sir J. Wolfe Murray
+		
+	Person 2
+		Archibald Murray
+		LieutGeneral Sir Archibald Murray
+
+	Person 3
+		Lieut-General Sir A. J. Murray
+		General Sir A. J. Murray
+		Lieut.-General Sir A. J. Murray
+
+Because all the tokens relating to a name attribute are objects of the concepts below,
+any name attribute associated with these lower concepts is constitent with the top concept name attribute in that it is formed from a subset of its tokens.
+I can make the further assumption that all the attributes below a top concept are names of the person I've identified with the top concept. I get the
+same three objects with more attributes:
+
+	Person 1
+		General Sir J. Wolfe Murray
+		General Murray
+		
+	Person 2
+		Archibald Murray
+		LieutGeneral Sir Archibald Murray
+		General Murray
+
+	Person 3
+		Lieut-General Sir A. J. Murray
+		General Sir A. J. Murray
+		Lieut.-General Sir A. J. Murray
+		General Sir A. Murray
+		Sir A. Murray
+		General Murray
+
+There are a couple of things to note about this result:
+
+* In this context, the name "General Murray" is genuinely ambiguous, as evinced by its appearance as an attribute on all three person objects.
+Tracing mention of the name back to the corpus shows that "General Murray" means Archibald Murray in the context of the source text.
+
+* This output is correct if the "A" in "A. Murray" doesn't stand for "Archibald", but in fact it does. The "truth" here is two person objects; one being Person 1 above,
+and the other being a union of the attributes of Person 2 and Person 3.
+
+## Assumptions
+
+There are two explicit assumptions described in this example concerning generating person objects from a concept lattice. There are other assumptions,
+not made explicit, in how the subset of names to process is selected and in how the tokenization works. There are lots of variations that could be made on 
+these themes to tune the process one way or another. In general though, we should always assume that the outputs are _claims_ not _facts_. We might 
+trust a process well enough to deem its claims worth checking. We might compare various methods and look for corroboration or contradiciton.
+
+An advantage of producing output as a putative person object with associated attrbiutes is that we can use FCA to analyse the results.
+
+The complete graph (for 1071 names) from the WWI chronolgy is:
+
+![Full lattice from names](names-full.svg)
+
