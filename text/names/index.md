@@ -22,11 +22,15 @@ token as an attribute. Instead, I'll do it the other way round: Objects are toke
 that token features. This choice makes it easy to eliminate tokens that aren't discrimantory by simply deleting the object. As we'll see later,
 it makes possible to add objects to influence results.
 
-## General Murray
+### General Murray
 
 This example is drawn from [World War I Chronology](https://tigersmuseum.github.io/history/docs/ww1.html). As far as tokenization is concerned,
 I filter against a stop list of ranks and titles, and I apply both Soundex and Metaphone to each token and add these to the set.
-To make it easier to follow, I restrict the input to this a set of names covering two different people,
+The complete concept lattice (for 1071 names) from the WWI chronolgy is:
+
+![Full lattice from names](names-full.svg)
+
+To make the discussion below easier to follow, I restrict the input to just this set of names covering two different people,
 [Sir Archibald James Murray](https://en.wikipedia.org/wiki/Archibald_Murray) and [Sir James Wolfe Murray](https://en.wikipedia.org/wiki/James_Wolfe_Murray):
 
     General Murray
@@ -69,7 +73,7 @@ I get three person objects from this assumption:
 		Lieut.-General Sir A. J. Murray
 
 Because all the tokens relating to a name attribute are objects of the concepts below,
-any name attribute associated with these lower concepts is constitent with the top concept name attribute in that it is formed from a subset of its tokens.
+any name attribute associated with these lower concepts is consistent with the top concept name attribute in that it is formed from a subset of its tokens.
 I can make the further assumption that all the attributes below a top concept are names of the person I've identified with the top concept. I get the
 same three objects with more attributes:
 
@@ -107,7 +111,28 @@ trust a process well enough to deem its claims worth checking. We might compare 
 
 An advantage of producing output as a putative person object with associated attrbiutes is that we can use FCA to analyse the results.
 
-The complete graph (for 1071 names) from the WWI chronolgy is:
+The use of Metaphone and Soundex encodings weakens the assumption that attributes higher in the concept lattice correspond to individuals.
+The reason is that several name tokens will encode to the same string.
+The encoded token is then a more common object than any of the source tokens that map to it.
+This means it is likely to appear lower in the concept lattice with an upwards branch towards each of the different corresponding source tokens.
 
-![Full lattice from names](names-full.svg)
+## Synonyms
 
+The use of encodings such as Soundex and Metaphone allow for different transliterations or spellings of the same name. For example,
+
+![A concept lattice](names-alex.svg)
+
+Here, "Alexandra Feodorovna" is linked to "Prince Alexander" and "Alexander" by the Soundex token "A425" at concept node 2, and "General Alexeieff"
+and "General Alexeiev" are linked by the Soundex token "A421" at concept 6. All the names are linked by the Metaphone token "ALKS" at concept 4.
+
+If I use the "top concepts are people" assumption, I get 4 people, which is wrong - General Alexeieff"
+and "General Alexeiev" are the same person.
+
+If I take out the original name token objects (leaving just the ones created by Metaphone and Soundex), I get:
+
+![A concept lattice - Alex encoded only](names-alex-code.svg)
+
+This now gives me 2 people, which is again wrong - "Alexandra Feodorovna" and "Prince Alexander" are different people. The problem here is that
+Soundex token "A425" doesn't distinguish between "Alexandra" and "Alexander", which is an important distinction to make in this context.
+
+![A concept lattice - Alex fixed](alex-fix.svg)
