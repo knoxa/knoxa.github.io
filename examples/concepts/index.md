@@ -51,7 +51,7 @@ gives an "Undaunted" object with both "cruiser" and "destroyer" attributes.
 
 The object "Ariadne" is at concept node 16 and has attributes "steamer", "mine layer" and "cruiser" - an odd combination. The same issue about there being more than one "Ariadne" might be discovered from this lattice as well as the nationality one.
 
-The basic approach here is to treat sets of strings as objects and labels as attributes. If there is some structure on the sets of strings (they all mention  the same ship name say), and there is some meaning to the labels (a nationality label say) then I can expect that structure to be reflected in the attributes (each ship belongs to one nation). I can make some modelling assumptions, construct objects and attributes accordingly, then create the concept lattice and test assumptions. I can use NLP in constructing the objects (noun phrase chunking) and I can use NLP in checking results (determining is a noun phrase contains a conjunction).
+The basic approach here is to treat sets of strings as objects and labels as attributes. If there is some structure on the sets of strings (they all mention  the same ship name say), and there is some meaning to the labels (a nationality label say) then I can expect that structure to be reflected in the attributes (each ship belongs to one nation). I can make some modelling assumptions, construct objects and attributes accordingly, then create the concept lattice and test assumptions. I can use NLP in constructing the objects (noun phrase chunking) and I can use NLP in checking results (determining if a noun phrase contains a conjunction).
 
 In a complete lattice, objects without attributes are associated with the *TOP* concept. If I include it, I can find named ships where the nationality or type is not included in a noun phrase that mentions the ship name, though it may be elsewhere in the sentence. I can imagine an NLP process that takes the sentences containing such noun phrases and identifies the missing attributes - or I can just go through them manually. Either way, I can record the results as simple sentences:
 
@@ -83,7 +83,7 @@ If these strings are from two different objects ("Messoudieh" and "Messudiyeh") 
 
 ## Things to think about
 
-Concept lattices relate objects through common attributes, and attributes through common objects. It's useful in ontology.
+Concept lattices relate objects through common attributes, and attributes through common objects. They're useful in ontology.
 
 Can FCA be used as part of a NLP process to extract information from text? FCA can certainly be used to derive structured results from the output of NLP, but it might also be useful internally to some NLP process to assess intermediate results and direct the focus of specialist NLP algorithms.
 

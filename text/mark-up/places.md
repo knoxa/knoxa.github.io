@@ -32,5 +32,5 @@ In this example, the word "there" is an anapahor for "PONT L'ÉVÈQUE". I can ma
 
 ## Structure 
 
-A Place may have other Places nested inside it. These capture parent-child and sibling relationships between places. An outer span will include words or phrases,
+A Place span may have other Places nested inside it, implying a relationships between places. An outer span may include words or phrases,
 such as "road junction", alongside the nested span. These describe attributes of places or the relationships between them.

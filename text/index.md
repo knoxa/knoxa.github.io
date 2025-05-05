@@ -64,3 +64,43 @@ I'll focus my efforts on the documents that interest me. I'll develop and extend
 How I use semantic mark-up will likely change as I explore.
 
 Notes on my use of semantic mark-up are [here](mark-up).
+
+## Without semantic mark-up
+
+I'm in the fortunate position of being able to add semantic mark-up to the war-diary corpus as I see fit. You aren't, and you might not like what I've done.
+The semantic mark-up I've added is easy to strip out and throw away. I'm adding semantic markup to separate the problem of named entity recognition (NER) from
+further analysis of those entities. If you don't want to use the mark-up then you need some additional NER step in your processing.
+
+I might not always want to put in the effort of adding semantic mark-up. Depending on it entirely means a lot of work in adding mark-up before any analysis
+can begin. If I'm only interested in a small part of a large corpus then this is a waste of time. An alternative approach is to construct a list of entity names
+and use dictionary-based NER to scan the text for those entites. I can combine both approaches: a little bit of dictionary scanning to find documents of interest
+followed by focussed semantic mark-up. Any semantic mark-up I do create then translates into new entries in my dictionary. And repeat ...
+
+## Context
+
+A key advantage of the semantic mark-up approach is that it preserves the context of the entity mention. I can sensibly mark-up spans of text that refer to
+entities without explicitly naming them, but these will become meaningless when taken out of context. Proper names may become ambiguous if taken out of context,
+but that can be useful to know. I lose context if I use dictionary scanning to find entities. I might try and construct context-dependent dictionaries to get round this,
+or I might restrict myself to named entities and not not worry about ambiguity provided I can detect it and resolve it later.
+
+
+Taken out of context, the collected mentions of a particular entity type is a set of strings. A subset of these strings, let's call them _labels_,
+refer to concrete named entities. The labels include a subset that are proper names.
+An entity may have more than one label. It's convenient to label
+an entity consistently in the output from analysis so I pick one name for each entity as the _preferred label_ and call the others _alternate labels_.
+
+I want to relate the mention of an entity in text to a unique record for that entity in some knowledge base, In other words, I want to _identify_
+the entity.
+Wikipedia manages identity by ensuring that every entity page has a unique title, and the title is the identifier. The page title is also the
+preferred label for the entity. I can take the same approach, choosing preferred labels that are unique and considering mentions to be alternate labels
+that map to these preferred labels.
+A key assumption with this strategy is that preferred names are globally unique. With care and attention they can be, but I'm not necessarily going to be 
+that careful - particularly in the early "sensemaking" phase of exploring a corpus; where I'm not choosing the preferred name myself, but choosing the longest or most 
+complete name from the text as the preferred name.
+This choice is likely to be unique in the context of a single document, but possibly ambiguous across the corpus.
+I probably won't be able to detect this ambiguity by just looking at entity labels, but later I'll look at extracting entity attributes and relationships between entities,
+and these might suggest that the preferred name doesn't map to a single entity. See, for example, the discussion about the ship _Ariadne_ [here](https://knoxa.github.io/examples/concepts/).
+
+Another possible source of error is giving the same entity two different preferred names. This is very likely to happen when making the preferred name the
+"best name in the document" when sensemaking. (NAMES EXAMPLE)
+
