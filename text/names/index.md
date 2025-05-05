@@ -19,7 +19,8 @@ so instead I'll play with Formal Component Anaylsis.
 
 Formal Component Analysis gives insight into how _objects_ are related through shared _attributes_. I could treat each name as an object and each
 token as an attribute. Instead, I'll do it the other way round: Objects are tokens, and the attributes of each token are all the names in which 
-that token features. This choice makes it easy to 
+that token features. This choice makes it easy to eliminate tokens that aren't discrimantory by simply deleting the object. As we'll see later,
+it makes possible to add objects to influence results.
 
 ## An example
 
@@ -39,8 +40,23 @@ To make it easier to follow, I restrict the input to this set of names:
 	
  These names cover two different people, [Sir Archibald James Murray](https://en.wikipedia.org/wiki/Archibald_Murray) and [Sir James Wolfe Murray](https://en.wikipedia.org/wiki/James_Wolfe_Murray).
  
+ Applying FCA produces this concept lattice:
+ 
  ![A concept lattice from names](names-fca1.svg)
  
- 
- 
+ This is the GraphML procuded by the FCA implementation in my [argumentation](https://github.com/knoxa/argumentation/tree/main) repository, loaded into yEd and exported as SVG.
+ There isn't a layout method for lattice diagrams in yEd, so I've laid this out hierarchically, and made the edges directed so that they point "upward" towards the most common attribute.
+ The attribute labels appear on the diagram beside concept nodes. The object labels aren't visible, but you'll see them if you open the image in a new tab and mouse over concept nodes.
+
+What I'd like as output is a set of objects where each represents a distinct person, with the various representation of their names as attributes.
+Ther are some things I can do:
+
+1. Names are equivalent if they appear at the same concept node. I could make a person object from each concept node that has one or more attributes.
+
+2. Attributes (names) towards the top of the lattice are associated with more objects (tokens) than attributes towards the bottom.
+The top attributes are therefore "longer" names that tend to have more tokens.
+I can argue that this makes them more likely to identify a specific individual. I could make a person
+object from each of of these top objects. Further, all the tokens relating to the name(s) in the top concept are found in the set of concepts below.
+Any name attributes associate with these concepts is constitent with the top name attribute in that it is formed from a subset of its tokens.
+
  
