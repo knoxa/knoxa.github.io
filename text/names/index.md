@@ -1,6 +1,6 @@
 # Names
 
-The name of the same person can be expressed in many different ways. Resolving which expressions are equivalent is _entity disambiguation_.
+People's name can be expressed in many different ways. Resolving which expressions refer to the same person is _entity disambiguation_.
 
 I can take a name and split it up into tokens. Each name is then associated with a set of tokens and similar names are related by intersections of
 these sets. I can play around with options for generating tokens. For example, it might make sense to normalize the tokens in various ways: reduce everything
@@ -13,24 +13,24 @@ with each name associated with a set of tokens.
 I could take this data and construct a graph of name nodes linked to token nodes.
 Similar names will have nodes that are [structually equivalent](https://en.wikipedia.org/wiki/Similarity_(network_science)#Structural_equivalence) in this graph.
 I could score for structural similarity and use these scores to decide if two names are eqivalent. However, [that's been done](https://github.com/dstl/muc3/wiki/Extracted-Information#people),
-so instead I'll play with Formal Component Anaylsis.
+so I'll t.
 
-## FCA
+## Formal Component Analysis
 
-Formal Component Analysis gives insight into how _objects_ are related through shared _attributes_. I could treat each name as an object and each
+Formal Component Analysis (FCA) gives insight into how _objects_ are related through shared _attributes_. I could treat each name as an object and each
 token as an attribute. Instead, I'll do it the other way round: Objects are tokens, and the attributes of each token are all the names in which 
 that token features. This choice makes it easy to eliminate tokens that aren't discrimantory by simply deleting the object. As we'll see later,
-it makes possible to add objects to influence results.
+it also make sit easier to add objects to the analysis.
 
 ### Similar names
 
 This example is drawn from [World War I Chronology](https://tigersmuseum.github.io/history/docs/ww1.html). As far as tokenization is concerned,
 I filter against a stop list of ranks and titles, and I apply both Soundex and Metaphone to each token and add these to the set.
-The complete concept lattice (for 1071 names) from the WWI chronolgy is:
+The complete concept lattice (for 1071 names) from the WWI chronolgy looks like this:
 
 ![Full lattice from names](names-full.svg)
 
-To make the discussion below easier to follow, I restrict the input to just this set of names covering two different people,
+To make the discussion below easier to follow, I restrict the input to just this set of 9 names covering two different people,
 [Sir Archibald James Murray](https://en.wikipedia.org/wiki/Archibald_Murray) and [Sir James Wolfe Murray](https://en.wikipedia.org/wiki/James_Wolfe_Murray):
 
     General Murray
@@ -48,7 +48,7 @@ Applying FCA produces this concept lattice ...
  
 ![A concept lattice from names](names-fca1.svg)
  
-This diagram is the GraphML procuded by the FCA implementation in my [argumentation](https://github.com/knoxa/argumentation/tree/main) repository, loaded into yEd and exported as SVG.
+This diagram is the GraphML produced by the FCA implementation in my [argumentation](https://github.com/knoxa/argumentation/tree/main) repository, loaded into yEd and exported as SVG.
 There isn't a layout method for lattice diagrams in yEd, so I've used a hierarchical layout and made the edges directed so that they point "upward" towards the most common attribute.
 The attribute labels appear on the diagram beside concept nodes. The object labels aren't visible, but you'll see them if you open the image in a new tab and mouse over concept nodes.
 
@@ -58,7 +58,8 @@ Attributes on the same concept node are equivalent.
 Attributes (names) towards the top of the lattice are associated with more objects (tokens) than attributes towards the bottom.
 The top attributes are therefore "longer" names that tend to have more tokens.
 I can argue that this makes them more likely to identify a specific individual and make a person object from each of of these top concepts.
-I get three person objects from this assumption:
+I'll call this the "top concepts are people" assumption.
+It gives me three person objects:
 
 	Person 1
 		General Sir J. Wolfe Murray
@@ -73,9 +74,10 @@ I get three person objects from this assumption:
 		Lieut.-General Sir A. J. Murray
 
 Because all the tokens relating to a name attribute are objects of the concepts below,
-any name attribute associated with these lower concepts is consistent with the top concept name attribute in that it is formed from a subset of its tokens.
-I can make the further assumption that all the attributes below a top concept are names of the person I've identified with the top concept. I get the
-same three objects with more attributes:
+any name attribute associated with lower concepts is consistent with the top concept name attribute in that it is formed from a subset of its tokens.
+I can make the further assumption that all the attributes below a top concept are names of the person I've identified with the top concept. 
+I'll call this the "names below are the same person" assumption.
+I get the same three objects with more attributes:
 
 	Person 1
 		General Sir J. Wolfe Murray
@@ -102,17 +104,6 @@ Tracing mention of the name back to the corpus shows that "General Murray" means
 * This output is correct if the "A" in "A. Murray" doesn't stand for "Archibald", but in fact it does. The "truth" here is two person objects; one being Person 1 above,
 and the other being a union of the attributes of Person 2 and Person 3.
 
-### Assumptions
-
-There are two explicit assumptions described in this example concerning generating person objects from a concept lattice which I'll paraphrase as "top concepts are people" and "names below are the same person".
-There are other assumptions, not made explicit, in how the subset of names to process is selected and in how the tokenization works. These will affect the 
-concept lattice produced.
-
-The use of Metaphone and Soundex encodings, for example, weakens the "top objects are people" assumption.
-The reason is that several name tokens will encode to the same string, so the encoded token is a more common object than any of the source tokens that map to it.
-This means it is likely to appear lower in the concept lattice with an upwards branch towards concepts carrying the different corresponding source tokens.
-This can be seen in the next example.
-
 ### Synonyms
 
 The use of encodings such as Soundex and Metaphone allow for different transliterations or spellings of the same name. For example,
@@ -122,27 +113,32 @@ The use of encodings such as Soundex and Metaphone allow for different translite
 Here, "Alexandra Feodorovna" is linked to "Prince Alexander" and "Alexander" by the Soundex token "A425" at concept node 2, and "General Alexeieff"
 and "General Alexeiev" are linked by the Soundex token "A421" at concept 6. All the names are linked by the Metaphone token "ALKS" at concept 4.
 
-If I use the "top concepts are people" assumption, I get 4 people, which is wrong - General Alexeieff"
-and "General Alexeiev" are the same person.
+Metaphone and Soundex encodings weakens the "top concepts are people" assumption because
+several name tokens will encode to the same string, so the encoded token is a more common object than any of the source tokens that map to it.
+This means it is likely to appear lower in the concept lattice with an upwards branch towards concepts carrying the different corresponding source tokens,
+as you can see above. If go with the "top concepts are people" assumption, I get 4 people, which is wrong; General Alexeieff" and "General Alexeiev" are the same person.
 
 If I take out the original name token objects (leaving just the ones created by Metaphone and Soundex), I get:
 
 ![A concept lattice - Alex encoded only](names-alex-code.svg)
 
-This now gives me 2 people, which is again wrong - "Alexandra Feodorovna" and "Prince Alexander" are different people. The problem here is that
+This now gives me 2 people, which is again wrong; "Alexandra Feodorovna" and "Prince Alexander" are different people. The problem here is that
 Soundex token "A425" doesn't distinguish between "Alexandra" and "Alexander", which is an important distinction to make in this context. If delete
 the object for token "A425" before the FCA step, I get:
 
 ![A concept lattice - Alex fixed](names-alex-fix.svg)
 
-This is 
+This is correct if you consider a graph component as a person, but the "top concepts are people" assumption still give 4 people instead of 3.
+What I need to do is consider the concept "top concept" names meet. If I decide that this better represents the person, then I
+can merge the names above, and apply the "names below are the same person" assumption as before. For the above example, concept nodes 1 and 2
+are associated only with the objects "alexieff" and "alexeiev" respectively. Concept node 3 is associated only with the object "A421", which
+is the Soundex code for both "alexieff" and "alexeiev".
+If I trust Soundex, there is no new information in nodes 1 and 2, so I can assume they're the same person.
 
+Nodes 1, 2 and 3 above are identical concept nodes 3, 5 and 6 in the first lattice for this example. I could join "General Alexeieff"
+and "General Alexeiev" there too.
+In addition, the meet of "Alexandra Feodorovna" and "Prince Alexander" at node 2 does not let me assume that that these two concepts are the same
+because concept node 0 is uniquely associated with objects "feodorovna" and "F361" (Soundex).
 
----
-In general though, we should always assume that the outputs are _claims_ not _facts_. We might 
-trust a process well enough to deem its claims worth checking. We might compare various methods and look for corroboration or contradiciton.
-
-An advantage of producing output as a putative person object with associated attrbiutes is that we can use FCA to analyse the results.
----
-
-## Assertions
+This sort of reasoning requires knowledge about token encodings and relationships between token that is not directly available from the concept lattice 
+created by FCA. 
