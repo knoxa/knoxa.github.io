@@ -1,6 +1,6 @@
 # Names
 
-People's name can be expressed in many different ways. Resolving which expressions refer to the same person is _entity disambiguation_.
+A person's name can be expressed in many different ways. Resolving which expressions refer to the same person is _entity disambiguation_.
 
 I can take a name and split it up into tokens. Each name is then associated with a set of tokens and similar names are related by intersections of
 these sets. I can play around with options for generating tokens. For example, it might make sense to normalize the tokens in various ways: reduce everything
@@ -13,12 +13,12 @@ with each name associated with a set of tokens.
 I could take this data and construct a graph of name nodes linked to token nodes.
 Similar names will have nodes that are [structually equivalent](https://en.wikipedia.org/wiki/Similarity_(network_science)#Structural_equivalence) in this graph.
 I could score for structural similarity and use these scores to decide if two names are eqivalent. However, [that's been done](https://github.com/dstl/muc3/wiki/Extracted-Information#people),
-so I'll t.
+so I'll try something else.
 
 ## Formal Component Analysis
 
-Formal Component Analysis (FCA) gives insight into how _objects_ are related through shared _attributes_. I could treat each name as an object and each
-token as an attribute. Instead, I'll do it the other way round: Objects are tokens, and the attributes of each token are all the names in which 
+[Formal Component Analysis (FCA)](https://en.wikipedia.org/wiki/Formal_concept_analysis) gives insight into how _objects_ are related through shared _attributes_.
+I could treat each name as an object and each token as an attribute. Instead, I'll do it the other way round: Objects are tokens, and the attributes of each token are all the names in which 
 that token features. This choice makes it easy to eliminate tokens that aren't discrimantory by simply deleting the object. As we'll see later,
 it also make sit easier to add objects to the analysis.
 
@@ -56,8 +56,8 @@ What I'd like as output from entity disambiguation is a set of objects where eac
 
 Attributes on the same concept node are equivalent.
 Attributes (names) towards the top of the lattice are associated with more objects (tokens) than attributes towards the bottom.
-The top attributes are therefore "longer" names that tend to have more tokens.
-I can argue that this makes them more likely to identify a specific individual and make a person object from each of of these top concepts.
+The top attributes are therefore longer names that tend to have more tokens.
+I can argue that this makes them more likely to identify a specific individual, and make a person object from each of of these top concepts.
 I'll call this the "top concepts are people" assumption.
 It gives me three person objects:
 
@@ -113,7 +113,7 @@ The use of encodings such as Soundex and Metaphone allow for different translite
 Here, "Alexandra Feodorovna" is linked to "Prince Alexander" and "Alexander" by the Soundex token "A425" at concept node 2, and "General Alexeieff"
 and "General Alexeiev" are linked by the Soundex token "A421" at concept 6. All the names are linked by the Metaphone token "ALKS" at concept 4.
 
-Metaphone and Soundex encodings weakens the "top concepts are people" assumption because
+Metaphone and Soundex encodings weaken the "top concepts are people" assumption because
 several name tokens will encode to the same string, so the encoded token is a more common object than any of the source tokens that map to it.
 This means it is likely to appear lower in the concept lattice with an upwards branch towards concepts carrying the different corresponding source tokens,
 as you can see above. If go with the "top concepts are people" assumption, I get 4 people, which is wrong; General Alexeieff" and "General Alexeiev" are the same person.
@@ -129,7 +129,7 @@ the object for token "A425" before the FCA step, I get:
 ![A concept lattice - Alex fixed](names-alex-fix.svg)
 
 This is correct if you consider a graph component as a person, but the "top concepts are people" assumption still give 4 people instead of 3.
-What I need to do is consider the concept "top concept" names meet. If I decide that this better represents the person, then I
+What I need to do is consider the concept where "top concept" names meet. If I decide that this better represents the person, then I
 can merge the names above, and apply the "names below are the same person" assumption as before. For the above example, concept nodes 1 and 2
 are associated only with the objects "alexieff" and "alexeiev" respectively. Concept node 3 is associated only with the object "A421", which
 is the Soundex code for both "alexieff" and "alexeiev".
@@ -140,5 +140,19 @@ and "General Alexeiev" there too.
 In addition, the meet of "Alexandra Feodorovna" and "Prince Alexander" at node 2 does not let me assume that that these two concepts are the same
 because concept node 0 is uniquely associated with objects "feodorovna" and "F361" (Soundex).
 
-This sort of reasoning requires knowledge about token encodings and relationships between token that is not directly available from the concept lattice 
-created by FCA. 
+### Extra knowledge
+
+The reasoning that gets from the results of FCA to "truth" in the above examples requires knowledge about tokens and token encodings that is not directly available from the concept lattice 
+created by FCA. There is a concept that best represents a person for each set of related names, but it's not necessarily a "top concept".
+Extra knowledge is needed to decide which concept is best. This might be done through some post-processing of the concept lattice, or it might be done
+adding objects to the input for FCA that relate to established facts. For instance, I can take a statement like:
+
+    "Archibald Murray" is the same person as "General Sir A. J. Murray".
+
+... and make an object with "Archibald Murray", "General Sir A. J. Murray" as attributes. Adding this to the set of objects produced by tokenization
+gives this result in FCA:
+
+![A concept lattice - with asserted object](names-fca2.svg)
+
+The asserted object appears at concept node 7. The claim justifies this node being taken as representing a person. Any "top concept" attributes above are
+names of that person, as are attributes below those "top concepts". The result is to merge Person 2 and Person 3 above, as desired.
