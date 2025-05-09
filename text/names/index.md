@@ -116,7 +116,7 @@ and "General Alexeiev" are linked by the Soundex token "A421" at concept 6. All 
 Metaphone and Soundex encodings weaken the "top concepts are people" assumption because
 several name tokens will encode to the same string, so the encoded token is a more common object than any of the source tokens that map to it.
 This means it is likely to appear lower in the concept lattice with an upwards branch towards concepts carrying the different corresponding source tokens,
-as you can see above. If go with the "top concepts are people" assumption, I get 4 people, which is wrong; General Alexeieff" and "General Alexeiev" are the same person.
+as you can see above. If I go with the "top concepts are people" assumption I get 4 people, which is wrong; General Alexeieff" and "General Alexeiev" are the same person.
 
 If I take out the original name token objects (leaving just the ones created by Metaphone and Soundex), I get:
 
@@ -135,7 +135,7 @@ are associated only with the objects "alexieff" and "alexeiev" respectively. Con
 is the Soundex code for both "alexieff" and "alexeiev".
 If I trust Soundex, there is no new information in nodes 1 and 2, so I can assume they're the same person.
 
-Nodes 1, 2 and 3 above are identical concept nodes 3, 5 and 6 in the first lattice for this example. I could join "General Alexeieff"
+Nodes 1, 2 and 3 above are identical to concept nodes 3, 5 and 6 in the first lattice for this example. I could join "General Alexeieff"
 and "General Alexeiev" there too.
 In addition, the meet of "Alexandra Feodorovna" and "Prince Alexander" at node 2 does not let me assume that that these two concepts are the same
 because concept node 0 is uniquely associated with objects "feodorovna" and "F361" (Soundex).
@@ -145,7 +145,7 @@ because concept node 0 is uniquely associated with objects "feodorovna" and "F36
 The reasoning that gets from the results of FCA to "truth" in the above examples requires knowledge about tokens and token encodings that is not directly available from the concept lattice 
 created by FCA. There is a concept that best represents a person for each set of related names, but it's not necessarily a "top concept".
 Extra knowledge is needed to decide which concept is best. This might be done through some post-processing of the concept lattice, or it might be done
-adding objects to the input for FCA that relate to established facts. For instance, I can take a statement like:
+by adding objects to the input for FCA that relate to established facts. For instance, I can take a statement like:
 
     "Archibald Murray" is the same person as "General Sir A. J. Murray".
 
