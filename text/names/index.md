@@ -156,3 +156,49 @@ gives this result in FCA:
 
 The asserted object appears at concept node 7. The claim justifies this node being taken as representing a person. Any "top concept" attributes above are
 names of that person, as are attributes below those "top concepts". The result is to merge Person 2 and Person 3 above, as desired.
+
+### Argument
+
+Above, I'm producing sets of names and claiming that each set represents a single person. I can play about with tokenization options and
+get different (hopefully only slightly) sets of names. I can use some other method, such as graph similarity, to get sets of equivalent names.
+I can assert sets of equivalent names as "truth".
+
+What I want to be able to do is try several different methods and compare them. This is a multi-agent approach where
+each agent is a single process or subject matter expert. Claims are set of names that the agent believes represent the same person,
+and I can look for confirmation and contradiction amongst these claims.
+
+By way of an example, I've applied the FCA method describe above twice; the first time creating simple name tokens in the tokenization step,
+and the second time replacing these simple tokens with their soundex encodings. I'll take the results as the claims of 2 agents that 
+I'll call "normal" and "soundex". 
+
+The first step is to recognize when claims are the same. I'm going to use FCA again. The input context is the disjoint union of the
+claims made by each agent. If they make the same claim, then FCA will put two objects, one from each agent, at the same node in the concept
+lattice. It's then easy to find complete agreement between agents. Filtering this out leaves just the concepts due to disagreement ...
+
+![A concept lattice - disagreement between agents](disagree.svg)
+
+Any sort of disagreement will seperate the corresponding objects in the concept lattice, but they will be comparable if they share an 
+attribute (name). In the diagram above, each of the remaining nodes has exactly one object, either from the soundex agent or the normal agent. 
+
+Each object is intended to represent a single person, so if the claims from the two agent objects share a name attribute then 
+they're making contradictory claims about the same person. A claim is wrong if it includes a name it shouldn't or fails to include a name it should.
+
+If I know the truth, I can resolve disagreements directly. One way to do this might be to edit the concept lattice. For example, I could mark
+the concepts representing incorrect claims that can be deleted completely, or mark edges that represent attributes on an object that should be
+removed.
+
+![A concept lattice - disagreement resolved](resolve.svg)
+
+It's straightforward to take the output concept lattice back to input context - just find all concept nodes with objects and give them the attributes
+of the node's intent. In doing this, I can delete omit entirely any objects that are at concept node coloured red,
+and not assign to them any attributes on concept nodes the other side of a red edge. I can then perform FCA on this context and get the results
+I expect.
+
+The type of error that doesn't get picked up by this sort of analysis is when both agents are wrong. For example, "Dr J. Braga" is the same
+person as "Dr Joaquim T. Braga", but neither agent picks that up because neither knows "J stands for Joaquim".
+
+As above, I can make a claim: 
+
+	"Dr J. Braga" is the same person as "Dr Joaquim T. Braga"
+	
+and parse this to get an object with the two names as attributes. 
