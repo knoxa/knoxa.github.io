@@ -190,15 +190,23 @@ removed.
 ![A concept lattice - disagreement resolved](resolve.svg)
 
 It's straightforward to take the output concept lattice back to input context - just find all concept nodes with objects and give them the attributes
-of the node's intent. In doing this, I can delete omit entirely any objects that are at concept node coloured red,
-and not assign to them any attributes on concept nodes the other side of a red edge. I can then perform FCA on this context and get the results
-I expect.
+of the node's intent. In doing this, I can omit entirely any objects that are at concept node coloured red,
+and not assign to objects any attributes on concept nodes the other side of a red edge. I can then perform FCA on this context and get the results
+I expect:
 
-The type of error that doesn't get picked up by this sort of analysis is when both agents are wrong. For example, "Dr J. Braga" is the same
+![A concept lattice - resolution edited](edited.svg)
+
+It may be that both agents are wrong. For example, "Dr J. Braga" is the same
 person as "Dr Joaquim T. Braga", but neither agent picks that up because neither knows "J stands for Joaquim".
 
 As above, I can make a claim: 
 
 	"Dr J. Braga" is the same person as "Dr Joaquim T. Braga"
 	
-and parse this to get an object with the two names as attributes. 
+and parse this to get an object with the two names as attributes.
+This is subtly different from the normal and soundex claims because its asserting equivalence between a pair of names,
+ rather that defining an equivalence class that represents a person. It says that claims which include either name can be merged.
+ I might do this directly on the results I already have, or I might add the assertion to the FCA input context
+ and interpret the result concept lattice accordingly. This can replace the graphical editing above with assertions and intepretation
+ rules that achieve the same end.
+
