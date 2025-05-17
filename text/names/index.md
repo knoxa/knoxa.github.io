@@ -197,9 +197,7 @@ I expect:
 ![A concept lattice - resolution edited](edited.svg)
 
 It may be that both agents are wrong. For example, "Dr J. Braga" is the same
-person as "Dr Joaquim T. Braga", but neither agent picks that up because neither knows "J stands for Joaquim".
-
-As above, I can make a claim: 
+person as "Dr Joaquim T. Braga", but neither agent picks that up because neither knows "J stands for Joaquim". As above, I can make a claim: 
 
 	"Dr J. Braga" is the same person as "Dr Joaquim T. Braga"
 	
@@ -207,6 +205,15 @@ and parse this to get an object with the two names as attributes.
 This is subtly different from the normal and soundex claims because its asserting equivalence between a pair of names,
  rather that defining an equivalence class that represents a person. It says that claims which include either name can be merged.
  I might do this directly on the results I already have, or I might add the assertion to the FCA input context
- and interpret the result concept lattice accordingly. This can replace the graphical editing above with assertions and intepretation
- rules that achieve the same end.
+ and interpret the output concept lattice accordingly. This suggests I can replace the graphical editing with assertions and interpretation
+ rules that achieve the same end. I can couch these as arguments.
 
+## Summary
+
+Entity disambiguation agents attempt to partition names into equivalence classes. These are sets that can be compared. I can use 
+FCA to construct a concept lattice based on these sets. Full agreement between agents would result in a discrete order. Disgreement
+makes the partitions comparable and introduces structure into the concept lattice that can be interpreted.
+I can represent disagreement as argument; where claims, premises and conclusions are sets of names.
+I can prefer claims made by one agent over those made by another if I wish.
+I can extend an argument with claims based on expert knowledge.
+An argument can be developed progressively and iteratively. It can be a dialogue.
