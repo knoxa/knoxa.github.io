@@ -6,7 +6,7 @@ I can take a name and split it up into tokens. Each name is then associated with
 these sets. I can play around with options for generating tokens. For example, it might make sense to normalize the tokens in various ways: reduce everything
 to lower case, remove diacritical marks, apply a phonetic encoding (such as [Soundex](https://en.wikipedia.org/wiki/Soundex)), and so on.
 I can add one or modified tokens to each set in addition to the original tokens, or I can replace original tokens with the modified ones.
-I can make a [stop list](https://en.wikipedia.org/wiki/Stop_word) of tokens that won't help me discriminate and discard them.
+I can make a [stop list](https://en.wikipedia.org/wiki/Stop_word) of tokens that won't help me discriminate and ignore them.
 There are lots of options that might let me "tune" any follow-on analysis, but the result in any case is data structure consisting of a set of names,
 with each name associated with a set of tokens. 
 
@@ -26,11 +26,11 @@ it also make sit easier to add objects to the analysis.
 
 This example is drawn from [World War I Chronology](https://tigersmuseum.github.io/history/docs/ww1.html). As far as tokenization is concerned,
 I filter against a stop list of ranks and titles, and I apply both Soundex and Metaphone to each token and add these to the set.
-The complete concept lattice (for 1071 names) from the WWI chronolgy looks like this:
+The complete concept lattice (for 1071 names) from the WWI chronology looks like this:
 
 ![Full lattice from names](names-full.svg)
 
-To make the discussion below easier to follow, I restrict the input to just this set of 9 names covering two different people,
+To make the discussion below easier to follow, I'll restrict the input to just this set of 9 names covering two different people,
 [Sir Archibald James Murray](https://en.wikipedia.org/wiki/Archibald_Murray) and [Sir James Wolfe Murray](https://en.wikipedia.org/wiki/James_Wolfe_Murray):
 
     General Murray
@@ -43,7 +43,6 @@ To make the discussion below easier to follow, I restrict the input to just this
     Sir A. Murray
     LieutGeneral Sir Archibald Murray
 	
-
 Applying FCA produces this concept lattice ...
  
 ![A concept lattice from names](names-fca1.svg)
@@ -137,7 +136,7 @@ If I trust Soundex, there is no new information in nodes 1 and 2, so I can assum
 
 Nodes 1, 2 and 3 above are identical to concept nodes 3, 5 and 6 in the first lattice for this example. I could join "General Alexeieff"
 and "General Alexeiev" there too.
-In addition, the meet of "Alexandra Feodorovna" and "Prince Alexander" at node 2 does not let me assume that that these two concepts are the same
+However, the meet of "Alexandra Feodorovna" and "Prince Alexander" at node 2 does not let me assume that that these two concepts are the same
 because concept node 0 is uniquely associated with objects "feodorovna" and "F361" (Soundex).
 
 ### Extra knowledge
@@ -154,7 +153,7 @@ gives this result in FCA:
 
 ![A concept lattice - with asserted object](names-fca2.svg)
 
-The asserted object appears at concept node 7. The claim justifies this node being taken as representing a person. Any "top concept" attributes above are
+The asserted object appears at concept node 7. The claim justifies this node representing a person. Any "top concept" attributes above are
 names of that person, as are attributes below those "top concepts". The result is to merge Person 2 and Person 3 above, as desired.
 
 ### Argument
@@ -190,7 +189,7 @@ removed.
 ![A concept lattice - disagreement resolved](resolve.svg)
 
 It's straightforward to take the output concept lattice back to input context - just find all concept nodes with objects and give them the attributes
-of the node's intent. In doing this, I can omit entirely any objects that are at concept node coloured red,
+of the concept's intent. In doing this, I can omit entirely any objects that are at concept node coloured red,
 and not assign to objects any attributes on concept nodes the other side of a red edge. I can then perform FCA on this context and get the results
 I expect:
 
@@ -211,7 +210,7 @@ This is subtly different from the normal and soundex claims because its assertin
 ## Summary
 
 Entity disambiguation agents attempt to partition names into equivalence classes. These are sets that can be compared. I can use 
-FCA to construct a concept lattice based on these sets. Full agreement between agents would result in a discrete order. Disgreement
+FCA to construct a concept lattice based on these sets. Full agreement between agents produces a discrete order. Disgreement
 makes the partitions comparable and introduces structure into the concept lattice that can be interpreted.
 I can represent disagreement as argument; where claims, premises and conclusions are sets of names.
 I can prefer claims made by one agent over those made by another if I wish.
