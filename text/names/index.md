@@ -1,4 +1,4 @@
-# Names
+# Names of people
 
 A person's name can be expressed in many different ways. Resolving which expressions refer to the same person is [entity disambiguation](https://en.wikipedia.org/wiki/Entity_linking).
 
