@@ -83,13 +83,27 @@ entities without explicitly naming them, but these will become meaningless when 
 but that can be useful to know. I lose context if I use dictionary scanning to find entities. I might try and construct context-dependent dictionaries to get round this,
 or I might restrict myself to named entities and not not worry about ambiguity provided I can detect it and resolve it later.
 
+## Named entities
 
 Taken out of context, the collected mentions of a particular entity type is a set of strings. A subset of these strings, let's call them _labels_,
 refer to concrete named entities. The labels include a subset that are proper names.
 An entity may have more than one label. It's convenient to label
 an entity consistently in the output from analysis so I pick one name for each entity as the _preferred label_ and call the others _alternate labels_.
+This choice is likely to be unique in the context of a single document, but possibly ambiguous across the corpus.
+I probably won't be able to detect this ambiguity by just looking at entity labels, but later I'll look at extracting entity attributes and relationships between entities,
+and these might suggest that the preferred label doesn't map to a single entity.
+See, for example, the discussion about the ship _Ariadne_ [here](https://knoxa.github.io/examples/concepts/).
 
-I want to relate the mention of an entity in text to a unique record for that entity in some knowledge base, In other words, I want to _identify_
+## Entity linking
+
+Am entity may have more than one label, but I don't know in advance what those labels are.
+I need to be able to collect together mentions of the same concrete entity.
+In other words, I need to partition the set of mentions of some entity type so that the subsets each represent a single concrete entity.
+This is _entity disambiguation_ or _entity linking_. An example of this process is [here](https://knoxa.github.io/text/names/).
+
+## Identity
+
+I want to relate the mentions of the same entity in text to a unique record for that entity in some knowledge base, In other words, I want to _identify_
 the entity.
 Wikipedia manages identity by ensuring that every entity page has a unique title, and the title is the identifier. The page title is also the
 preferred label for the entity. I can take the same approach, choosing preferred labels that are unique and considering mentions to be alternate labels
@@ -97,10 +111,7 @@ that map to these preferred labels.
 A key assumption with this strategy is that preferred names are globally unique. With care and attention they can be, but I'm not necessarily going to be 
 that careful - particularly in the early "sensemaking" phase of exploring a corpus; where I'm not choosing the preferred name myself, but choosing the longest or most 
 complete name from the text as the preferred name.
-This choice is likely to be unique in the context of a single document, but possibly ambiguous across the corpus.
-I probably won't be able to detect this ambiguity by just looking at entity labels, but later I'll look at extracting entity attributes and relationships between entities,
-and these might suggest that the preferred name doesn't map to a single entity. See, for example, the discussion about the ship _Ariadne_ [here](https://knoxa.github.io/examples/concepts/).
 
 Another possible source of error is giving the same entity two different preferred names. This is very likely to happen when making the preferred name the
-"best name in the document" when sensemaking. (NAMES EXAMPLE)
+"best name in the document" when sensemaking.
 

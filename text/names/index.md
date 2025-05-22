@@ -1,6 +1,6 @@
 # Names
 
-A person's name can be expressed in many different ways. Resolving which expressions refer to the same person is _entity disambiguation_.
+A person's name can be expressed in many different ways. Resolving which expressions refer to the same person is [entity disambiguation](https://en.wikipedia.org/wiki/Entity_linking).
 
 I can take a name and split it up into tokens. Each name is then associated with a set of tokens and similar names are related by intersections of
 these sets. I can play around with options for generating tokens. For example, it might make sense to normalize the tokens in various ways: reduce everything
