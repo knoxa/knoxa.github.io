@@ -1,4 +1,4 @@
-# Places
+# Place
 
 Equating text spans in documents with the concept of [place](https://www.oxfordbibliographies.com/display/document/obo-9780199874002/obo-9780199874002-0159.xml).
  

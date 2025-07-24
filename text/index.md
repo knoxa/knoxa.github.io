@@ -18,7 +18,7 @@ Notes on my exploration of the War Diary corpus are [here](war-diary).
 
 Since all the source material comes from TNA, I use [their citation scheme](https://www.nationalarchives.gov.uk/help-with-your-research/citing-records-national-archives/) 
 for any source material I transcribe. For example, the *series* for Western Front diaries is [WO 95](https://discovery.nationalarchives.gov.uk/browse/r/h/C14303). Below this is the record [WO 95/1486](https://discovery.nationalarchives.gov.uk/details/r/C4554637) covering the 1914 diaries for 11<sup>th</sup>Infantry Brigade.
-I'll also call this level of record as a series, which makes the next level down a *piece*. The 1914 diary is then in 3 pieces:
+I'll also call this level of record a series, which makes the next level down a *piece*. The 1914 diary is then in 3 pieces:
 [WO 95/1486/1](https://discovery.nationalarchives.gov.uk/details/r/C14016968), [WO 95/1486/2](https://discovery.nationalarchives.gov.uk/details/r/C14016969) and [WO 95/1486/3](https://discovery.nationalarchives.gov.uk/details/r/C14016970).
 If I download a piece I get one or more PDF files, each of which is an *item*. If there's only one item, the PDF filename reflects the piece reference. If there's more 
 than one item, each gets a one-up number added to the piece reference. I include these item numbers in any source reference I make. The page numbers in my references refer to the
@@ -52,7 +52,7 @@ This isn't strictly semantic mark-up in the [semantic web](https://en.wikipedia.
 I could use the [RDFa](https://www.w3.org/TR/rdfa-lite/) _typeof_ attribute instead to explicitly state that a span of text refers to a place,
 but this means referring to an ontology that adds restraints that I don't want to deal with just yet.
 
-With XHTML it's easy to convert from one semantic mark-up approach to the other with XSLT.
+With XHTML it's easy to convert from one semantic mark-up approach to another with [XSLT](https://www.w3schools.com/xml/xsl_intro.asp).
 In the interests of keeping thigs simple, I'll start by ascribing semantics to a class attribute and switch to something more formal later if neccessary.
 
 I transcribe source documents to XHTML directly. I add semantic mark-up later, as a separate stage, either directly in a text editor or applying some clever software to do it.
@@ -109,9 +109,5 @@ Wikipedia manages identity by ensuring that every entity page has a unique title
 preferred label for the entity. I can take the same approach, choosing preferred labels that are unique and considering mentions to be alternate labels
 that map to these preferred labels.
 A key assumption with this strategy is that preferred names are globally unique. With care and attention they can be, but I'm not necessarily going to be 
-that careful - particularly in the early "sensemaking" phase of exploring a corpus; where I'm not choosing the preferred name myself, but choosing the longest or most 
+that careful - particularly in the early "sensemaking" phase of exploring a corpus, where I'm not choosing the preferred name myself, but choosing the longest or most 
 complete name from the text as the preferred name.
-
-Another possible source of error is giving the same entity two different preferred names. This is very likely to happen when making the preferred name the
-"best name in the document" when sensemaking.
-
