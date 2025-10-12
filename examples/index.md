@@ -9,3 +9,5 @@
 - **[Concepts](concepts)** - Formal concept analyis (FCA). This considers text strings as objects and substrings as attributes. FCA gives insight into how the objects are related through shared attributes.
 
 - **[Debate](debate/ai)** - An experiment in applied argumentation. This example captures the debate about Artificial Intelligence.
+
+- **[Entity Disambiguation](names)** - Collecting different surface text representations of the same person's name.
