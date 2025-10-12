@@ -1,4 +1,4 @@
-# My web pages
+# Knowledge Representation and Reasoning
 
 These web pages cover my experiments with knowledge representation and reasoning (KRR). If you're more interested in 'what' than 'how' you can start with the [worked examples](examples/index).
 

@@ -20,7 +20,7 @@ so I'll try something else.
 [Formal Component Analysis (FCA)](https://en.wikipedia.org/wiki/Formal_concept_analysis) gives insight into how _objects_ are related through shared _attributes_.
 I could treat each name as an object and each token as an attribute. Instead, I'll do it the other way round: Objects are tokens, and the attributes of each token are all the names in which 
 that token features. This choice makes it easy to eliminate tokens that aren't discrimantory by simply deleting the object. As we'll see later,
-it also make sit easier to add objects to the analysis.
+it also makes it easier to add objects to the analysis.
 
 ### Similar names
 
@@ -189,7 +189,7 @@ removed.
 ![A concept lattice - disagreement resolved](resolve.svg)
 
 It's straightforward to take the output concept lattice back to input context - just find all concept nodes with objects and give them the attributes
-of the concept's intent. In doing this, I can omit entirely any objects that are at concept node coloured red,
+of the concept's intent. In doing this, I can omit entirely any objects that are at a concept node coloured red,
 and not assign to objects any attributes on concept nodes the other side of a red edge. I can then perform FCA on this context and get the results
 I expect:
 
