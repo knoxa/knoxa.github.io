@@ -177,7 +177,7 @@ lattice. It's then easy to find complete agreement between agents. Filtering thi
 ![A concept lattice - disagreement between agents](disagree.svg)
 
 Any sort of disagreement will seperate the corresponding objects in the concept lattice, but they will be comparable if they share an 
-attribute (name). In the diagram above, each of the remaining nodes has exactly one object, either from the soundex agent or the normal agent. 
+attribute (name). In the diagram above, each of the remaining nodes has at most one object, either from the soundex agent or the normal agent. 
 
 Each object is intended to represent a single person, so if the claims from the two agent objects share a name attribute then 
 they're making contradictory claims about the same person. A claim is wrong if it includes a name it shouldn't or fails to include a name it should.
