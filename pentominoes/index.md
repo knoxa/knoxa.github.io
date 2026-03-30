@@ -96,5 +96,32 @@ how to get there by pairwise transformations. However, I can dissolve the repeat
 
 ![a 6x10 pentominoes solution](solution.svg)
 
-It's possible to get from a degenerate solution (with duplicate pentominoes) to a proper solution (all 12 pentominoes) by transforming pairs of tiles,
- in some cases at least. 
+In some cases at least, it's possible to get from a degenerate solution (with duplicate pentominoes) to a proper solution (all 12 pentominoes) by transforming pairs of tiles.
+ Whether it's always possible is an open question.
+ If it is, then any degenerate solution could be used as a starting point for an algorithm that searches for the sequence of transformations needed to reach a proper solution.
+I'll come back to that.
+
+## A random solution
+
+The method described above gives me a solution with 10 distinct pentominoes every thousand or so attempts, and 11 pentominoes every thirty to forty thousand.
+I've run eight hundred thousand attempts without getting a complete solution in though.
+
+I can improve the likelihood of getting a proper solution by adding complete pentominoes at random rather letting a board of distinct squares coalesce to pentominoes.
+This approach will fail to fill board if placing a pentomino closes off an area that is not a multiple of 5.
+I can reduce the chances of this happening a little by controlling the order in which squares are filled: corners first, then edges, then the interior.
+I can also add the constraint that the next tile cannot be the same as one already placed, so I either get a solution or the method fails with a partially filled board.
+This gives me a proper solution every twenty to thirty thousand attempts. Incomplete boards of 10 or 11 pentominoes are fairly common.
+
+## Conclusion 
+
+This exercise is by way of applying the code in my [automata](https://github.com/knoxa/automata) repository.
+Pentomonies are colonies of 5 square cells.
+The random methods described above need take no account of the orientation of pentominoes - a colony of 5 cells either fits or it doesn't.
+
+If I were just interested in generating solutions, I could implement something like the [Exact Cover algorithm](https://en.wikipedia.org/wiki/Exact_cover)
+or some other form of exhaustive search.
+Alternatively, I could just download solutions from [Isomer Design's Pentomino page](https://isomerdesign.com/Pentomino/index.html).
+
+I'm more interested here in how pentomino transformations relate degenerate solutions to proper solutions, and how they relate solutions to each other.
+There is some discussion of the relationship between solutions on the Isomer Design page. This discusses several classes of transformation,
+all of which could (I hypothesize) be reduced to transforming pairs of tiles in sequence.
