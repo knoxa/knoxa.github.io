@@ -5,7 +5,7 @@ A person's name can be expressed in many different ways. Resolving which express
 I can take a name and split it up into tokens. Each name is then associated with a set of tokens and similar names are related by intersections of
 these sets. I can play around with options for generating tokens. For example, it might make sense to normalize the tokens in various ways: reduce everything
 to lower case, remove diacritical marks, apply a phonetic encoding (such as [Soundex](https://en.wikipedia.org/wiki/Soundex)), and so on.
-I can add one or modified tokens to each set in addition to the original tokens, or I can replace original tokens with the modified ones.
+I can add modified tokens to each set in addition to the original tokens, or I can replace original tokens with the modified ones.
 I can make a [stop list](https://en.wikipedia.org/wiki/Stop_word) of tokens that won't help me discriminate and ignore them.
 There are lots of options that might let me "tune" any follow-on analysis, but the result in any case is data structure consisting of a set of names,
 with each name associated with a set of tokens. 
