@@ -117,7 +117,7 @@ This gives me a proper solution every twenty to thirty thousand attempts. Incomp
 
 Another random approach is to create a degenerate solution and randomly transform pairs of pentominoes until a true solution is reached. As noted above,
 it's not obvious if a transformation step will take you closer to the solution or not.
-I first tried making a completely random choice (from adjoining pairs that can transform), which failed to succeed in the first hundred thousand trials.
+I first tried making a completely random choice (from adjoining pairs that can transform), which failed to succeed in the first hundred thousand transformations.
 The number of unique pentominoes fluctuates under this method, and there are some things to be learned about the frequency of occurrence of pentomino types
 in degenerate solutions. Notably, the P pentomino is the most common and the X pentomino the least common.
 
@@ -127,14 +127,14 @@ but sometimes gets to a stage where there are 11 (occassionally 10) unique pento
 Either result happens within a few thousand transformations.
 
 I also tried exluding the X pentomino from the choice of pair to transform.
-This produced fewer proper solutions, and more degenerate 11 pentomino solutions, but finished more quickly either way.
+This produced fewer proper solutions and more degenerate 11 pentomino solutions, but finished more quickly either way.
 Interestingly, one of the degenerate solutions (in just 78 transformations) was a very near miss:
 
 ![a near miss](swap-nearly.svg)
 
 This is missing the F pentomino, but the P pentomino and the X pentomino to its left transform to F and P:
 
-![swap solution](swap-nearly.svg)
+![swap solution](swap-solution.svg)
 
 If I start from the near-miss state, and remove the restriction on selecting X pentominoes, the algorithm (without further interference) happens to choose
 the 'wrong' X pentomino at the next step, and wanders away from the solution subsequently.
