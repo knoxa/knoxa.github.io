@@ -1,5 +1,6 @@
 # Pentominoes
 
+Using the code in my [automata](https://github.com/knoxa/automata) repository, 
 I want to fill a board with 60 squares and get them to self-organize into the 12 distinct [pentominoes](https://en.wikipedia.org/wiki/Pentomino).
 
 I'll start with an easier proposition, which is to simply fill the board with pentominoes of any type. The following algorithm does this:
@@ -139,8 +140,8 @@ If I start from the near-miss state, and remove the restriction on selecting X p
 the 'wrong' X pentomino at the next step, and wanders away from the solution subsequently.
 
 This seems like a reasonably useful method, at least when searching for 6 x 10 solutions, which are the most common.
-I did manage to get 5 x 12 and 4 x 15 solutions with much trouble though.
-When  I tried for a 3 x 20 solution, the first 10 or so attempts (starting with different random number seeds) ended in loops over degenerate solutions
+I did manage to get 5 x 12 and 4 x 15 solutions without much trouble though.
+When  I tried for a 3 x 20 solution, the first several attempts (starting with different random number seeds) ended in loops over degenerate solutions
 - but then I got ... 
 
 ![3 x 20 solution](3x20.svg)
@@ -150,7 +151,7 @@ When  I tried for a 3 x 20 solution, the first 10 or so attempts (starting with 
 ## Conclusion 
 
 This exercise is by way of applying the code in my [automata](https://github.com/knoxa/automata) repository.
-Pentomonies are colonies of 5 square cells.
+Pentominoes are colonies of 5 square cells.
 The random methods described above need take no account of the orientation of pentominoes - a colony of 5 cells either fits or it doesn't.
 
 If I were just interested in generating solutions, I could implement something like the [Exact Cover algorithm](https://en.wikipedia.org/wiki/Exact_cover)
@@ -159,4 +160,4 @@ Alternatively, I could just download solutions from [Isomer Design's Pentomino p
 
 I'm more interested in how pentomino transformations relate degenerate solutions to proper solutions, and how they relate solutions to each other.
 There is some discussion of the relationship between solutions on the Isomer Design page. This discusses several classes of transformation,
-all of which could (I hypothesize) be reduced to transforming pairs of tiles in sequence.
+all of which could (I hypothesize) be reduced to transforming pairs of tiles in sequence. Plenty more to explore.
