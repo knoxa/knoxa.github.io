@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?><svg viewBox="0 0 1200 350" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg">
+<style type="text/css">
+
+.P { fill:pink; }
+.T { fill:turquoise; }
+.Y { fill:gold; }
+.F { fill:tomato; }
+.I { fill:indigo; }
+.V { fill:violet; }
+.N { fill:navy; }
+.W { fill:steelblue; }
+.L { fill:limegreen; }
+.X { fill:red; }
+.U { fill:teal; }
+.Z { fill:orange; }
+
+path {
+	stroke:lightgrey; stroke-width:8;
+}
+
+g {
+	fill:lightgrey;
+}
+
+</style>
+<g transform="translate(50,300), rotate(-90)">
+<g transform="translate(0,0)" class="N">
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,0)" class="N">
+<path d="M5,0 v30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,0)" class="L">
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,0)" class="L">
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,0)" class="L">
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,0)" class="L">
+<path d="M5,0 v30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(0,50)" class="T">
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,50)" class="N">
+<path d="M-5,0 v-30"/>
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,50)" class="N">
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,50)" class="N">
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,50)" class="X">
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,50)" class="L">
+<path d="M-5,0 v-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(0,100)" class="T">
+<path d="M-5,0 v-30"/>
+<path d="M5,0 v30"/>
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,100)" class="T">
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,100)" class="T">
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,100)" class="X">
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,100)" class="X">
+<path d="M-5,0 v-30"/>
+<path d="M5,0 v30"/>
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,100)" class="X">
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(0,150)" class="T">
+<path d="M-5,0 v-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,150)" class="U">
+<path d="M5,0 v30"/>
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,150)" class="U">
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,150)" class="U">
+<path d="M5,0 v30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,150)" class="X">
+<path d="M-5,0 v-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,150)" class="P">
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(0,200)" class="I">
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,200)" class="U">
+<path d="M-5,0 v-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,200)" class="X">
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,200)" class="U">
+<path d="M-5,0 v-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,200)" class="P">
+<path d="M5,0 v30"/>
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,200)" class="P">
+<path d="M-5,0 v-30"/>
+<path d="M5,0 v30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(0,250)" class="I">
+<path d="M-5,0 v-30"/>
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,250)" class="X">
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,250)" class="X">
+<path d="M-5,0 v-30"/>
+<path d="M5,0 v30"/>
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,250)" class="X">
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,250)" class="P">
+<path d="M-5,0 v-30"/>
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,250)" class="P">
+<path d="M-5,0 v-30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(0,300)" class="I">
+<path d="M-5,0 v-30"/>
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,300)" class="W">
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,300)" class="X">
+<path d="M-5,0 v-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,300)" class="V">
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,300)" class="V">
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,300)" class="V">
+<path d="M5,0 v30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(0,350)" class="I">
+<path d="M-5,0 v-30"/>
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,350)" class="W">
+<path d="M-5,0 v-30"/>
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,350)" class="W">
+<path d="M5,0 v30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,350)" class="Z">
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,350)" class="Z">
+<path d="M5,0 v30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,350)" class="V">
+<path d="M-5,0 v-30"/>
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(0,400)" class="I">
+<path d="M-5,0 v-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,400)" class="Y">
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,400)" class="W">
+<path d="M-5,0 v-30"/>
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,400)" class="W">
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,400)" class="Z">
+<path d="M-5,0 v-30"/>
+<path d="M5,0 v30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,400)" class="V">
+<path d="M-5,0 v-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(0,450)" class="Y">
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(50,450)" class="Y">
+<path d="M-5,0 v-30"/>
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(100,450)" class="Y">
+<path d="M0,-5 h30"/>
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(150,450)" class="Y">
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(200,450)" class="Z">
+<path d="M-5,0 v-30"/>
+<path d="M0,-5 h30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+<g transform="translate(250,450)" class="Z">
+<path d="M0,5 h-30"/>
+<rect x="-20" y="-20" width="40" height="40"/>
+</g>
+</g>
+</svg>

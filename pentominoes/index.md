@@ -112,6 +112,41 @@ I can reduce the chances of this happening a little by controlling the order in 
 I can also add the constraint that the next tile cannot be the same as one already placed, so I either get a solution or the method fails with a partially filled board.
 This gives me a proper solution every twenty to thirty thousand attempts. Incomplete boards of 10 or 11 pentominoes are fairly common.
 
+## Random pentomino transformations
+
+Another random approach is to create a degenerate solution and randomly transform pairs of pentominoes until a true solution is reached. As noted above,
+it's not obvious if a transformation step will take you closer to the solution or not.
+I first tried making a completely random choice (from adjoining pairs that can transform), which failed to succeed in the first hundred thousand trials.
+The number of unique pentominoes fluctuates under this method, and there are some things to be learned about the frequency of occurrence of pentomino types
+in degenerate solutions. Notably, the P pentomino is the most common and the X pentomino the least common.
+
+Next, I adjusted the method to choose the first of the pair from the set of pentominoes that are duplicated, with the second of the pair a 
+random neighbour. This often produces solutions,
+but sometimes gets to a stage where there are 11 (occassionally 10) unique pentominoes, and the transformations just repeat around a short loop.
+Either result happens within a few thousand transformations.
+
+I also tried exluding the X pentomino from the choice of pair to transform.
+This produced fewer proper solutions, and more degenerate 11 pentomino solutions, but finished more quickly either way.
+Interestingly, one of the degenerate solutions (in just 78 transformations) was a very near miss:
+
+![a near miss](swap-nearly.svg)
+
+This is missing the F pentomino, but the P pentomino and the X pentomino to its left transform to F and P:
+
+![swap solution](swap-nearly.svg)
+
+If I start from the near-miss state, and remove the restriction on selecting X pentominoes, the algorithm (without further interference) happens to choose
+the 'wrong' X pentomino at the next step, and wanders away from the solution subsequently.
+
+This seems like a reasonably useful method, at least when searching for 6 x 10 solutions, which are the most common.
+I did manage to get 5 x 12 and 4 x 15 solutions with much trouble though.
+When  I tried for a 3 x 20 solution, the first 10 or so attempts (starting with different random number seeds) ended in loops over degenerate solutions
+- but then I got ... 
+
+![3 x 20 solution](3x20.svg)
+
+... which is one of the two possible 3 x 20 solutions. The earlier attempts failed in under 10,000 transformations, and the successful run took 8124 transformations.
+
 ## Conclusion 
 
 This exercise is by way of applying the code in my [automata](https://github.com/knoxa/automata) repository.
@@ -122,6 +157,6 @@ If I were just interested in generating solutions, I could implement something l
 or some other form of exhaustive search.
 Alternatively, I could just download solutions from [Isomer Design's Pentomino page](https://isomerdesign.com/Pentomino/index.html).
 
-I'm more interested here in how pentomino transformations relate degenerate solutions to proper solutions, and how they relate solutions to each other.
+I'm more interested in how pentomino transformations relate degenerate solutions to proper solutions, and how they relate solutions to each other.
 There is some discussion of the relationship between solutions on the Isomer Design page. This discusses several classes of transformation,
 all of which could (I hypothesize) be reduced to transforming pairs of tiles in sequence.
