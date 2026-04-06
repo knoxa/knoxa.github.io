@@ -44,7 +44,7 @@ and get ...
 
 ![second attempt](attempt2.svg)
 
-... but this may still alter tiles in the starting state, such as the I-pentomino along the bottom edge.
+... but this may still alter tiles in the starting state, such as the L-pentomino along the bottom edge.
 I can fix this by altering the sensed environment in the start state to include only tiles of size one.
 The fixed pentominoes become 'invisible' and play no part in the algorithm.
 
@@ -66,7 +66,7 @@ I soon got to this point:
 
 ![third attempt](attempt3.svg)
 
-This has 10 unique pentominoes. A missing U-pentomino and Y-pentomino need to replace a W-pentomino and P-pentomino.
+This has 10 unique pentominoes. A missing W-pentomino and P-pentomino need to replace a U-pentomino and Y-pentomino.
 This is a hopeful situation because the P-pentomino is the easiest to produce, randomly or by transformation, and there is a U-pentomino next to a Y-pentomino at the bottom-left of the board. Unfortunately, the W-pentomino is awkward and won't fit into the space.
 The nearby X-pentomino and U-pentomomino can't be moved into that space either. I'm painted into a corner.
 
@@ -141,17 +141,17 @@ the 'wrong' X pentomino at the next step, and wanders away from the solution sub
 
 This seems like a reasonably useful method, at least when searching for 6 x 10 solutions, which are the most common.
 I did manage to get 5 x 12 and 4 x 15 solutions without much trouble though.
-When  I tried for a 3 x 20 solution, the first several attempts (starting with different random number seeds) ended in loops over degenerate solutions
-- but then I got ... 
+When  I tried for a 3 x 20 solution, the first several attempts (starting with different random number seeds) ended in loops over degenerate solutions, 
+but then I got ... 
 
 ![3 x 20 solution](3x20.svg)
 
-... which is one of the two possible 3 x 20 solutions. The earlier attempts failed in under 10,000 transformations, and the successful run took 8124 transformations.
+... which is one of the two possible 3 x 20 solutions. The earlier attempts failed in under 10,000 transformations and the successful run took 8124 transformations.
 
-## Conclusion 
+## Conclusion
 
 This exercise is by way of applying the code in my [automata](https://github.com/knoxa/automata) repository.
-Pentominoes are colonies of 5 square cells.
+Pentominoes are colonies of 5 square cells. Neighbouring pairs of pentominoes transform by exchanging squares.
 The random methods described above need take no account of the orientation of pentominoes - a colony of 5 cells either fits or it doesn't.
 
 If I were just interested in generating solutions, I could implement something like the [Exact Cover algorithm](https://en.wikipedia.org/wiki/Exact_cover)
