@@ -126,7 +126,7 @@ random neighbour. This often produces solutions,
 but sometimes gets to a stage where there are 11 (occassionally 10) unique pentominoes, and the transformations just repeat around a short loop.
 Either result happens within a few thousand transformations.
 
-I also tried exluding the X pentomino from the choice of pair to transform.
+I also tried excluding the X pentomino from the choice of pair to transform.
 This produced fewer proper solutions and more degenerate 11 pentomino solutions, but finished more quickly either way.
 Interestingly, one of the degenerate solutions (in just 78 transformations) was a very near miss:
 
@@ -141,7 +141,7 @@ the 'wrong' X pentomino at the next step, and wanders away from the solution sub
 
 This seems like a reasonably useful method, at least when searching for 6 x 10 solutions, which are the most common.
 I did manage to get 5 x 12 and 4 x 15 solutions without much trouble though.
-When  I tried for a 3 x 20 solution, the first several attempts (starting with different random number seeds) ended in loops over degenerate solutions, 
+When  I tried for a 3 x 20 solution, the first several attempts (starting with different random number seeds) ended in degenerate solutions, 
 but then I got ... 
 
 ![3 x 20 solution](3x20.svg)
