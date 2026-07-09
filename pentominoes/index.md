@@ -104,8 +104,8 @@ I'll come back to that.
 
 ## A random solution
 
-The method described above gives me a solution with 10 distinct pentominoes every thousand or so attempts, and 11 pentominoes every thirty to forty thousand.
-I've run eight hundred thousand attempts without getting a complete solution in though.
+The coalescing tiles method described above gives me a solution with 10 distinct pentominoes every thousand or so attempts, and 11 pentominoes every thirty to forty thousand.
+I've run eight hundred thousand attempts without getting a complete solution though.
 
 I can improve the likelihood of getting a proper solution by adding complete pentominoes at random rather letting a board of distinct squares coalesce to pentominoes.
 This approach will fail to fill board if placing a pentomino closes off an area that is not a multiple of 5.
@@ -161,3 +161,5 @@ Alternatively, I could just download solutions from [Isomer Design's Pentomino p
 I'm more interested in how pentomino transformations relate degenerate solutions to proper solutions, and how they relate solutions to each other.
 There is some discussion of the relationship between solutions on the Isomer Design page. This discusses several classes of transformation,
 all of which could (I hypothesize) be reduced to transforming pairs of tiles in sequence. Plenty more to explore.
+
+Here are my [solutions](https://github.com/knoxa/knoxa.github.io/tree/master/pentominoes/solutions).
