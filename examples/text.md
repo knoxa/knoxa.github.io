@@ -1,26 +1,58 @@
 # Locating places
 
-I need to identify the strings in a document that *mention* places.
+## Introduction
+
+I need to identify the strings in a document that mention places.
 I can do this manually, or I can do it through some NLP process.
 Either way, I choose to capture the results by marking-up mentions of place with HTML `<span>` elements.
 I can set a class element and use a CSS stylesheet to make my choices obvious.
 
-Next I need to decide when two different mentions refer to the same place.
-How I do this might depend on how I intend to use the data as well as the data itself.
-For instance, I might only be interested in the city or town rather than its neighbourhoods.
-I'm asserting that two *mentions* are co-references to the same *place*.
+A *mention* is a string of text at a specific position in a document. Its position gives it *context*.
+The string describes a place, so is a *label* for that place.
+The meaning of a label depends on its context.
+A general label, such as "the road", can only be interpreted as a location on a map if its context is taken into account.
+Other labels, such as proper names, may be locatable irrespective of context.
 
-Once I have a place, rather than a just a mention of a place, it has an *identity*.
-If I had a geospatial database then I could use it to store places and their identity.
-I don't have that though, and it wouldn't be of any use to you if I did.
-I there were a geospatial database be could all share, then I might use that, but it won't have 
-all the places I'm likely to come across in war diaries.
+I must decide whether two different mentions or labels refer to the same place.
+This makes a place an abstract entity that is referred to by mentions and labels.
+In other words, a mention or a label is not a place, it is a reference to a place.
 
-Instead, I'll treat the place name as its identity.
+Once I have a *place*, rather than a just a mention of a place or a label, it has an *identity*.
+Identities are unique. If I can faithfully map a place to its identity, its trivial to link it to any
+other information about the same identity, in particular its geospatial *location*.
+
+## Assumptions and uncertainty
+
+This all sounds good, but there are various practical issues.
+I'll detail these in the context of a worked example below, but is worth noting some general points here.
+
+There are judgements to be made about what constitutes a mention of a place.
+These judgements might legitimately be different in different circumstances.
+They depend on what you want to do with the locations you extract.
+They will also depend on the skills of a human agent, or the capabilities of a machine agent, 
+that finds the place mentions in the first place.
+
+Data management takes a lot of effort to do well.
+A hobbyist, like myself, doesn't have access to a geospatial database and other enterprise tools that would help, or the time and effort (and inclination) to learn how to use them if I did.
+Instead, I'll take a short-cut and treat a place's proper name name as its identity.
 This wrong in general terms because place names aren't unique, but it usually works in the context of a single document.
-Rather than say that a place is identified by its name, I say that I *assume* a place is identified by its name.
-This is a subtle but important distinction.
-It says I need to be sure that the assumption isn't invalid when I make claims about the location of a place.
+Rather than claim that a place is identified by its name, I say that I *assume* a place is identified by its name.
+This is a subtle but important distinction. It says I need to be sure that the assumption isn't invalid when I make claims about the location of a place.
+
+Its easier, from the data management point-of-view, to deal with labels rather than mentions when collecting co-references to the same place.
+Simplifying a set of mentions to a set of labels risks losing contextual information that might change the determination of the associated place.
+Mistakes are always possible in any case, and I'll assume that operating on labels instead of mentions isn't going to add signficantly to the risk of misidentifying a place.
+What will happen is that some places won't be identifiable from considering labels that might be identifiable through considering mentions.
+I'll assume that these lapses aren't important.
+
+Any "facts" I extract are not, in actual fact, facts, but are claims based on a set of assumptions.
+Assumptions are usually correct but aren't always correct.
+You should be able to test a claim by challenging the assumptions, and I should be able to justify the asuumptions to defend it. 
+
+## 11th Infantry Brigade movements in World War 1
+
+I want to locations from [11<sup>th</sup> Infantry Brigade war diaries].
+
 
     positions respectively S.W. and S.E. of SOLESMES
 	
@@ -28,10 +60,6 @@ Is this one place or two?
 Different people will make different judgements, so the answer to a question like this is usually "both".
 From the "pass it round first, cut it up afterwards" point-of-view, it doesn't matter - you should be able 
 to make sense of either choice, and come back and make the alternate choice if that suits you better.
-
-A mention is a string of text at a specific location in a document.
-The location gives it context, and the context informs the meaning of the string.
-It may be that the string has useful meaning out of context. For example, if it's the proper name of a place.
 
 I want to geolocate the places covered by span elements.
 I collect the set of string that are the span elements.
