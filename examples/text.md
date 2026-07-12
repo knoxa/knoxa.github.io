@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I need to identify the strings in a document that mention places.
+I need to identify the spans of text in a document that mention places.
 I can do this manually, or I can do it through some NLP process.
 Either way, I choose to capture the results by marking-up mentions of place with HTML `<span>` elements.
 I can set a class element and use a CSS stylesheet to make my choices obvious.
@@ -13,10 +13,9 @@ The meaning of a label depends on its context.
 A general label, such as "the road", can only be interpreted as a location on a map if its context is taken into account.
 Other labels, such as proper names, may be locatable irrespective of context.
 
-I must decide whether two different mentions or labels refer to the same place.
+I can decide that two different mentions or labels refer to the same place.
 This makes a place an abstract entity that is referred to by mentions and labels.
 In other words, a mention or a label is not a place, it is a reference to a place.
-
 Once I have a *place*, rather than a just a mention of a place or a label, it has an *identity*.
 Identities are unique. If I can faithfully map a place to its identity, its trivial to link it to any
 other information about the same identity, in particular its geospatial *location*.
@@ -26,11 +25,11 @@ other information about the same identity, in particular its geospatial *locatio
 This all sounds good, but there are various practical issues.
 I'll detail these in the context of a worked example below, but is worth noting some general points here.
 
-There are judgements to be made about what constitutes a mention of a place.
+There are judgements to be made about what constitutes the mention of a place.
 These judgements might legitimately be different in different circumstances.
 They depend on what you want to do with the locations you extract.
 They will also depend on the skills of a human agent, or the capabilities of a machine agent, 
-that finds the place mentions in the first place.
+that finds mentions in the first place.
 
 Data management takes a lot of effort to do well.
 A hobbyist, like myself, doesn't have access to a geospatial database and other enterprise tools that would help, or the time and effort (and inclination) to learn how to use them if I did.
@@ -46,20 +45,32 @@ What will happen is that some places won't be identifiable from considering labe
 I'll assume that these lapses aren't important.
 
 Any "facts" I extract are not, in actual fact, facts, but are claims based on a set of assumptions.
-Assumptions are usually correct but aren't always correct.
-You should be able to test a claim by challenging the assumptions, and I should be able to justify the asuumptions to defend it. 
+These assumptions will usually be correct but wont't always correct.
+You should be able to test a claim by challenging the assumptions, and I should be able to justify the assumptions to defend it. 
 
 ## 11th Infantry Brigade movements in World War 1
 
-I want to locations from [11<sup>th</sup> Infantry Brigade war diaries].
+I want to extract locations from [11<sup>th</sup> Infantry Brigade war diaries](https://knoxa.github.io/war-diary/11-Bde/).
+But, what does this mean precisely?. 
+If the place is a region, do I want a polygon of the region or a point in the centre of the region?
+If the place is described as some distance in some direction from some other place, do I want to calculate a coordintate, or will just the location of the referent place do?
+What level of granularity do I want? If the mention is of a neighbourhood within a city, do I want to pin down the neighbourhood, or am I happy with just the city?
+I don't know the answers to these questions before I start, and I'll make different choices in different circumstances.
+I'll start by presuming the answer to questions like this are "it doesn't matter" and be prepared to "go round the loop" as my requirements change.
 
+My starting point is the [August 1914 war diary](https://knoxa.github.io/war-diary/11-Bde/1914/1914-08-diary.xhtml).
+The CSS stylesheet for this shows HTML spans with @class="place" in green.
+
+### Markup
+
+I've made judgments as to what to mark up and how. For example, there are choices to be made about text:
 
     positions respectively S.W. and S.E. of SOLESMES
 	
 Is this one place or two? 
 Different people will make different judgements, so the answer to a question like this is usually "both".
-From the "pass it round first, cut it up afterwards" point-of-view, it doesn't matter - you should be able 
-to make sense of either choice, and come back and make the alternate choice if that suits you better.
+I've dodged the issue in this particular instances by deciding that its one place, and that I can get what I want (for the time being at least)
+by just marking up `SOLESMES`.
 
 I want to geolocate the places covered by span elements.
 I collect the set of string that are the span elements.
@@ -67,13 +78,6 @@ I collect the set of string that are the span elements.
 I'll call the string that are mentions of an entity after the entity, so the string are places.
 I want to gelocate the mentions, but what I actually do is geolocate the strings, and assume that the location related to a string is the location of the mention.
 
-There's some interpretation need in deciding what it means to geolocate a place. 
-
-If the place is a region, do I want a polygon of the region or a point in the centre of the region?
-If the place is described as some distance in some direction from some other place, do I want to calculate a coordintate, or will just the location of the referent place do?
-
-As usual, I'll dodge all these questions and try and arrange things so that it doesn't matter in the first instance because you're not precldued from making 
-different choices in different circumstances. I can even hedge my betes bo doing something like:
 
 ```
 <span class="place">the high ground S of <span class="place">ST SAUVEUR</span></span>
