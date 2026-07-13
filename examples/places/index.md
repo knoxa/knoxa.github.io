@@ -5,12 +5,12 @@
 I need to identify the spans of text in a document that mention places.
 I can do this manually, or I can do it through some NLP process.
 Either way, I choose to capture the results by marking-up mentions of place with HTML `<span>` elements.
-I can set a class element and use a CSS stylesheet to make my choices obvious.
+I can add a `class` attribute and use a CSS stylesheet to make my choices obvious.
 
 A *mention* is a string of text at a specific position in a document. Its position gives it *context*.
 The string describes a place, so is a *label* for that place.
 The meaning of a label depends on its context.
-A general label, such as "the road", can only be interpreted as a location on a map if its context is taken into account.
+A general label, such as "the village", can only be interpreted as a location on a map if its context is taken into account.
 Other labels, such as proper names, may be locatable irrespective of context.
 
 I can decide that two different mentions or labels refer to the same place.
@@ -22,21 +22,21 @@ other information about the same identity, in particular its geospatial *locatio
 
 ## Assumptions and uncertainty
 
-This all sounds good, but there are various practical issues.
+This all sounds reasonable, but there are various practical issues.
 I'll detail these in the context of a worked example below, but is worth noting some general points here.
 
 There are judgements to be made about what constitutes the mention of a place.
 These judgements might legitimately be different in different circumstances.
 They depend on what you want to do with the locations you extract.
-They will also depend on the skills of a human agent, or the capabilities of a machine agent, 
+They will also depend on the knowledge of a human agent, or the capabilities of a machine agent, 
 that finds mentions in the first place.
 
 Data management takes a lot of effort to do well.
-A hobbyist, like myself, doesn't have access to a geospatial database and other enterprise tools that would help, or the time and effort (and inclination) to learn how to use them if I did.
+A hobbyist like myself doesn't have access to a geospatial database and other enterprise tools that would help, or the time and effort (and inclination) to learn how to use them if I did.
 Instead, I'll take a short-cut and treat a place's proper name name as its identity.
-This wrong in general terms because place names aren't unique, but it usually works in the context of a single document.
+This wrong in general terms because place names aren't unique, but it usually works in a narrow context.
 Rather than claim that a place is identified by its name, I say that I *assume* a place is identified by its name.
-This is a subtle but important distinction. It says I need to be sure that the assumption isn't invalid when I make claims about the location of a place.
+This is a subtle but important distinction. It means I should check that the assumption isn't invalid when I make claims about the location of a place.
 
 Its easier, from the data management point-of-view, to deal with labels rather than mentions when collecting co-references to the same place.
 Simplifying a set of mentions to a set of labels risks losing contextual information that might change the determination of the associated place.
@@ -45,13 +45,13 @@ What will happen is that some places won't be identifiable from considering labe
 I'll assume that these lapses aren't important.
 
 Any "facts" I extract are not, in actual fact, facts, but are claims based on a set of assumptions.
-These assumptions will usually be correct but wont't always correct.
-You should be able to test a claim by challenging the assumptions, and I should be able to justify the assumptions to defend it. 
+These assumptions will usually be correct but won't always correct.
+You should be able to test a claim by challenging underlying assumptions, and I should be able to justify the assumptions to defend it. 
 
 ## 11th Infantry Brigade movements in World War 1
 
 I want to extract locations from [11<sup>th</sup> Infantry Brigade war diaries](https://knoxa.github.io/war-diary/11-Bde/).
-But, what does this mean precisely?. 
+But, what does this mean precisely?
 If the place is a region, do I want a polygon of the region or a point in the centre of the region?
 If the place is described as some distance in some direction from some other place, do I want to calculate a coordintate, or will just the location of the referent place do?
 What level of granularity do I want? If the mention is of a neighbourhood within a city, do I want to pin down the neighbourhood, or am I happy with just the city?
@@ -59,7 +59,7 @@ I don't know the answers to these questions before I start, and I'll make differ
 I'll start by presuming the answer to questions like this are "it doesn't matter" and be prepared to "go round the loop" as my requirements change.
 
 My starting point is the [August 1914 war diary](https://knoxa.github.io/war-diary/11-Bde/1914/1914-08-diary.xhtml).
-The CSS stylesheet for this shows HTML spans with @class="place" in green.
+The CSS stylesheet for this shows HTML spans with `@class="place"` in green.
 
 ### Markup
 
@@ -72,22 +72,41 @@ Different people will make different judgements, so the answer to a question lik
 I've dodged the issue in this particular instances by deciding that its one place, and that I can get what I want (for the time being at least)
 by just marking up `SOLESMES`.
 
-I want to geolocate the places covered by span elements.
-I collect the set of string that are the span elements.
-
-I'll call the string that are mentions of an entity after the entity, so the string are places.
-I want to gelocate the mentions, but what I actually do is geolocate the strings, and assume that the location related to a string is the location of the mention.
-
+I can be creative with the use of `span` elements. For example, to address the issue of one 
+place being described in terms of another, I might do something like:
 
 ```
 <span class="place">the high ground S of <span class="place">ST SAUVEUR</span></span>
 ```
 
 This puts a mention of `ST SAUVEUR` in the context of the mention `the high ground S of ST SAUVEUR`.
+I could use this stucture to explicitly map `the high ground S of ST SAUVEUR` to `ST SAUVEUR`,
+which than maps to the location Saint-Sauveur.
+Alternatively, I could get the same result if just have the outer span element, and make the association to Saint-Sauveur through dictionary matching.
+Choices choices.
+
+Another thing I can do is try and preserve some context for labels that would otherwise be unlocatable. For example:
+
+```
+<span class="place" content="a large wood between PONT L'ÉVÈQUE and LES CLOYES">a large wood</span>
+<span class="place" content="to the E of the village of ST SAUVEUR">to the E of the village</span>
+```
+
+Here. Ive added a `content` attribute to make the span more explicit.
+The idea is that the value of this attribute replaces tyhe text in the body of the span.
+I need to be very careful that I don't change the meaning of the text if I do this. Another assumption.
+
+### The process
+
+Firstly, I collect the set of string that are the span elements.
+I've chosen to take the value of the `content` attribute in preference to the body of the span, and to ignore any nesting of spans.
+The result is this [set of labels](labels.txt).
+
+I'll call the string that are mentions of an entity after the entity, so the string are places.
+I want to geolocate the mentions, but what I actually do is geolocate the strings, and assume that the location related to a string is the location of the mention.
 
 Ignoring this structure, I get two strings, and dictionary matching identifies both of them as location `Saint-Sauveur`.
-If I don't want to use dictionary matching, I could use this stucture to explicitly map `the high ground S of ST SAUVEUR` to `ST SAUVEUR`,
-which than maps to the location `Saint-Sauveur`. Choices choices.
+If I don't want to use dictionary matching,  Choices choices.
 
 In practical terms the problem comes down to matching the place to a a geometry in a reference geospatial dataset.
 I will use KML files as my source of geospatial data. I'll takl about creating and manipulating these elsewhere.
@@ -106,15 +125,6 @@ Alternatively, I can be lazy and use the map to make a dictionary of locations, 
 to dictionary entries they contain, and then use the dictionary hit to index the location.
 I'll take the lazy option but use the results to update the map rather than take the location directly.
 I then have the option of altering the map if I wish.
-
-A worked example with the [11<sup>th</sup> Brigade war diary for August 1914](https://knoxa.github.io/war-diary/11-Bde/1914/1914-08-diary.xhtml).
-
-The spans of text that I judge to be places are green.
-
-```
-<span class="place" content="a large wood between PONT L'ÉVÈQUE and LES CLOYES">a large wood</span>
-<span class="place" content="to the E of the village of ST SAUVEUR">to the E of the village</span>
-```
 
 
 ## Issues
