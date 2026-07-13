@@ -69,7 +69,7 @@ I've made judgments as to what to mark up and how. For example, given the mentio
 	
 Is this one place or two? 
 Different people will make different judgements, so the answer to a question like this is usually "both".
-I've dodged the issue in this particular instances by deciding that its one place, and that I can get what I want (for the time being at least)
+I've dodged the issue in this particular case by deciding that its one place, and that I can get what I want (for the time being at least)
 by just marking up `SOLESMES`.
 
 I can be creative with the use of `span` elements. For example, to address the issue of one 
@@ -82,7 +82,7 @@ place being described in terms of another, I might do something like:
 This puts a mention of `ST SAUVEUR` in the context of the mention `the high ground S of ST SAUVEUR`.
 I could use this stucture to explicitly map `the high ground S of ST SAUVEUR` to `ST SAUVEUR`,
 which than maps to the location Saint-Sauveur.
-Alternatively, I could get the same result if just have the outer span element, and make the association to Saint-Sauveur through dictionary matching.
+Alternatively, I could get the same result if just have the outer span element and make the association to Saint-Sauveur through dictionary matching.
 Choices choices.
 
 Another thing I can do is try and preserve some context for labels that would otherwise be unlocatable. For example:
@@ -92,8 +92,8 @@ Another thing I can do is try and preserve some context for labels that would ot
 <span class="place" content="to the E of the village of ST SAUVEUR">to the E of the village</span>
 ```
 
-Here. Ive added a `content` attribute to make the span more explicit.
-The idea is that the value of this attribute replaces tyhe text in the body of the span.
+Here. I've added a `content` attribute to make the mention more explicit.
+The idea is that the value of this attribute replaces the text in the body of the span.
 I need to be very careful that I don't change the meaning of the text if I do this. Another assumption.
 
 ### The process
@@ -101,6 +101,46 @@ I need to be very careful that I don't change the meaning of the text if I do th
 Firstly, I collect the set of string that are the span elements.
 I've chosen to take the value of the `content` attribute in preference to the body of the span, and to ignore any nesting of spans.
 The result is this [set of labels](labels.txt).
+
+Next, I treat the labels as terms in a dictionary [cakes.nlp.dictionary](https://github.com/knoxa/cakes/tree/main/src/cakes/nlp/dictionary)
+and apply the the dictionary to itself.
+This finds shorter labels that are part of longer labels. The matching ignores diacritics.
+The effect is similar to nesting one mention span inside another when marking up the document; a label that refers to a place in terms
+of its relationship to a named place is mapped to the label of the name place.
+This reduces the number of places I need to geolocate in the first instance. The result is this [label map](labels.xml).
+This represents a function that takes a label as input and produces a set of contained labels as output.
+Ideally, I want a single label as output. I check for this:
+
+	Mulitple instances for key=a large wood between PONT L'ÉVÈQUE and LES CLOYES, values=[LES CLOYES, PONT L'ÉVÉQUE, PONT L'ÉVÈQUE]
+
+This demonstrates two possible issues:
+
+Firstly, I have two versions of `PONT L'EVEQUE` with different accenting (neither of which is correct).  I also have:
+
+	<entry key="PONT L'ÉVÉQUE" value="PONT L'ÉVÉQUE"/>
+	<entry key="PONT L'ÉVÈQUE" value="PONT L'ÉVÉQUE"/>
+
+This is sufficient to assert that these two labels are equal.
+I can do something about that at this stage if I want, but it's going to come out in the wash when I later map labels to names, so I can safely ignore this.
+
+The other issue is that the label is a location described with reference to a pair of places rather than just one, so legitimately mentions two different proper names.
+I I wish, I can edit the map so that the entries:
+
+	<entry key="a large wood between PONT L'ÉVÈQUE and LES CLOYES" value="LES CLOYES"/>
+	<entry key="a large wood between PONT L'ÉVÈQUE and LES CLOYES" value="PONT L'ÉVÉQUE"/>
+	<entry key="a large wood between PONT L'ÉVÈQUE and LES CLOYES" value="PONT L'ÉVÈQUE"/>
+
+become a single entry:
+
+	<entry key="a large wood between PONT L'ÉVÈQUE and LES CLOYES" value="a large wood between PONT L'ÉVÈQUE and LES CLOYES"/>
+
+This is saying that I want to treat `a large wood between PONT L'ÉVÈQUE and LES CLOYES` as the *name* of a place, not just a label for it, and be able to locate that name.
+
+Next, I want to treat the values of the [labels map](labels.xml) as places and identify them.
+The name that I want to use as my identifier is the name associated with the location in my geospatial data.
+I'll call this the *preferred name*. The same location might have several names (to account for variations in spelling etc.).
+Each of these is an *alternate name*. I need a map of alternate name to be preferred name.
+
 
 I'll call the string that are mentions of an entity after the entity, so the string are places.
 I want to geolocate the mentions, but what I actually do is geolocate the strings, and assume that the location related to a string is the location of the mention.
