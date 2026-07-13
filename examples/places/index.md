@@ -58,12 +58,14 @@ What level of granularity do I want? If the mention is of a neighbourhood within
 I don't know the answers to these questions before I start, and I'd expect to make different choices in different circumstances.
 I'll start by presuming the answer to questions like this are "it doesn't matter" and be prepared to "go round the loop" as my requirements change.
 
+### August 1914
+
 My starting point is the [August 1914 war diary](https://knoxa.github.io/war-diary/11-Bde/1914/1914-08-diary.xhtml).
 The CSS stylesheet for this shows HTML spans with `@class="place"` in green.
 
-### Markup
+### Mentions
 
-I've made judgments as to what to mark up and how. For example, given the mention:
+These are edited into the XHTML by hand. I've made judgments as to what to mark up and how. For example, given the mention:
 
     positions respectively S.W. and S.E. of SOLESMES
 	
@@ -83,7 +85,7 @@ This puts a mention of `ST SAUVEUR` in the context of the mention `the high grou
 I could use this stucture to explicitly map `the high ground S of ST SAUVEUR` to `ST SAUVEUR`,
 which than maps to the location Saint-Sauveur.
 Alternatively, I could get the same result if just have the outer span element and make the association to Saint-Sauveur through dictionary matching.
-Choices choices.
+Choices choices, and I haven't tried too hard to be consistent in making them.
 
 Another thing I can do is try and preserve some context for labels that would otherwise be unlocatable. For example:
 
@@ -106,25 +108,25 @@ Next, I treat the labels as terms in a dictionary [cakes.nlp.dictionary](https:/
 and apply the the dictionary to itself.
 This finds shorter labels that are part of longer labels. The matching ignores diacritics.
 The effect is similar to nesting one mention span inside another when marking up the document; a label that refers to a place in terms
-of its relationship to a named place is mapped to the label of the name place.
+of its relationship to a named place is mapped to the label of the named place.
 This reduces the number of places I need to geolocate in the first instance. The result is this [label map](labels.xml).
 This represents a function that takes a label as input and produces a set of contained labels as output.
-Ideally, I want a single label as output. I check for this:
+Ideally, I want a single label as output. I check for this and find one label where this isn't true:
 
 	Mulitple instances for key=a large wood between PONT L'ÉVÈQUE and LES CLOYES, values=[LES CLOYES, PONT L'ÉVÉQUE, PONT L'ÉVÈQUE]
 
 This demonstrates two possible issues:
 
-Firstly, I have two versions of `PONT L'EVEQUE` with different accenting (neither of which is correct).  I also have:
+Firstly, I have two versions of `PONT L'EVEQUE` with different accenting, neither of which is necessarily correct.  I also have:
 
 	<entry key="PONT L'ÉVÉQUE" value="PONT L'ÉVÉQUE"/>
 	<entry key="PONT L'ÉVÈQUE" value="PONT L'ÉVÉQUE"/>
 
-This is sufficient to assert that these two labels are equal.
+This is sufficient to assert that these two labels are equivalent.
 I can do something about that at this stage if I want, but it's going to come out in the wash when I later map labels to names, so I can safely ignore this.
 
-The other issue is that the label is a location described with reference to a pair of places rather than just one, so legitimately mentions two different proper names.
-I I wish, I can edit the map so that the entries:
+The other issue is that the label describes a location with reference to a pair of places rather than just one, so legitimately mentions two different proper names.
+If I wish, I can edit the map so that the entries:
 
 	<entry key="a large wood between PONT L'ÉVÈQUE and LES CLOYES" value="LES CLOYES"/>
 	<entry key="a large wood between PONT L'ÉVÈQUE and LES CLOYES" value="PONT L'ÉVÉQUE"/>
@@ -135,38 +137,45 @@ become a single entry:
 	<entry key="a large wood between PONT L'ÉVÈQUE and LES CLOYES" value="a large wood between PONT L'ÉVÈQUE and LES CLOYES"/>
 
 This is saying that I want to treat `a large wood between PONT L'ÉVÈQUE and LES CLOYES` as the *name* of a place, not just a label for it, and be able to locate that name.
+The 'problem' isn't going away this time, but I can let this slide for now and deal with it later.
 
 Next, I want to treat the values of the [labels map](labels.xml) as places and identify them.
 The name that I want to use as my identifier is the name associated with the location in my geospatial data.
-I'll call this the *preferred name*. The same location might have several names (to account for variations in spelling etc.).
-Each of these is an *alternate name*. I need a map of alternate name to be preferred name.
+I'll call this the *preferred name*. The same location might have several names to account for variations in spelling and the like.
+Each of these is an *alternate name*. I need a map of alternate name to preferred name.
+I could make this map in isolation, but since I will go on to map preferred name to location, I might as well construct or find my geospatial data now - and then I can harvest preferred names from that data and use these as the target value for an alternate to preferred name map.
 
+I've made my reference geospatial data by spending time sitting down with Google Earth, war diary entries and WW1 maps (if I can find them).
+The merged KML from this is [France1914.kml](France1914.kml).
+I can create a map of alternate names to preferred name from this KML.
+The values of this map will be KML placemark names (my choice for preferred name) and the keys will be preferred names and any alternate names in the KML (it's possible to use `ExtendedData` in a KML `PlaceMark` to add these).
+This is the starting point for the *identity map* I want. I can edit it as I see fit.
+One thing I do want to do is remove any entries where the key is not in the set of values generated by the [labels map][labels.xml].
+I again ignore case and diacritics when matching a value from the labels map with a key (alternate name) in the identity map.
+I save a version of the identity map that has label map values (alternate names) as key, and identity (preferred name) as value.
+This is [191408-places.xml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408-places.xml).
 
-I'll call the string that are mentions of an entity after the entity, so the string are places.
-I want to geolocate the mentions, but what I actually do is geolocate the strings, and assume that the location related to a string is the location of the mention.
+Lastly, I use [191408-places.xml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408-places.xml) to create a corresponding [191408.kml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408.kml) file that includes the locations.
+Hopefully, this is as simple as using the preferred names to select placemarks from [France1914.kml](France1914.kml).
+In practise, this is where my assumption about a proper name identifing a place might break down.
+There are instances in my KML where the same name applies to two different locations.
+I can spot this easily enough because I get two locations for the name instead on one.
+It might require careful analysis source documents and maps to distingush between the two.
+I can capture the results of that analysis by editing [191408.kml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408.kml) accordingly.
 
-Ignoring this structure, I get two strings, and dictionary matching identifies both of them as location `Saint-Sauveur`.
-If I don't want to use dictionary matching,  Choices choices.
+The final result is a consistent set of data: [1914-08-diary.xhtml](https://knoxa.github.io/war-diary/11-Bde/1914/1914-08-diary.xhtml), [191408-places.xml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408-places.xml) and [191408.kml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408.kml).
 
-In practical terms the problem comes down to matching the place to a a geometry in a reference geospatial dataset.
-I will use KML files as my source of geospatial data. I'll takl about creating and manipulating these elsewhere.
+### Note
 
-A geospatial object in my reference data is a PlaceMark. I will assume that the PlaceMark name is the identity.
-I treat this name as a preferred name, and construct a map of alternate names to preferred name to handle alternative spellings and variations.
-It will be the case that two different locations sometimes have the same name.
-I allow for this by making the map return a set of names for each place.
-If the place names are unique the values will always be a set containing only one name. Ambiguity is obvious if the map returns more than one name. 
+I consider [France1914.kml](France1914.kml) as a working document.
+I used it to construct a document specific KML file, but I don't much weight as a geospatial dataset in its own right.
+One reason is that its becoming large and unweildy.
+Another reason is that I'm checking the document-specific KML file against the source text - and fixing any
+'geospatial' errors in that file.
+In due course, I can throw away [France1914.kml](France1914.kml) and reconstruct an equivalent from a set of document-specific KML files.
+Rather than use [France1914.kml](France1914.kml), I could make a scratch KML file in Google Earth for each source document I process, then throw it away once I've been
+round the loop sufficient times to get a useful result.
 
-I then compare each place string from the input document with the keys of this map.
-If the
-If I already have geolocated `HAVRE` I might be have to have `Rest Camp at HAVRE` at the same location.
-I can make this association explicit in my map of places to located places. 
-Alternatively, I can be lazy and use the map to make a dictionary of locations, link place strings
-to dictionary entries they contain, and then use the dictionary hit to index the location.
-I'll take the lazy option but use the results to update the map rather than take the location directly.
-I then have the option of altering the map if I wish.
+### September 1914
 
-
-## Issues
-
-* Dealing with ambiguous place names
+Moving on to the [September 1914 war diary](https://knoxa.github.io/war-diary/11-Bde/1914/1914-09-diary.xhtml).
