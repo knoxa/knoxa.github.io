@@ -3,9 +3,9 @@
 ## Introduction
 
 I need to identify the spans of text in a document that mention places.
-I can do this manually, or I can do it through some NLP process.
+I can do this manually or I can do it through some NLP process.
 Either way, I choose to capture the results by marking-up mentions of place with HTML `<span>` elements.
-I can add a `class` attribute and use a CSS stylesheet to make my choices obvious.
+I add a `class` attribute and use a CSS stylesheet to make my choices obvious.
 
 A *mention* is a string of text at a specific position in a document. Its position gives it *context*.
 The string describes a place, so is a *label* for that place.
@@ -33,8 +33,8 @@ that finds mentions in the first place.
 
 Data management takes a lot of effort to do well.
 A hobbyist like myself doesn't have access to a geospatial database and other enterprise tools that would help, or the time and effort (and inclination) to learn how to use them if I did.
-Instead, I'll take a short-cut and treat a place's proper name name as its identity.
-This wrong in general terms because place names aren't unique, but it usually works in a narrow context.
+Instead, I'll take a short-cut and treat a place's proper name as its identity.
+This is wrong in general terms because place names aren't unique, but it usually works in a narrow context.
 Rather than claim that a place is identified by its name, I say that I *assume* a place is identified by its name.
 This is a subtle but important distinction. It means I should check that the assumption isn't invalid when I make claims about the location of a place.
 
@@ -55,7 +55,7 @@ But, what does this mean precisely?
 If the place is a region, do I want a polygon of the region or a point in the centre of the region?
 If the place is described as some distance in some direction from some other place, do I want to calculate a coordintate, or will just the location of the referent place do?
 What level of granularity do I want? If the mention is of a neighbourhood within a city, do I want to pin down the neighbourhood, or am I happy with just the city?
-I don't know the answers to these questions before I start, and I'll make different choices in different circumstances.
+I don't know the answers to these questions before I start, and I'd expect to make different choices in different circumstances.
 I'll start by presuming the answer to questions like this are "it doesn't matter" and be prepared to "go round the loop" as my requirements change.
 
 My starting point is the [August 1914 war diary](https://knoxa.github.io/war-diary/11-Bde/1914/1914-08-diary.xhtml).
@@ -63,7 +63,7 @@ The CSS stylesheet for this shows HTML spans with `@class="place"` in green.
 
 ### Markup
 
-I've made judgments as to what to mark up and how. For example, there are choices to be made about text:
+I've made judgments as to what to mark up and how. For example, given the mention:
 
     positions respectively S.W. and S.E. of SOLESMES
 	
