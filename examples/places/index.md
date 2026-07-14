@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I need to identify the spans of text in a document that mention places.
+I want to identify the spans of text in a document that mention places.
 I can do this manually or I can do it through some NLP process.
 Either way, I choose to capture the results by marking-up mentions of place with HTML `<span>` elements.
 I add a `class` attribute and use a CSS stylesheet to make my choices obvious.
@@ -138,10 +138,9 @@ become a single entry:
 	<entry key="a large wood between PONT L'ÉVÈQUE and LES CLOYES" value="a large wood between PONT L'ÉVÈQUE and LES CLOYES"/>
 
 This is saying that I want to treat `a large wood between PONT L'ÉVÈQUE and LES CLOYES` as the *name* of a place, not just a label for it, and be able to locate that name.
-The 'problem' isn't going away this time, but I can let this slide for now and deal with it later.
 
 Next, I want to treat the values of the [labels map](labels.xml) as places and identify them.
-The name that I want to use as my identifier is the name associated with the location in my geospatial data.
+The name that I want to use as my place identifier is the name associated with the location in my geospatial data.
 I'll call this the *preferred name*. The same location might have several names to account for variations in spelling and the like.
 Each of these is an *alternate name*. I need a map of alternate name to preferred name.
 I could make this map in isolation, but since I will go on to map preferred name to location, I might as well construct or find my geospatial data now - and then I can harvest preferred names from that data and use these as the target value for an alternate to preferred name map.
@@ -156,7 +155,7 @@ I again ignore case and diacritics when matching a value from the labels map wit
 I save a version of the identity map that has labels map values (alternate names) as key, and identity (preferred name) as value.
 This is [191408-places.xml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408-places.xml).
 
-Lastly, I use [191408-places.xml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408-places.xml) to create a corresponding [191408.kml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408.kml) file that includes the locations.
+Finally, I use [191408-places.xml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408-places.xml) to create a corresponding [191408.kml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408.kml) file that includes the locations.
 Hopefully, this is as simple as using the preferred names to select placemarks from [France1914.kml](France1914.kml).
 In practise, this is where my assumption about a proper name identifing a place might break down.
 There are instances in my KML where the same name applies to two different locations.
@@ -174,7 +173,7 @@ One reason is that its becoming large and unweildy.
 Another reason is that I'm checking the document-specific KML file against the source text - and fixing any
 'geospatial' errors in that file.
 In due course, I'll throw away [France1914.kml](France1914.kml) and reconstruct an equivalent from a set of document-specific KML files.
-Rather than use [France1914.kml](France1914.kml) at all, I could have made a scratch KML file in Google Earth for each source document I process, then throw it away once I've been
+Rather than use [France1914.kml](France1914.kml) at all, I could make a scratch KML file in Google Earth for each source document I process, then throw it away once I've been
 round the loop sufficient times to get a useful result.
 
 The *identity map* takes a label to the corresponding place name (identifier).
