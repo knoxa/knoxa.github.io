@@ -109,7 +109,8 @@ to apply the the dictionary to itself.
 This finds shorter labels that are part of longer labels. The matching ignores diacritics.
 The effect is similar to nesting one mention span inside another when marking up the document; a label that refers to a place in terms
 of its relationship to a named place is mapped to the label of the named place.
-This reduces the number of places I need to geolocate in the first instance. The result is this [labels map](labels.xml).
+This is *co-reference resolution*.
+It reduces the number of places I need to geolocate in the first instance. The result is this [labels map](labels.xml).
 It represents a function that takes a label as input and produces a set of contained labels as output.
 Ideally, I want a single label as output. I check for this and find one label where this isn't true:
 
@@ -119,11 +120,11 @@ This demonstrates two possible issues:
 
 Firstly, I have two versions of `PONT L'EVEQUE` with different accenting, neither of which is necessarily correct.  I also have:
 
-	<entry key="PONT L'ÉVÉQUE" value="PONT L'ÉVÉQUE"/>
+	<entry key="PONT L'ÉVÉQUE" value="PONT L'ÉVÈQUE"/>
 	<entry key="PONT L'ÉVÈQUE" value="PONT L'ÉVÉQUE"/>
 
 This is sufficient to assert that these two labels are equivalent.
-I can do something about that at this stage if I want, but it's going to come out in the wash when I later map labels to names, so I can safely ignore this.
+I can do something about that at this stage if I want, but they'll be equated anyway when I later map labels to names, so I can safely ignore this.
 
 The other issue is that the label describes a location with reference to a pair of places rather than just one, so legitimately mentions two different proper names.
 If I wish, I can edit the map so that the entries:
@@ -165,73 +166,39 @@ I can capture the results of that analysis by editing [191408.kml](https://knoxa
 
 The final result is a consistent set of data: [1914-08-diary.xhtml](https://knoxa.github.io/war-diary/11-Bde/1914/1914-08-diary.xhtml), [191408-places.xml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408-places.xml) and [191408.kml](https://knoxa.github.io/war-diary/11-Bde/1914/data/191408.kml).
 
-### Note
+## Notes
 
 I consider [France1914.kml](France1914.kml) as a working document.
-I used it to construct a document specific KML file, but I don't much weight as a geospatial dataset in its own right.
+I used it to construct a document specific KML file, but I don't give it much weight as a geospatial dataset in its own right.
 One reason is that its becoming large and unweildy.
 Another reason is that I'm checking the document-specific KML file against the source text - and fixing any
 'geospatial' errors in that file.
-In due course, I can throw away [France1914.kml](France1914.kml) and reconstruct an equivalent from a set of document-specific KML files.
-Rather than use [France1914.kml](France1914.kml), I could make a scratch KML file in Google Earth for each source document I process, then throw it away once I've been
+In due course, I'll throw away [France1914.kml](France1914.kml) and reconstruct an equivalent from a set of document-specific KML files.
+Rather than use [France1914.kml](France1914.kml) at all, I could have made a scratch KML file in Google Earth for each source document I process, then throw it away once I've been
 round the loop sufficient times to get a useful result.
 
-### September 1914
+The *identity map* takes a label to the corresponding place name (identifier).
+The place name will match the name of a placemark in the KML if the place is locatable.
+Place names in the identity map that don't appear in the KML represet places that I have identified (by letting the label act as a name) but not yet located.
+Unknown locations are the set of `value` attributes in the identity map that are not in the set of KML placemark names.
 
-Moving on to the [September 1914 war diary](https://knoxa.github.io/war-diary/11-Bde/1914/1914-09-diary.xhtml).
+I use the identity map in reverse when I construct the KML.
+The `value` attribute becomes the placemark name and any `key` attributes that point to it become alternate names:
 
-Proceeding as above, I make a labels map, and check for cases where a label maps to than one place.
-I edit manually to deal with each of these in turn. For,
+```
+<Placemark>
+	<name>Fréniches</name>
+	<Point>
+		<coordinates>3.003553000000001,49.670125,0</coordinates>
+	</Point>
+	<ExtendedData>
+		<skos:altLabel>FRENICHES</skos:altLabel>
+		<skos:altLabel>FRENCICHES</skos:altLabel>
+	</ExtendedData>
+</Placemark>
+```
 
-	<entry key="LA FERTÉ village S of the MARNE River" value="the MARNE River"/>
-	<entry key="LA FERTÉ village S of the MARNE River" value="the MARNE river"/>
-	
-I delete the entries that point to `the MARNE River` and I ignore the accent:
-
-	<entry key="LA FERTÉ village S of the MARNE River" value="LA FERTÉ"/>
-	<entry key="LA FERTÉ village S of the MARNE River" value="LA FERTE"/>
-
-For,
-
-	<entry key="the main road through MONTIGNY L'ALLIER and FULAMES" value="MONTIGNY L'ALLIER"/>
-	<entry key="the main road through MONTIGNY L'ALLIER and FULAMES" value="FULAMES"/>
-
-and
-
-	<entry key="along the railway from OZOIR to GRETZ" value="OZOIR"/>
-	<entry key="along the railway from OZOIR to GRETZ" value="GRETZ"/>
-
-I do nothing.
-
-For,
-
-	<entry key="a steep track leading N.E. over the PETIT MORIN river at ST MARTIN" value="ST MARTIN"/>
-	<entry key="a steep track leading N.E. over the PETIT MORIN river at ST MARTIN" value="the PETIT MORIN river"/>
-
-and
-
-	<entry key="the main LA FERTÉ - CHATEAU-THIERRY road about a mile N of LA FERTÉ" value="LA FERTÉ"/>
-	<entry key="the main LA FERTÉ - CHATEAU-THIERRY road about a mile N of LA FERTÉ" value="CHATEAU-THIERRY"/>
-	<entry key="the main LA FERTÉ - CHATEAU-THIERRY road about a mile N of LA FERTÉ" value="LA FERTE"/>
-
-and
-
-	<entry key="the top of the ravine either side of the BUCY-LE-LONG - VREGNY road" value="BUCY-LE-LONG"/>
-	<entry key="the top of the ravine either side of the BUCY-LE-LONG - VREGNY road" value="VREGNY"/>
-
-I decide that each of these represents a place I need to gelocate. I replace these entries with
-
-	<entry key="a steep track leading N.E. over the PETIT MORIN river at ST MARTIN" value="a steep track leading N.E. over the PETIT MORIN river at ST MARTIN"/>
-	<entry key="the main LA FERTÉ - CHATEAU-THIERRY road about a mile N of LA FERTÉ" value="the main LA FERTÉ - CHATEAU-THIERRY road about a mile N of LA FERTÉ"/>
-	<entry key="the top of the ravine either side of the BUCY-LE-LONG - VREGNY road" value="the top of the ravine either side of the BUCY-LE-LONG - VREGNY road"/>
-
-
-For,
-
-	<entry key="Pt 132 ½ mil S.W. of RAPERIE" value="Pt 132"/>
-	<entry key="Pt 132 ½ mil S.W. of RAPERIE" value="RAPERIE"/>
-
-I decide that I want this to be `Pt 132', so delete
-
-	<entry key="Pt 132 ½ mil S.W. of RAPERIE" value="RAPERIE"/>
-
+I also add a `skos:related` property to the KML `Document` element that refers to the source XHTML document.
+I add the same property to the `map` element in the identity map XML file.
+This makes the context of these files explicit.
+This linking information lets me process collections of these files in interesting ways.
