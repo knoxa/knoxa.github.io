@@ -53,7 +53,7 @@ I could use the [RDFa](https://www.w3.org/TR/rdfa-lite/) _typeof_ attribute inst
 but this means referring to an ontology that adds restraints that I don't want to deal with just yet.
 
 With XHTML it's easy to convert from one semantic mark-up approach to another with [XSLT](https://www.w3schools.com/xml/xsl_intro.asp).
-In the interests of keeping thigs simple, I'll start by ascribing semantics to a class attribute and switch to something more formal later if neccessary.
+In the interests of keeping things simple, I'll start by ascribing semantics to a class attribute and switch to something more formal later if neccessary.
 
 I transcribe source documents to XHTML directly. I add semantic mark-up later, as a separate stage, either directly in a text editor or applying some clever software to do it.
 If you don't know about XHTML then you can create HTML and use one of the many available 'cleaner' utilities to convert it
@@ -67,13 +67,12 @@ Notes on my use of semantic mark-up are [here](mark-up).
 
 ## Without semantic mark-up
 
-I'm in the fortunate position of being able to add semantic mark-up to the war-diary corpus as I see fit. You aren't, and you might not like what I've done.
-The semantic mark-up I've added is easy to strip out and throw away. I'm adding semantic markup to separate the problem of named entity recognition (NER) from
+The semantic mark-up I've added is easy to strip out and throw away if you don't want it. I'm using it to separate the problem of named entity recognition (NER) from
 further analysis of those entities. If you don't want to use the mark-up then you need some additional NER step in your processing.
 
 I might not always want to put in the effort of adding semantic mark-up. Depending on it entirely means a lot of work in adding mark-up before any analysis
 can begin. If I'm only interested in a small part of a large corpus then this is a waste of time. An alternative approach is to construct a list of entity names
-and use dictionary-based NER to scan the text for those entites. I can combine both approaches: a little bit of dictionary scanning to find documents of interest
+and use dictionary-based NER to scan the text for those entites. I can combine both approaches, a little bit of dictionary scanning to find documents of interest
 followed by focussed semantic mark-up. Any semantic mark-up I do create then translates into new entries in my dictionary. And repeat ...
 
 ## Context
