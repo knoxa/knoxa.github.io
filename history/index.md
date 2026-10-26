@@ -13,4 +13,4 @@ I'm applying ideas about [reasoning over text](/reasoning) to historical sources
 ### Military History
 
 - The Royal Hampshire Regiment Museum's [Historical data](https://tigersmuseum.github.io/history/) repository.
-
+- The [Georgian Army Officers](https://www.georgianarmyofficers.org/) database.
