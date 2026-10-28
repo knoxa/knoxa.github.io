@@ -66,7 +66,7 @@ This is straightforward enough.
 The problem is that the Lieutenant is both **James Dwyer** (65-52-10-006018) and **John Dwyer** (65-55-10-005968).
 I can't resolve this with just the GAO data, so I go back to the source and download the 1802 and 1805 Army Lists from TNA.
 
-I notice that in all 3 cases for "John" or "James", the name in the source is actually "\_\_\_\_ Dwyer".
+I notice that in all three cases for "John" or "James", the name in the source is actually "\_\_\_\_ Dwyer".
 It seems that the transcriber has treated "\_\_\_\_" as a ditto, and assigned the given name that appears in the entry above.
 A further confusion is that "\_\_\_\_ Dwyer" appears as both Ensign and Lieutenant in the 1802 list.
 However, the Ensign entry has the handwritten annotation "promoted" next to it.
@@ -78,9 +78,11 @@ If I apply the same sort of analyis as above, I get three different Lieutenant d
 Furthermore, if I collect records of the same rank and date, I get at most one given name in each set, which supports the case.
 However, two of the Lieutenant dates differ by exactly a year, and one of them appears in only one record, and is the only mention of "John".
 There is the possibilty of a typo here. The record is in the 1805 list. Tracing it back to source, the entry is actually "\_\_\_\_ Cassidy",
-with "John Gelling" above. The "1796" isn't clear, and is plausibly "1795".
-I think "John Cassidy" actuall "James Cassidy", so there are only two Cassidy's.
+with "John Gelling" above. The "1796" isn't clear, and is plausibly "1795", matching the date for James.
+I think "John Cassidy" is actually "James Cassidy", so there are only two Cassidy's.
 There's some work needed to distribute ambiguous "Cassidy" records among them.
+
+There are several more cases to work through ...
 
 - **To do**: Ambiguous surnames are apparent in the FCA results from entity linking.
 I need develop some methodology to select corresponding records and draw the sort of conclusions outlined above.
@@ -108,11 +110,6 @@ These can be used in SPARQL queries to find officers in a particular regiment. F
 
 [The Gazette](https://www.thegazette.co.uk/)
 
+## Stories
 
-... To do
-
-## Citizen Science
-
-What can data providers do to help researchers, and what can researchers do to help data providers?
-
-Data and derived results must be 'linkable'.
+[The Marquis of Huntly](https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Gordon,_George_(1770-1836))
