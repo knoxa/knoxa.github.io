@@ -28,14 +28,14 @@ I've described my efforts [here](https://github.com/knoxa/linked-text/tree/maste
 These records, as things stand, are genuinely ambiguous.
 I end up with multiple copies of these records in my output.
 
-The GAO database linking method checks that records for an officer look sensible when ordered in time; rank should increase for example.
-I'll need to do something similar to resolve ambiguities.
-
 1. Some officers have long careers in the regiment that cover large parts of the 1790-1820 timeframe, so produce lots of records.
 Others produce few records.
 Where few records appear, it might because the officer's career just clips the 1790-1820 window, or it might be that they join as an Ensign and soon move on promotion to another regiment, or they might come in at one promotion and move out on the next.
 I will need to take moves between regiments into account if I want to build complete service histories.
 There's some information in the `annotations` field that might be used to find these moves.
+
+The GAO database linking method checks that records for an officer look sensible when ordered in time; rank should increase for example.
+I'll need to do something similar to resolve ambiguities.
 
 I have sets of records that I believe belong to the same officer, but I can't be sure of that.
 It's likely that those sets of records don't represent the full service history of the officer.
@@ -49,7 +49,8 @@ I end up with 3 officers named **Dwyer**:
 - **John Dwyer** appears in [65-52-10-006022](https://www.georgianarmyofficers.org/record/65-52-10-006022) (1802) and [65-55-10-005968](https://www.georgianarmyofficers.org/record/65-55-10-005968) (1805).
 - **M. B. Dwyer** appears in [65-55-35-000380](https://www.georgianarmyofficers.org/record/65-55-35-000380) (1805).
 
-and there are lots of records for "_______ Dwyer".
+and there are lots of records for "\_\_\_\_ Dwyer".
+
 As things stand, the records for just "Dwyer" are ambiguous and appear in all 3 sets of records.
 I want to try and identify which Dwyer each belongs to, and apportion them accordingly.
 
@@ -63,14 +64,20 @@ There is no date on the Captaincy.
 The Captain is **M. B. Dwyer**. This name and rank only appears on the [65-55-35-000380](https://www.georgianarmyofficers.org/record/65-55-35-000380) record.
 This is straightforward enough.
 The problem is that the Lieutenant is both **James Dwyer** (65-52-10-006018) and **John Dwyer** (65-55-10-005968).
-I can't resolve this with just the GAO data, so I went back to the source and downloaded the 1802 and 1805 Army Lists from TNA.
+I can't resolve this with just the GAO data, so I go back to the source and download the 1802 and 1805 Army Lists from TNA.
 
-I notice that in all 3 casess for "John" or "James" the name in the source is actually "_______ Dwyer".
-What appears to be happening is that the transcriber has treated "_______" as a ditto, and assigned the given name that appears in the entry above.
-A further confusion is that "_______ Dwyer" appears as both Ensign and Lieutenant in the 1802 list.
+I notice that in all 3 cases for "John" or "James", the name in the source is actually "\_\_\_\_ Dwyer".
+It seems that the transcriber has treated "\_\_\_\_" as a ditto, and assigned the given name that appears in the entry above.
+A further confusion is that "\_\_\_\_ Dwyer" appears as both Ensign and Lieutenant in the 1802 list.
 However, the Ensign entry has the handwritten annotation "promoted" next to it.
 
-I think there is actually just **M. B. Dwyer**, and that he was only Ensign for a few months before being to Lieutentant.
+I think there is actually just **M. B. Dwyer**, and that he was only an Ensign for a month before being promoted to Lieutentant.
+
+### Corroboration
+
+I can look for War Office notices in The Gazette.
+I've selectively transcribed bits of them, and I'd like to make this data re-usable, so I'm capturing [Gazette transcripts](gazette.xhtml) as XHTML with semanitc mark-up.
+I'll come back to this later.
 
 ## Identification
 
