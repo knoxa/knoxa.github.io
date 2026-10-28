@@ -8,6 +8,12 @@ body {
   padding-left: 4em;
 }
 
+h2 {
+	font-size: medium;
+	font-style: italic;
+	color: grey;
+}
+
 p {
 	text-indent: 2em;
 }

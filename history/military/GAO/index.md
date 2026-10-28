@@ -73,16 +73,37 @@ However, the Ensign entry has the handwritten annotation "promoted" next to it.
 
 I think there is actually just **M. B. Dwyer**, and that he was only an Ensign for a month before being promoted to Lieutentant.
 
+There are also three Cassidy's: **John Cassidy**, **James Cassidy** and **Kirkwood Cassidy**.
+If I apply the same sort of analyis as above, I get three different Lieutenant dates, which suggest there really are three officers.
+Furthermore, if I collect records of the same rank and date, I get at most one given name in each set, which supports the case.
+However, two of the Lieutenant dates differ by exactly a year, and one of them appears in only one record, and is the only mention of "John".
+There is the possibilty of a typo here. The record is in the 1805 list. Tracing it back to source, the entry is actually "\_\_\_\_ Cassidy",
+with "John Gelling" above. The "1796" isn't clear, and is plausibly "1795".
+I think "John Cassidy" actuall "James Cassidy", so there are only two Cassidy's.
+There's some work needed to distribute ambiguous "Cassidy" records among them.
+
+- **To do**: Ambiguous surnames are apparent in the FCA results from entity linking.
+I need develop some methodology to select corresponding records and draw the sort of conclusions outlined above.
+
 ### Corroboration
 
 I can look for War Office notices in The Gazette.
 I've selectively transcribed bits of them, and I'd like to make this data re-usable, so I'm capturing [Gazette transcripts](gazette.xhtml) as XHTML with semanitc mark-up.
-I'll come back to this later.
+
+- **To do**: Think about how selective transcript data can be made reusable.
 
 ## Identification
 
+I can address ambiguity in entity linked sets as described above.
+At the end of this process, I can assume that each set of linked records really does represent a person.
+The collected information in the set is a form of identity.
+
+The GAO database defines explicit identifiers for officers.
+I can assign one of these identifiers to each set, but the problem is that my entity linking results do not necessarily match those in the GAO database.
+I might not find a matching GAO identifer, and I might find more than one matching identifier.
+
 DBpedia has [categories for British  Army officers](https://en.wikipedia.org/wiki/Category:British_Army_officers).
-These can be used in SPARQL queries to find officers in a particular regiment. For example, 
+These can be used in SPARQL queries to find officers in a particular regiment. For example, this query: 
 [67th Regiment of Foot officers](https://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&qtxt=%20select%20distinct%20%3Fperson%20%3Fname%20%3Fbirth%20%3Fdeath%20%3Fpage%20WHERE%20%7B%0A%20%0A%20%20%20%3Fperson%20dct%3Asubject%20dbc%3A67th_Regiment_of_Foot_officers.%0A%20%20%20%3Fperson%20dbp%3Aname%20%3Fname.%0A%20%20%20%3Fperson%20foaf%3AisPrimaryTopicOf%20%3Fpage.%0A%0A%20%20%20OPTIONAL%20%7B%20%20%20%0A%20%20%20%20%20%3Fperson%20dbp%3AbirthDate%20%3Fbirth.%0A%20%20%20%20%20%3Fperson%20dbp%3AdeathDate%20%3Fdeath.%0A%20%20%20%7D%0A%20%0A%20%20%20FILTER%20(%20LANGMATCHES(LANG(%3Fname)%2C%20%22en%22)%20)%0A%20%7D&format=text%2Fhtml&timeout=30000&signal_void=on&signal_unconnected=on).
 
 [The Gazette](https://www.thegazette.co.uk/)
