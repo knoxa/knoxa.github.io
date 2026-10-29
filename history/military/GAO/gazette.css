@@ -16,11 +16,22 @@ h2 {
 
 p {
 	text-indent: 2em;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 p.indent {
 	text-indent: 0em;
 	padding-left: 4em;
+}
+
+p.ellipsis {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 p.report_date {
