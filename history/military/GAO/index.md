@@ -71,7 +71,7 @@ It seems that the transcriber has treated "\_\_\_\_" as a ditto, and assigned th
 A further confusion is that "\_\_\_\_ Dwyer" appears as both Ensign and Lieutenant in the 1802 list.
 However, the Ensign entry has the handwritten annotation "promoted" next to it.
 
-I think there is actually just **M. B. Dwyer**, and that he was only an Ensign for a month before being promoted to Lieutentant.
+It's possible that there is actually just **M. B. Dwyer**, and that he was only an Ensign for a month before being promoted to Lieutentant.
 
 There are also three Cassidy's: **John Cassidy**, **James Cassidy** and **Kirkwood Cassidy**.
 If I apply the same sort of analyis as above, I get three different Lieutenant dates, which suggest there really are three officers.
@@ -99,6 +99,35 @@ I've selectively transcribed bits of them, and I'd like to make this data re-usa
 I can address ambiguity in entity linked sets as described above.
 At the end of this process, I can assume that each set of linked records really does represent a person.
 The collected information in the set is a form of identity.
+
+## Do I have a service record?
+
+Entity linking produces sets of names.
+I can collect togther the records for any in a set of names.
+Is this the service record for an officer?
+
+The row data has a `sheet` field.
+The value changes according to where in the Army List the record appears.
+It seem that each record is copied into a "99. All" sheet, with an `orig_sheet` set to the `sheet` value of the copied record.
+I filter out just the "99. All" sheets for further analysis.
+
+Each record has a `fileyear` field.
+I expect officers to appear in successive lists, so these numbers should (when the service records are sorted) increase by one each time.
+There are some valid reasons why this might not be the case, but can also be due to mistakes in the entity linking.
+There are two sorts of check I can perform:
+
+1. Look for 'holes' where years are missing, suggesting there are records that still need to be linked to this set.
+
+1. Look for duplicated years, suggesting records have been linked to the set when they shouldn't.
+
+Having merged all the Dwyer records into one set, I check this for duplicates and find that I have a record for Ensign (date) and Lieutenant
+over several years, not just 1802.
+It seem there is more than one Dwyer after all.
+However, I can't corroborate this definitely by searching the Gazette, or by widening the search in GAO to include "Dwyer" in any regiment.
+It seem that the Lieutentant is **M B Dwyer**, and there is no other trace of the Ensign "promoted" in 1802.
+GAO has **M B Dwyer** as an Ensign in the 81st Foot, with a different date from the Ensign in the 67th, so was presumably transferred from there to the 67th Foot.
+
+## Identifiers
 
 The GAO database defines explicit identifiers for officers.
 I can assign one of these identifiers to each set, but the problem is that my entity linking results do not necessarily match those in the GAO database.
