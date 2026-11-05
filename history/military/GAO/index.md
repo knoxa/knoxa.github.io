@@ -11,7 +11,7 @@ including the [Royal Hampshire Regiment Museum](https://www.royalhampshireregime
 I wrote [a brief review](https://tigersmuseum.github.io/history/docs/gao) for the museum's GitHub pages.
 That has an overview of the project and how it might be used, and I'll update it with any useful historical information I come up with.
 
-Hereafter, this document describes my experiments with the GAO data.
+I want to identify individual officers, collect their entries across army lists that mention them, and build a _service record_ for each.
 
 ## Entity Linking
 
@@ -22,9 +22,9 @@ I've described my efforts [here](https://github.com/knoxa/linked-text/tree/maste
 
 ### Issues
 
-1. I've made things easier for myself by selecting just the data for a single regiment (67th Foot), but officers may move between regiments, so I can't claim I've created complete service records.
+1. I've made things easier for myself by selecting data for a single regiment (67th Foot), but officers may move between regiments, so I can't claim I've created complete service records.
 
-1. Some of the records just have a surname and there are different people with the same surname in the regiment.
+1. Some of the GAO records just have a surname and there are different people with the same surname in the regiment.
 These records, as things stand, are genuinely ambiguous.
 I end up with multiple copies of these records in my output.
 
@@ -32,7 +32,7 @@ I end up with multiple copies of these records in my output.
 Others produce few records.
 Where few records appear, it might because the officer's career just clips the 1790-1820 window, or it might be that they join as an Ensign and soon move on promotion to another regiment, or they might come in at one promotion and move out on the next.
 I will need to take moves between regiments into account if I want to build complete service histories.
-There's some information in the `annotations` field that might be used to find these moves.
+Sometimes there's information in the `annotations` field that can help find these moves.
 
 The GAO database linking method checks that records for an officer look sensible when ordered in time; rank should increase for example.
 I'll need to do something similar to resolve ambiguities.
@@ -40,13 +40,13 @@ I'll need to do something similar to resolve ambiguities.
 I have sets of records that I believe belong to the same officer, but I can't be sure of that.
 It's likely that those sets of records don't represent the full service history of the officer.
 
-- **To do**: Ambiguous surnames are apparent in the FCA results from entity linking, for example [Dwyer](dwyer.md) and [Cassidy](cassidy.md).
-I need develop some methodology to select corresponding records and draw the sort of conclusions outlined above.
-
 ### Corroboration
 
 I can look for War Office notices in The Gazette.
 I've selectively transcribed bits of them, and I'd like to make this data re-usable, so I'm capturing [Gazette transcripts](gazette.xhtml) as XHTML with semanitc mark-up.
+
+One problem with searching the Gazette is that it's text index relies on OCR which is not always reliable.
+The name you're searching for might appear in an issue of the Gazette but not be identified by the system.
 
 - **To do**: Think about how selective transcript data can be made reusable.
 
@@ -76,6 +76,15 @@ These can be used in SPARQL queries to find officers in a particular regiment. F
 
 [The Gazette](https://www.thegazette.co.uk/)
 
+## Dialogue
+
+Different entity linking methods will have different strengths and weakness.
+My method divides names into setes of tokens, then works on the similarity between those sets.
+The GAO method compares names with an 'edit distance' similarity metric that will catch cases that I might miss.
+For example, GAO matches "R B Harrison" and "R B H arrision", but I don't make this match because I get 3 tokens in one case and 4 in the other, and they only overlap with the "R" and "B".
+
+I see my entity linking method as making claims that need [checking](checking.md).
+
 ## Stories
 
 [The Marquis of Huntly](https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Gordon,_George_(1770-1836))
@@ -84,3 +93,6 @@ These can be used in SPARQL queries to find officers in a particular regiment. F
 ## References
 
 1. Atkinson, C. T. (1950). _The Royal Hampshire Regiment: Regimental History_ (Vol. 1). Regiment.
+
+- **To do**: Ambiguous surnames are apparent in the FCA results from entity linking, for example [Dwyer](dwyer.md) and [Cassidy](cassidy.md).
+I need develop some methodology to select corresponding records and draw the sort of conclusions outlined above.

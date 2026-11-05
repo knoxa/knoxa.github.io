@@ -6,7 +6,7 @@ Entity linking of the GAO data gives 3 officers named **Dwyer**:
 - **John Dwyer** appears in [65-52-10-006022](https://www.georgianarmyofficers.org/record/65-52-10-006022) (1802) and [65-55-10-005968](https://www.georgianarmyofficers.org/record/65-55-10-005968) (1805).
 - **M. B. Dwyer** appears in [65-55-35-000380](https://www.georgianarmyofficers.org/record/65-55-35-000380) (1805).
 
-and there are lots of records for "\_\_\_\_ Dwyer".
+... and there are lots of records for "\_\_\_\_ Dwyer".
 
 As things stand, the records for just "Dwyer" are ambiguous and appear in all 3 sets of records.
 I want to try and identify which Dwyer each belongs to, and apportion them accordingly.
