@@ -22,9 +22,9 @@ I've described my efforts [here](https://github.com/knoxa/linked-text/tree/maste
 
 ### Issues
 
-1. I've made things easier for myself by limiting the data to just one regiment, but officers may move between regiments, so I can't claim I've created service records.
+1. I've made things easier for myself by selecting just the data for a single regiment (67th Foot), but officers may move between regiments, so I can't claim I've created complete service records.
 
-1. Some of the records just have a surname, and there are different people with the same surname in the regiment.
+1. Some of the records just have a surname and there are different people with the same surname in the regiment.
 These records, as things stand, are genuinely ambiguous.
 I end up with multiple copies of these records in my output.
 
@@ -39,52 +39,8 @@ I'll need to do something similar to resolve ambiguities.
 
 I have sets of records that I believe belong to the same officer, but I can't be sure of that.
 It's likely that those sets of records don't represent the full service history of the officer.
-I need to _identify_ each set with a specific person.
 
-## Ambiguous names
-
-I end up with 3 officers named **Dwyer**:
-
-- **James Dwyer** appears in [65-52-10-006018](https://www.georgianarmyofficers.org/record/65-52-10-006018) (1802).
-- **John Dwyer** appears in [65-52-10-006022](https://www.georgianarmyofficers.org/record/65-52-10-006022) (1802) and [65-55-10-005968](https://www.georgianarmyofficers.org/record/65-55-10-005968) (1805).
-- **M. B. Dwyer** appears in [65-55-35-000380](https://www.georgianarmyofficers.org/record/65-55-35-000380) (1805).
-
-and there are lots of records for "\_\_\_\_ Dwyer".
-
-As things stand, the records for just "Dwyer" are ambiguous and appear in all 3 sets of records.
-I want to try and identify which Dwyer each belongs to, and apportion them accordingly.
-
-I can look at the `reg_rank` and `reg_date` fields.
-If both are set, then this is the date the officer attained the rank.
-I compare ranks and dates in the ambiguous records with ranks and dates in the unambigous (fully named) records.
-There are 3 ranks amongst all the Dwyer records: Ensign, Lieutenant and Captain.
-The Ensign date is always 1797-07-06 and the Lieutenant date is always 1797-08-02.
-There is no date on the Captaincy.
-
-The Captain is **M. B. Dwyer**. This name and rank only appears on the [65-55-35-000380](https://www.georgianarmyofficers.org/record/65-55-35-000380) record.
-This is straightforward enough.
-The problem is that the Lieutenant is both **James Dwyer** (65-52-10-006018) and **John Dwyer** (65-55-10-005968).
-I can't resolve this with just the GAO data, so I go back to the source and download the 1802 and 1805 Army Lists from TNA.
-
-I notice that in all three cases for "John" or "James", the name in the source is actually "\_\_\_\_ Dwyer".
-It seems that the transcriber has treated "\_\_\_\_" as a ditto, and assigned the given name that appears in the entry above.
-A further confusion is that "\_\_\_\_ Dwyer" appears as both Ensign and Lieutenant in the 1802 list.
-However, the Ensign entry has the handwritten annotation "promoted" next to it.
-
-It's possible that there is actually just **M. B. Dwyer**, and that he was only an Ensign for a month before being promoted to Lieutentant.
-
-There are also three Cassidy's: **John Cassidy**, **James Cassidy** and **Kirkwood Cassidy**.
-If I apply the same sort of analyis as above, I get three different Lieutenant dates, which suggest there really are three officers.
-Furthermore, if I collect records of the same rank and date, I get at most one given name in each set, which supports the case.
-However, two of the Lieutenant dates differ by exactly a year, and one of them appears in only one record, and is the only mention of "John".
-There is the possibilty of a typo here. The record is in the 1805 list. Tracing it back to source, the entry is actually "\_\_\_\_ Cassidy",
-with "John Gelling" above. The "1796" isn't clear, and is plausibly "1795", matching the date for James.
-I think "John Cassidy" is actually "James Cassidy", so there are only two Cassidy's.
-There's some work needed to distribute ambiguous "Cassidy" records among them.
-
-There are several more cases to work through ...
-
-- **To do**: Ambiguous surnames are apparent in the FCA results from entity linking.
+- **To do**: Ambiguous surnames are apparent in the FCA results from entity linking, for example [Dwyer](dwyer.md) and [Cassidy](cassidy.md).
 I need develop some methodology to select corresponding records and draw the sort of conclusions outlined above.
 
 ### Corroboration
@@ -96,6 +52,8 @@ I've selectively transcribed bits of them, and I'd like to make this data re-usa
 
 ## Identification
 
+I need to _identify_ each set with a specific person.
+
 I can address ambiguity in entity linked sets as described above.
 At the end of this process, I can assume that each set of linked records really does represent a person.
 The collected information in the set is a form of identity.
@@ -105,27 +63,6 @@ The collected information in the set is a form of identity.
 Entity linking produces sets of names.
 I can collect togther the records for any in a set of names.
 Is this the service record for an officer?
-
-The row data has a `sheet` field.
-The value changes according to where in the Army List the record appears.
-It seem that each record is copied into a "99. All" sheet, with an `orig_sheet` set to the `sheet` value of the copied record.
-I filter out just the "99. All" sheets for further analysis.
-
-Each record has a `fileyear` field.
-I expect officers to appear in successive lists, so these numbers should (when the service records are sorted) increase by one each time.
-There are some valid reasons why this might not be the case, but can also be due to mistakes in the entity linking.
-There are two sorts of check I can perform:
-
-1. Look for 'holes' where years are missing, suggesting there are records that still need to be linked to this set.
-
-1. Look for duplicated years, suggesting records have been linked to the set when they shouldn't.
-
-Having merged all the Dwyer records into one set, I check this for duplicates and find that I have a record for Ensign (date) and Lieutenant
-over several years, not just 1802.
-It seem there is more than one Dwyer after all.
-However, I can't corroborate this definitely by searching the Gazette, or by widening the search in GAO to include "Dwyer" in any regiment.
-It seem that the Lieutentant is **M B Dwyer**, and there is no other trace of the Ensign "promoted" in 1802.
-GAO has **M B Dwyer** as an Ensign in the 81st Foot, with a different date from the Ensign in the 67th, so was presumably transferred from there to the 67th Foot.
 
 ## Identifiers
 
@@ -142,3 +79,8 @@ These can be used in SPARQL queries to find officers in a particular regiment. F
 ## Stories
 
 [The Marquis of Huntly](https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Gordon,_George_(1770-1836))
+
+
+## References
+
+1. Atkinson, C. T. (1950). _The Royal Hampshire Regiment: Regimental History_ (Vol. 1). Regiment.
