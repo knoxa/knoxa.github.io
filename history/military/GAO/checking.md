@@ -19,7 +19,7 @@ There are two sorts of check I can perform:
 
 As things stand, I'm copying ambiguous records into more than one putative service record.
 Only one of these assignments is correct.
-Both repeats and holes may appear when a records is correctly assigned, so ambiguity is one possible explanation.
+Both repeats and holes may appear when a record is incorrectly assigned, so ambiguity is one possible explanation.
 
 ## Holes
 
@@ -34,7 +34,7 @@ These details match the 1806 list.
 
 It might be that a record either side of the hole is ambiguous.
 In most cases, I know when a record is ambiguous because I've made it so by copying it into more than one service record.
-Another possiblity is that I have a record with a surname only, that is unambigous within the 1790-1820 timeframe, but would be assigned to a different officer if record outside the transcribed range were considered.
+Another possiblity is that I have a record with a surname only, that is unambigous within the 1790-1820 timeframe, but would be assigned to a different officer if records outside the transcribed range were considered.
 
 ## Repeats
 
@@ -43,11 +43,14 @@ The row data has a `sheet` field and the value changes according to where in the
 It seems that each record is copied into a "99. All" sheet, with an `orig_sheet` set to the `sheet` value of the copied record.
 In looking for duplicate years, I filter out just the "99. All" sheets for comparison.
 
+There are often cases where the army list has a printed entry that is crossed out, and a handwritten entry added concerning the same officer.
+This generates two records in the GAO database, one with the `deleted` field set, and one with the `handwritten` field set.
+
 It's possible that an officer is promoted, or assigned a role such as Adjutant or Paymaster, and ends up in more than one section.
 There a "35. Alterations While Printing" value of the `sheet` field that may occur in such cases. (Further work needed here ...)
 
 Ambiguous records will cause repeats when two officers with the same surname serve together.
-It may be possible to distinguish between this through consideration of ranks and dates.
+It may be possible to distinguish between them through consideration of ranks and dates.
 
 ## Checking
 

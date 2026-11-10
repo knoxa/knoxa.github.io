@@ -54,15 +54,13 @@ The name you're searching for might appear in an issue of the Gazette but not be
 
 I need to _identify_ each set with a specific person.
 
-I can address ambiguity in entity linked sets as described above.
+I can address ambiguity in entity linked sets as described above, and I can check the sequence of records makes sense as all or part of a service history. 
 At the end of this process, I can assume that each set of linked records really does represent a person.
 The collected information in the set is a form of identity.
+I may be able to condense the information in the set to produce an equivalent set of attributes that represent an individual: names and a list of promotions and appointments.
+I can do this with Soldiers XML.
 
-## Do I have a service record?
 
-Entity linking produces sets of names.
-I can collect togther the records for any in a set of names.
-Is this the service record for an officer?
 
 ## Identifiers
 
@@ -79,11 +77,25 @@ These can be used in SPARQL queries to find officers in a particular regiment. F
 ## Dialogue
 
 Different entity linking methods will have different strengths and weakness.
-My method divides names into setes of tokens, then works on the similarity between those sets.
+My method divides names into sets of tokens, then works on the similarity between those sets.
 The GAO method compares names with an 'edit distance' similarity metric that will catch cases that I might miss.
 For example, GAO matches "R B Harrison" and "R B H arrision", but I don't make this match because I get 3 tokens in one case and 4 in the other, and they only overlap with the "R" and "B".
 
 I see my entity linking method as making claims that need [checking](checking.md).
+Each claim is a set of GAO records that are asserted as belonging to the same officer.
+I can construct a 'GAO claim' by selecting records from the row data that have the same value in the `person` field, but it seems that some of GAO work on entity linking postdates the dataset.
+There is a download option from a person record in the web application that would give the latest results, but download format is PDF.
+The information is there, but needs parsing. The option for a (more) machine readable format would be nice.
+
+
+## Feedback
+
+How t oreturn results?
+
+
+## identity
+
+
 
 ## Stories
 

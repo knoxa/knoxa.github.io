@@ -8,3 +8,7 @@ There is the possibilty of a typo here. The record is in the 1805 list. Tracing 
 with "John Gelling" above. The "1796" isn't clear, and is plausibly "1795", matching the date for James.
 I think "John Cassidy" is actually "James Cassidy", so there are only two Cassidy's.
 There's some work needed to distribute ambiguous "Cassidy" records among them.
+
+The Cassidy records have a 'hole' for 1802.
+There is an "Alexanter Cassidy" record for 1802 that should be "\_\_\_\_ Cassidy".
+This entry appears immediately below "Alexander Pilford".
