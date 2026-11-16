@@ -1,7 +1,7 @@
-# Service records
+# Service histories
 
-I'll call a set of GAO records (rows from the GAO row data file) that refer to the same officer a _service record_ .
-Entity linking produces _putative_ service records. The entity linking is not guaranteed to be correct, and its results need validating.
+I'll call a set of GAO records (rows from the GAO row data file) that refer to the same officer a _service history_ .
+Entity linking produces _putative_ service histories. The entity linking is not guaranteed to be correct, and its results need validating.
 
 ## GAO Data
 
@@ -11,13 +11,13 @@ There are some valid reasons why this might not be the case, but most will be du
 
 There are two sorts of check I can perform:
 
-1. Look for 'holes' where years are missing, suggesting there are records that still need to be linked to this set.
+1. Look for 'holes' where years are missing, suggesting there are GAO records that still need to be linked to this set.
 
 1. Look for duplicate years, suggesting records have been linked to the set when they shouldn't.
 
 ## Ambiguity
 
-As things stand, I'm copying ambiguous records into more than one putative service record.
+As things stand, I'm copying ambiguous records into more than one putative service history.
 Only one of these assignments is correct.
 Both repeats and holes may appear when a record is incorrectly assigned, so ambiguity is one possible explanation.
 
@@ -46,6 +46,9 @@ In looking for duplicate years, I filter out just the "99. All" sheets for compa
 There are often cases where the army list has a printed entry that is crossed out, and a handwritten entry added concerning the same officer.
 This generates two records in the GAO database, one with the `deleted` field set, and one with the `handwritten` field set.
 
+Where a handwritten entry includes rank and date, it's not clear if the date refers to the 'rank in Regiment' or 'rank in Army'.
+It's possible to get conflicting values this way.
+
 It's possible that an officer is promoted, or assigned a role such as Adjutant or Paymaster, and ends up in more than one section.
 There a "35. Alterations While Printing" value of the `sheet` field that may occur in such cases. (Further work needed here ...)
 
@@ -53,5 +56,22 @@ Ambiguous records will cause repeats when two officers with the same surname ser
 It may be possible to distinguish between them through consideration of ranks and dates.
 
 ## Checking
+
+I convert GAO data to XML and apply XSLT to check for the sort of issues oulined above.
+I posit each check as being performed by a different agent that is giving its own particular view of the results.
+Agents make claims, that I append to the service histories.
+
+I can then review the collected set of claims and make judgements.
+Lots of claims about the same service history suggest a mistake in the entity linking.
+A few claims might be due to errors in entity linking, or may be due to transcription errors.
+I may need to go back to the source data to decide.
+
+It may be that the claim is in error.
+For example the agent that claims 'a dubious change in rank' isn't aware, for example, that posts such as Adjutant are in addition to a rank.
+I can make this agent more sophisticated, or I can provide another agent that checks the claim of the first and accepts or rejects them.
+The critical anaysis of the servce histories is than a dialogue.
+Having the claims attached to each service record as text allows human agents to take part in this dialogue.
+
+See the **all** target in the project [build file](https://github.com/knoxa/linked-text/blob/master/projects/gao/build.xml).
 
 I can find holes and repeats and then check them against the GAO database.
