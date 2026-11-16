@@ -7,7 +7,7 @@ It's part of a wider effort that aims (among other things) to support citizen sc
 
 The [National Army Museum](https://www.nam.ac.uk/) are a partner in the GAO project.
 They publicised the finished database to museums in their [Regimental Corps and Museum networks](https://www.nam.ac.uk/regimental-and-corps-museum-networks),
-including the [Royal Hampshire Regiment Museum](https://www.royalhampshireregiment.org/), where I a volunteer, and the curator asked me to take a look.
+including the [Royal Hampshire Regiment Museum](https://www.royalhampshireregiment.org/), where I volunteer, and the curator asked me to take a look.
 I wrote [a brief review](https://tigersmuseum.github.io/history/docs/gao) for the museum's GitHub pages.
 That has an overview of the project and how it might be used, and I'll update it with any useful historical information I come up with.
 
@@ -27,6 +27,8 @@ I've described my efforts [here](https://github.com/knoxa/linked-text/tree/maste
 1. Some of the GAO records just have a surname and there are different people with the same surname in the regiment.
 These records, as things stand, are genuinely ambiguous.
 I end up with multiple copies of these records in my output.
+The GAO database linking method checks that records for an officer look sensible when ordered in time. Rank should increase for example.
+I'll need to do something similar to resolve ambiguities.
 
 1. Some officers have long careers in the regiment that cover large parts of the 1790-1820 timeframe, so produce lots of records.
 Others produce few records.
@@ -34,16 +36,13 @@ Where few records appear, it might because the officer's career just clips the 1
 I will need to take moves between regiments into account if I want to build complete service histories.
 Sometimes there's information in the `annotations` field that can help find these moves.
 
-The GAO database linking method checks that records for an officer look sensible when ordered in time; rank should increase for example.
-I'll need to do something similar to resolve ambiguities.
-
-I have sets of records that I believe belong to the same officer, but I can't be sure of that.
+I can derive sets of records that I believe belong to the same officer, but I can't be sure of that.
 It's likely that those sets of records don't represent the full service history of the officer.
 
 ### Corroboration
 
 I can look for War Office notices in The Gazette.
-I've selectively transcribed bits of them, and I'd like to make this data re-usable, so I'm capturing [Gazette transcripts](gazette.xhtml) as XHTML with semanitc mark-up.
+I've selectively transcribed bits of them, and I'd like to make this data re-usable, so I'm capturing [Gazette transcripts](gazette.xhtml) as XHTML with semantic mark-up.
 
 One problem with searching the Gazette is that it's text index relies on OCR which is not always reliable.
 The name you're searching for might appear in an issue of the Gazette but not be identified by the system.
@@ -52,15 +51,14 @@ The name you're searching for might appear in an issue of the Gazette but not be
 
 ## Identification
 
-I need to _identify_ each set with a specific person.
+I have sets of records that refer to individual officers. I need to _identify_ each set with a specific person.
 
 I can address ambiguity in entity linked sets as described above, and I can check the sequence of records makes sense as all or part of a service history. 
 At the end of this process, I can assume that each set of linked records really does represent a person.
 The collected information in the set is a form of identity.
-I may be able to condense the information in the set to produce an equivalent set of attributes that represent an individual: names and a list of promotions and appointments.
-I can do this with Soldiers XML.
+I may be able to condense the information in the set to produce an equivalent set of attributes that represent an individual, names and a list of promotions and appointments for example.
 
-
+I'd like to go a step further and associate each set of records with a persistent _identifier_ that represent the officer.
 
 ## Identifiers
 
@@ -72,7 +70,11 @@ DBpedia has [categories for British  Army officers](https://en.wikipedia.org/wik
 These can be used in SPARQL queries to find officers in a particular regiment. For example, this query: 
 [67th Regiment of Foot officers](https://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&qtxt=%20select%20distinct%20%3Fperson%20%3Fname%20%3Fbirth%20%3Fdeath%20%3Fpage%20WHERE%20%7B%0A%20%0A%20%20%20%3Fperson%20dct%3Asubject%20dbc%3A67th_Regiment_of_Foot_officers.%0A%20%20%20%3Fperson%20dbp%3Aname%20%3Fname.%0A%20%20%20%3Fperson%20foaf%3AisPrimaryTopicOf%20%3Fpage.%0A%0A%20%20%20OPTIONAL%20%7B%20%20%20%0A%20%20%20%20%20%3Fperson%20dbp%3AbirthDate%20%3Fbirth.%0A%20%20%20%20%20%3Fperson%20dbp%3AdeathDate%20%3Fdeath.%0A%20%20%20%7D%0A%20%0A%20%20%20FILTER%20(%20LANGMATCHES(LANG(%3Fname)%2C%20%22en%22)%20)%0A%20%7D&format=text%2Fhtml&timeout=30000&signal_void=on&signal_unconnected=on).
 
-[The Gazette](https://www.thegazette.co.uk/)
+I want to reuse identifiers rather than invent them.
+I might assign identifiers to sets of records in order to more easily manage them, but these won't be persistent.
+I'll try and replace these with properly curated identifiers when I can find them.
+Failing that, I'll aim to collect a consolidated set of information that describes a unique individual.
+There will still be a identification step need at some future point, but I can make this identification as easy as possible by collecting together as much information as possible.
 
 ## Dialogue
 
@@ -90,7 +92,7 @@ The information is there, but needs parsing. The option for a (more) machine rea
 
 ## Feedback
 
-How t oreturn results?
+How to return results?
 
 
 ## identity
@@ -108,3 +110,44 @@ How t oreturn results?
 
 - **To do**: Ambiguous surnames are apparent in the FCA results from entity linking, for example [Dwyer](dwyer.md) and [Cassidy](cassidy.md).
 I need develop some methodology to select corresponding records and draw the sort of conclusions outlined above.
+
+
+A service history is a sequence of records.
+There will be a first and last record in the sequence.
+
+There  are some questions that can be asked about a service history:
+
+* Do we have the first record?
+Presumably each service record should have a commision as Ensign.
+
+* Do we have the last record?
+Sometimes there are handwritten annotations in the army lists that say an officer has resigned or died. This sort of information may also be available from other sources.
+
+* Is the service history continuous?
+If there are gaps, can we account for those gaps?
+
+Many researchers will be interested in specific individuals, families or regiments.
+Individually, their research generates pieces that could fit together to make a larger.
+
+These researchers are helped by the GAO database, but could also help it, by confirming or correcting results.  
+
+The question is how to go about it.
+The pieces need to fit together.
+One way to do this is to assign identity, to make it easier to relate pieces for the same officer.
+It would also be nice to know where the boundaries of any peice of research lie.
+For example, in researching for members of the 67th Foot, I will come across a record of an officer moving to or from another regiment.
+This is the beginning or end of thread I'm interested in, but there's a connection to any research someone else might do into the other regiment.
+
+I should try and make this useful.
+I can produce lists of officers and the alternate regiments in which they served. A standard way of doing this?
+In aggregation, the network of connections between regiments would be interesting to develop.
+
+
+## formats
+
+It's difficult to design in advance exactly what data each researcher might capture.
+A lowest common denominator format that all could use might help share the essential information, but the indiviudual researcher might want something richer and more tailored to their own need.
+Generating data for the purpose of exchange can be onerous and prone to errors. It won't necessarily be updated.
+
+Everyone can use whatever format best suits them if it's possible to convert from one format to another.
+Natural language seems the way to go, with 'best practice' helping to make the data easiers to manipulate, and the perhaps AI tools making the job of sharing the data simple in due course.
