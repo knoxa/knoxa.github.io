@@ -65,36 +65,11 @@ Sometimes there's information in the `annotations` field that can help find thes
 I can derive sets of records that I believe belong to the same officer, but I can't be sure of that.
 It's likely that those sets of records don't represent the full service history of the officer.
 
-### Corroboration
-
-I can look for War Office notices in The Gazette.
-I've selectively transcribed bits of them, and I'd like to make this data re-usable, so I'm capturing [Gazette transcripts](gazette.xhtml) as XHTML with semantic mark-up.
-
-One problem with searching the Gazette is that it's text index relies on OCR which is not always reliable.
-The name you're searching for might appear in an issue of the Gazette but not be identified by the system.
-
-- **To do**: Think about how selective transcript data can be made reusable.
-
-## Identification
-
-I have sets of records that refer to individual officers. I need to _identify_ each set with a specific person.
-
-I can address ambiguity in entity linked sets as described above, and I can check the sequence of records makes sense as all or part of a service history. 
-At the end of this process, I can assume that each set of linked records really does represent a person.
-The collected information in the set is a form of identity.
-I may be able to condense the information in the set to produce an equivalent set of attributes that represent an individual, names and a list of promotions and appointments for example.
-
-I'd like to go a step further and associate each set of records with a persistent _identifier_ that represent the officer.
-
 ## Identifiers
 
 The GAO database defines explicit identifiers for officers.
 I can assign one of these identifiers to each set, but the problem is that my entity linking results do not necessarily match those in the GAO database.
 I might not find a matching GAO identifer, and I might find more than one matching identifier.
-
-DBpedia has [categories for British  Army officers](https://en.wikipedia.org/wiki/Category:British_Army_officers).
-These can be used in SPARQL queries to find officers in a particular regiment. For example, this query: 
-[67th Regiment of Foot officers](https://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&qtxt=%20select%20distinct%20%3Fperson%20%3Fname%20%3Fbirth%20%3Fdeath%20%3Fpage%20WHERE%20%7B%0A%20%0A%20%20%20%3Fperson%20dct%3Asubject%20dbc%3A67th_Regiment_of_Foot_officers.%0A%20%20%20%3Fperson%20dbp%3Aname%20%3Fname.%0A%20%20%20%3Fperson%20foaf%3AisPrimaryTopicOf%20%3Fpage.%0A%0A%20%20%20OPTIONAL%20%7B%20%20%20%0A%20%20%20%20%20%3Fperson%20dbp%3AbirthDate%20%3Fbirth.%0A%20%20%20%20%20%3Fperson%20dbp%3AdeathDate%20%3Fdeath.%0A%20%20%20%7D%0A%20%0A%20%20%20FILTER%20(%20LANGMATCHES(LANG(%3Fname)%2C%20%22en%22)%20)%0A%20%7D&format=text%2Fhtml&timeout=30000&signal_void=on&signal_unconnected=on).
 
 I want to reuse identifiers rather than invent them.
 I might assign identifiers to sets of records in order to more easily manage them, but these won't be persistent.
@@ -102,21 +77,41 @@ I'll try and replace these with properly curated identifiers when I can find the
 Failing that, I'll aim to collect a consolidated set of information that describes a unique individual.
 There will still be a identification step need at some future point, but I can make this identification as easy as possible by collecting together as much information as possible.
 
+### Corroboration
+
+DBpedia has [categories for British  Army officers](https://en.wikipedia.org/wiki/Category:British_Army_officers).
+These can be used in SPARQL queries to find officers in a particular regiment. For example, this query: 
+[67th Regiment of Foot officers](https://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&qtxt=%20select%20distinct%20%3Fperson%20%3Fname%20%3Fbirth%20%3Fdeath%20%3Fpage%20WHERE%20%7B%0A%20%0A%20%20%20%3Fperson%20dct%3Asubject%20dbc%3A67th_Regiment_of_Foot_officers.%0A%20%20%20%3Fperson%20dbp%3Aname%20%3Fname.%0A%20%20%20%3Fperson%20foaf%3AisPrimaryTopicOf%20%3Fpage.%0A%0A%20%20%20OPTIONAL%20%7B%20%20%20%0A%20%20%20%20%20%3Fperson%20dbp%3AbirthDate%20%3Fbirth.%0A%20%20%20%20%20%3Fperson%20dbp%3AdeathDate%20%3Fdeath.%0A%20%20%20%7D%0A%20%0A%20%20%20FILTER%20(%20LANGMATCHES(LANG(%3Fname)%2C%20%22en%22)%20)%0A%20%7D&format=text%2Fhtml&timeout=30000&signal_void=on&signal_unconnected=on).
+
+I can also look for War Office notices in The Gazette.
+I've selectively transcribed bits of them, and I'd like to make this data re-usable, so I'm capturing [Gazette transcripts](gazette.xhtml) as XHTML with semantic mark-up.
+More on that [here](gazette.md).
+
 ## Dialogue
 
+I see my entity linking method as making claims that need [checking](checking.md).
+
+Each set of GAO records asserted as belonging to the same officer is also a claim.
 Different entity linking methods will have different strengths and weakness.
 My method divides names into sets of tokens, then works on the similarity between those sets.
 The GAO method compares names with an 'edit distance' similarity metric that will catch cases that I might miss.
 For example, GAO matches "R B Harrison" and "R B H arrision", but I don't make this match because I get 3 tokens in one case and 4 in the other, and they only overlap with the "R" and "B".
 
-I see my entity linking method as making claims that need [checking](checking.md).
-Each claim is a set of GAO records that are asserted as belonging to the same officer.
 I can construct a 'GAO claim' by selecting records from the row data that have the same value in the `person` field, but it seems that some of GAO work on entity linking postdates the dataset.
 There is a download option from a person record in the web application that would give the latest results, but download format is PDF.
 The information is there, but needs parsing. The option for a (more) machine readable format would be nice.
 
+For the time being, I'm comparing my service histories against the the GAO database using the Person search option.
+Where this shows mistakes in my entity linking (as for R B Harrsion), I can usually edit my entity linking reults directly to correct them.
 
-## identity
+I need to think more about support and conflict between claims that are sets of records.
+If both methods produce correct results, the sets I produce will be a subset of those from GAO because I consider only one unit, rather than all of them.
+
+A set from method A should interect only one set from method B.
+Either might be a strict subset of the other.
+
+If a set from method A intersects two sets from method B, then this might be because method A has merged the service histories of two officers,
+or it might be that method B has separated what should be one service history into two.
 
 
 ## Stories

@@ -1,6 +1,6 @@
 # Service histories
 
-I'll call a set of GAO records (rows from the GAO row data file) that refer to the same officer a _service history_ .
+I'll call a set of GAO records (rows from the GAO row data file) that refer to the same officer a _service history_.
 Entity linking produces _putative_ service histories. The entity linking is not guaranteed to be correct, and its results need validating.
 
 ## GAO Data

@@ -14,10 +14,15 @@ These things are sufficient to allow third parties to process the data and relat
 
 It's difficult to design in advance exactly what data each researcher might capture.
 A lowest common denominator format that all could use might help share the essential information, but the indiviudual researcher might want something richer and more tailored to their own need.
-Generating data for the purpose of exchange can be onerous and prone to errors. It won't necessarily be updated.
+Generating data solely for the purpose of exchange can be onerous and prone to errors. It won't necessarily be updated.
+If exchange data formats are used, they should be thought about in terms of the transformation needed to generate them.
+
+If we agree on a data exchange format, then I should be able to take your current results, in whatever format you use, and transform them into exchange data.
+You should be able to do the same with my data.
+The point of negotiation is to come up with the relevant data transforms, rather than relying on each other to generate the exchange data.
 
 Everyone can use whatever format best suits them if it's possible to convert from one format to another.
-Natural language seems the way to go, with 'best practice' helping to make the data easier to manipulate, and the perhaps AI tools making the job of sharing the data simple in due course.
+Natural language seems the way to go, with 'best practice' in [semantic-markup](https://tigersmuseum.github.io/history/docs/semantic-markup) helping to make the data easier to manipulate, and the perhaps AI tools making the job of sharing the data simple in due course.
 
 Many researchers will be interested in specific individuals, families or regiments.
 Individually, their research generates pieces that could fit together to make a larger picture.
