@@ -1,8 +1,10 @@
 # Citizen Science
 
+The [Georgian Army Officers (GAO) database](https://www.georgianarmyofficers.org/) is a public resource available to amateur historians ans genealogists.
+
 ## Data
 
-The essential points that make the Georgian Army Officers database a good resource are:
+The essential points that make the GAO database a good resource are:
 
 - It's possible to download the data, and a description of the data.
 - Each record has a unique identifier.
@@ -13,16 +15,18 @@ These things are sufficient to allow third parties to process the data and relat
 ## Data formats for feeedback and collaboration
 
 It's difficult to design in advance exactly what data each researcher might capture.
-A lowest common denominator format that all could use might help share the essential information, but the indiviudual researcher might want something richer and more tailored to their own need.
+A lowest common denominator format that all could use might help share the essential information, but the indiviudual researcher might want something richer and more tailored to their own needs.
 Generating data solely for the purpose of exchange can be onerous and prone to errors. It won't necessarily be updated.
 If exchange data formats are used, they should be thought about in terms of the transformation needed to generate them.
 
-If we agree on a data exchange format, then I should be able to take your current results, in whatever format you use, and transform them into exchange data.
+If we agree on a data exchange format, then I should be able to take your current results, in whatever format you use, and transform them into the exchange data format.
 You should be able to do the same with my data.
-The point of negotiation is to come up with the relevant data transforms, rather than relying on each other to generate the exchange data.
+The point of negotiation is to come up with the relevant data transforms, rather than relying on each other to generate the exchange data directly.
 
-Everyone can use whatever format best suits them if it's possible to convert from one format to another.
+Everyone can use whatever data format best suits them if it's possible to convert from one format to another.
 Natural language seems the way to go, with 'best practice' in [semantic-markup](https://tigersmuseum.github.io/history/docs/semantic-markup) helping to make the data easier to manipulate, and the perhaps AI tools making the job of sharing the data simple in due course.
+
+## Data linking
 
 Many researchers will be interested in specific individuals, families or regiments.
 Individually, their research generates pieces that could fit together to make a larger picture.
@@ -30,12 +34,12 @@ Individually, their research generates pieces that could fit together to make a 
 Some thought needs to be given as to how these pieces might join.
 If there is freely available master data, suchs as an identities database, then it can be used to expressly link results.
 However, such master data may not be available, or may not be known about.
-We end up with another 'entity linking' problem when we want to join disparate results - but this time we hopefuly have more facts with which to link.
+We end up with another 'entity linking' problem when we want to join disparate results - but this time we hopefully have more facts with which to link.
 
 ## Work
 
 The [service history results](results.xhtml) express the outcome of data analysis together with question raised by the results.
-A HTML `article` with claims against it could be considered a unit of work for further consideration.
+An HTML `article` with claims against it could be considered a unit of work for further consideration.
 The task would be to validate or contradict the claims.
 
 ## Agents and arguments
@@ -47,3 +51,5 @@ The result is an _argument_.
 
 Im general, it should be possible for researchers to express their results as claims that can be critically reviewed, and that can be used support or contradict the claims made by others.
 This is [argumentation](https://dstl.github.io/eleatics/doc/argumentation/).
+
+## Tools
